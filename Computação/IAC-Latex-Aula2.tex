@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+
+\title{Meu Querido e Primeiro Projeto}
+\author{Autor desconhecido}
+%\date{July 2021}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Este texto mostra alguns elementos básicos do \LaTeX. É lindo.
+\end{abstract}
+
+\section{Introdução}
+% Aqui eu defino a notacao e os principais conceitos
+
+\indent Este é o primeiro parágrafo. Eu posso marcar o início de um novo parágrafo deixando uma linha em branco, conforme a seguir.
+
+Só que isso não dá um grande espaçamento entre os dois parágrafos. Opcio\-nalmen\-te, eu posso colocar duas barras invertidas ao final do parágrafo, para ter um espaçamento maior antes de iniciar o próximo. Observe.\\
+
+Agora, eu mostro como incluir conteúdo matemático dentro de um texto. Basta usar o símbolo de cifrão para marcar o início e o fim de cada \textbf{expressão matemática} dentro do texto. Chamamos isso de ``modo matemático''. Veja: a equação $a^2 = \mathbf{b^2} + c^2$ é linda.\\
+
+Note como eu fiz para usar aspas acima: não foi usando o caractere de aspas duplas do teclado. Esta é a forma correta de usar aspas no \LaTeX. \textbf{Não use o caractere aspas duplas do teclado.} (Acabei de usar negrito para destacar a frase anterior.)\\
+
+A seguir, eu mostro como fazer uma enumeração. O número é atribuído automaticamente. Quando tenho uma enumeração dentro de outra, a segunda assume uma numeração diferente. Experimente fazer um terceiro nível de enumeração, para ver o que acontece com a terceira lista.\\
+
+Antes mostrar a enumeração, eu optei por quebrar a página com o comando \texttt{newpage}, para que a lista não ficasse dividida em duas páginas.\\
+
+\newpage
+
+% Exercicio 1: Faca mais uma enumeracao, abaixo da subopcao 2.
+\begin{enumerate}
+    \item Opção 1;
+    \begin{enumerate}
+        \item Subopção 1;
+        \item Subopção 2.
+        \begin{enumerate}
+            \item Subsubopção (A);
+            \item Subsubopção (B);
+            \item Subsubopção (C).
+        \end{enumerate}
+    \end{enumerate}
+    \item Opção 2;
+    \item Opção 3.
+\end{enumerate}
+
+\begin{itemize}
+    \item Item 1;
+    \begin{itemize}
+        \item Subitem 1;
+        \begin{enumerate}
+            \item Subsubopção (A);
+            \item Subsubopção (B);
+            \item Subsubopção (C).
+        \end{enumerate}
+        \item Subitem 2.
+    \end{itemize}
+    \item Item 2.
+\end{itemize}
+
+A seguir, mostro uma segunda maneira de entrar no modo matemático. Desta vez, o conteúdo matemático não está mais dentro do parágrafo, e sim isolado do restante do texto. Veja:
+\[
+\sum_{i=1}^{n} \sqrt{\frac{ 1 }{ 2^i }} + \int_{\sqrt{\frac{ 1 }{ 2^i }}}^{b} \sqrt{i}
+\]
+
+\[
+1,\ldots,n, \quad A_1 \times A_2 \times \ddots \times A_n, \quad \alpha \cdot f(x)
+\]
+
+Agora, eu vou tentar colocar o mesmo somatório acima dentro do parágrafo, misturado com o texto. Ou seja, vou colocar a expressão $\sum_{i=1}^{n} \frac{1}{2^i}$ como parte de uma frase. Veja como ela ficou compactada, no intuito de manter o espaçamento vertical padrão entre as linhas. Compare o somatório neste parágrafo com aquele que aparece acima. Eles possuem o mesmo conteúdo matemático, mas são formatados de maneiras distintas.\\
+
+Esse recurso é muito conveniente, às vezes, mas eu posso querer mostrar o somatório naquele formato mais expandido, que ocupa mais espaço vertical. Isso é possível com o comando \texttt{displaystyle}. Veja que agora a expressão $\displaystyle \sum_{i=1}^{n} \frac{1}{2^i}$ ocupa mais espaço verticalmente. Consequentemente, o espaçamento vertical em torno da linha que contém o somatório fica diferente daquele das demais linhas no parágrafo.\\
+
+Agora, tente fazer os dois exercícios que estão no código-fonte \LaTeX utilizado para gerar este documento (disponível no SIGAA).
+
+\begin{equation}
+    x + y = z.
+\end{equation}
+
+\begin{equation}
+\int_{a}^{b} f(x)dx \label{eqdaintegralab}
+\end{equation}
+
+A equação (\ref{eqdaintegralab}) é massa.
+
+
+\end{document}

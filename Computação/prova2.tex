@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, top=3cm, right=2cm, left=3cm, margin=4cm]{geometry}
+\usepackage[brazilian]{babel}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{amsmath}
+\newcommand{\mat}[1]{\mbox{\boldmath{$#1$}}}
+
+\title{Avaliação 2 - Introdução à Computação}
+\author{Aluno(a): Antônio Arthur Silva de Lima}
+\date{Semestre de 2021.1}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Gosto de escutar rock clássico, bandas como Pink Floyd ou The Beatles são minhas favoritas, pois têm músicas calmas e relaxantes. Também gosto de alguns thrash metals, como Metallica ou Three Days Grace. Também leio muitos livros, principalmente livros de ficção-científica e fantasia.
+\end{abstract}
+
+\section{Equações, etiquetas e imagem}
+
+\noindent Um pequeno desenvolvimento: 
+
+\begin{eqnarray}
+(a + b)^3 &=& \label{ref:polinomio1}
+(a + b)(a + b)^2 \\ 
+&=& (a + b)(a^2 + 2ab + b^2) \\
+&=& a(a^2 + 2ab + b^2) + b(a^2 + 2ab + b^2) \\
+&=& (a^3 + 2a^2b + ab^2) + (a^2b + 2ab^2 + b^3) \\
+&=& a^3 + b^3 + 2ab(a + b) + ab(a + b). \label{ref:polinomio5}
+\end{eqnarray}
+
+
+Aplicando a identidade desenvolvida nas Equações (\ref{ref:polinomio1})-(\ref{ref:polinomio5}), temos \\
+
+\noindent $(2+5)^3 = 2^3 + 5^3 + 2 \cdot 2 \cdot 5 \cdot (2+5) + 2 \cdot 5 \cdot (2+5) = 8 + 125 + 140 + 70 = 343.$ \\
+    
+A Figura \ref{fig:minastirith} mostra Minas Tirith: \\\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm]{wallhaven-0jed9p_1920x1080.png}
+    \caption{Minas Tirith, cidade capital do Reino de Gondor e o último refúgio da humanidade contra os poderes de Sauron (O Senhor do Escuro) dentro do universo criado por J.R.R. Tolkien.}
+    \label{fig:minastirith}
+\end{figure}
+
+\end{document}

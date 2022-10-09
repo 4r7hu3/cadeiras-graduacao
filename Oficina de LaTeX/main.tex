@@ -1,0 +1,269 @@
+%Pacotes
+\documentclass[12pt]{article} %Define o tipo de documento. Ex: Beamer (slide) 
+\usepackage[utf8]{inputenc} % Compreender a acentuação feita direto pelo teclado. 
+\usepackage[brazilian]{babel} % Idioma
+\usepackage[a4paper,top=3cm,right=2cm,left=3cm,margin=2cm]{geometry} %Margens 
+\usepackage{setspace} % Espaçamento entre linhas
+\setstretch{1.5} % Espaçamento entre linhas
+\usepackage{graphicx} % Permite a inserção de figuras ou gráficos no texto
+\usepackage{indentfirst} % Criar parágrafos \indent \noindent
+\usepackage{float} % Fixar as imagens no locais em que foram colocadas
+\usepackage{amsmath} % Alinha as equações
+\usepackage{listings} % Pacote para fazer itens 
+\usepackage{xcolor} %Pacote de cores
+\newcommand{\mat}[1]{\mbox{\boldmath{$#1$}}} 
+
+
+\usepackage[utf8]{inputenc}
+
+\title{Minicurso Latex}
+\author{petestatisticaufc }
+\date{Outubro 2021}
+
+\begin{document}
+%%%%%%%%%%%%%%%%% CAPA %%%%%%%%%%%%%%%%% 
+\thispagestyle{empty} % Retirar o número da página
+\begin{center}
+  \begin{figure} [h]
+      \centering
+      \includegraphics[scale=0.1]{WhatsApp Image 2020-09-21 at 3.14.21 PM.jpeg}
+    
+      \label{fig:my_label}
+  \end{figure}
+  
+UNIVERSIDADE FEDERAL DO CEARÁ \\ % Pular linha
+CENTRO DE CIÊNCIAS \\
+DEPARTAMENTO DE ESTATÍSTICA E MATEMÁTICA APLICADA\\
+
+\vspace{2cm}
+
+PET Estatística UFC\\
+
+\vspace{4cm}
+
+\textbf{TÍTULO DO TRABALHO} \\
+
+\vspace{8cm}
+
+\textbf{FORTALEZA}\\
+\textbf{Outubro/2021}
+    
+\end{center}
+
+%%%%%%%%%%%%%% SUMÁRIO %%%%%%%%%%% 
+\newpage % Nova página
+\begin{center}
+\tableofcontents %Sumário
+
+\newpage
+\listoftables % Lista de tabelas
+\listoffigures % Listas de Figuras
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\end{center}
+
+\newpage
+% Criar uma seção
+\section{Introdução}
+\indent O \textcolor{red}{TeX} é um sistema de tipografia desenhado e escrito principalmente por Donald Knuth[1] e lançado em 1978. Junto com a linguagem para a descrição de fontes Metafont e a família de tipos de letras Computer Modern, o TeX foi projetado tendo em vista dois objetivos principais: permitir que qualquer pessoa produza livros de alta qualidade com o mínimo esforço e fornecer um sistema que produza exatamente os mesmos resultados em todos os computadores em qualquer momento. O TeX é um software livre, o que o torna mais acessível a um número maior de pessoas. \\ %Pula uma linha
+\indent O TeX é uma alternativa conhecida para se digitar fórmulas matemáticas complexas, apontada como um dos sistemas de tipografia mais sofisticados do mundo. O TeX é popular na academia, especialmente em matemática, ciências da computação, economia, engenharia, física, estatística e psicologia quantitativa.\\
+
+\section{Estrutura de texto}
+\subsection{Tamanho} % Criar uma subseção
+{\singlespacing % Colocar um espaçamento simples
+
+\noindent \tiny{Letra super reduzida}\\
+\scriptsize{\textbf{Letra bastante pequena}}\\
+\footnotesize{Letra muito pequena}\\
+\small{Letra pequena}\\
+\normalsize{Letra normal} \\
+\large{Letra grande}\\
+\Large{Letra maior}\\
+\LARGE{Letra muito grande}\\
+\huge{Letra bastante grande}\\
+\Huge{Letra super grande}\\
+}
+
+\newpage
+\subsection{Fontes}
+\noindent
+\textbf{Negrito}\\
+\textit{Itálico} \\
+\texttt{Máquina de escrever}
+
+\subsection{Alinhamento}
+Usando o ambiente \textbf{center} o texto poderá ser centralizado, com o ambiente \textbf{flushleft} o texto é alinhado à esquerda e com o ambiente \textbf{flushright} o texto é alinhado à direita.
+
+\begin{center}
+    Centralizado
+\end{center}
+
+\begin{flushleft}
+alinhado à esquerda
+\end{flushleft}
+
+\begin{flushright}
+alinhado à direita
+\end{flushright}
+
+Exemplos\\
+
+\begin{center}
+   \textbf{\huge{Estatística}}\\
+   \LARGE{O melhor curso!}\\
+\end{center}
+
+\begin{flushright}
+    Venha fazer parte do PET Estatística! 
+\end{flushright}
+
+\begin{flushleft}
+    \textit{Universidade Federal do Ceará - UFC}
+\end{flushleft}
+
+\section{Tabelas}
+\begin{tabular}{r|c} % r - alinhado à direita, l - alinhado a esquerda e c - centralizado.
+   
+   \hline
+   
+   e  & b\\
+   \hline
+   c  & d\\
+   \hline
+   d & f \\
+   \hline
+   4 & 5\\
+   
+   \hline
+   
+\end{tabular}\\
+Podemos observar na Tabela \ref{medidasresumo} % Referenciar Tabela
+
+\begin{table}[H]
+\caption{Medidas resumo}% Título da tabela 
+\vspace{0.3cm}
+\centering
+\begin{tabular}{cclrrrr} % r - alinhado à direita, l - alinhado a esquerda e c - centralizado.
+  \hline % Linha horizontal | \vline - linha vertical
+ Dias & Média & DP & CV(\%) & Mínimo & Mediana & Máximo \\ 
+  \hline
+  
+
+  1 & 4,5 & 2,0 & 45,0 & 0,0 & 4,4 &  9,1  \\ 
+  2 & 6,1 & 2,9 & 50,6 & 0,0 & 5,8 & 11,4 \\ 
+  3 & 5,8 & 3,9 & 65,8 & 0,0 & 5,9 & 14,6 \\ 
+   \hline
+\end{tabular}
+\label{medidasresumo} % Nome da tabela para referenciar
+\end{table}
+\section{Ambiente Matemáticos}
+Pode se introzir no ambiente matemático da forma \( e \),entre $ e $ ou entre \begin{math} e \end{math}.\\
+
+\( 2+2 \)\\
+
+\begin{math}
+2+2
+\end{math}\\
+
+\begin{math}
+\sum_{i=1}^2
+\end{math}
+\subsection{Símbolos matemáticos}
+letras gregas  $\alpha, \beta,\gamma$.A raiz quadrada $\sqrt{4}$. Vetores: $A\longleftarrow B$
+\subsection{Equações enumeradas e não-enumeradas}
+Podemos adicionar enumeradas.
+
+\begin{equation}
+    \frac{n!}{2n!}
+    \label{fração}
+\end{equation}
+A fração \ref{fração} foi enumerada 
+Podemos adicionar não-enumeradas
+
+\begin{equation*}
+    \frac{1}{n!}
+    \label{fraçãonãoenumeradas}
+\end{equation*}
+A fração  foi não-enumerada.
+\subsection{Equações alinhadas}
+Podemos alinhar equações.
+\begin{align}
+    C_{5,2} &= \frac{5!}{2!(5-2)!}\\
+            &=  \frac{5!}{2!3!}
+\end{align}
+\begin{align*}
+    &=\frac{6\cdot5\cdot4\cdot3\cdot2\cdot1}{2!3!}
+\end{align*}
+\subsection{Matriz}
+\begin{equation}
+\mat{X} =
+       \begin{bmatrix}
+       x_{11} & \hdots & x_{1z}\\
+       \vdots & \ddots & \vdots\\
+       x_{n1} & \hdots & x_{nz}
+       \end{bmatrix}
+\end{equation}
+Exemplo:
+\begin{equation*}
+\mat{y} =
+       \begin{bmatrix}
+       12 & 23 & \hdots & 45 & 56\\
+       23 & 90 & \hdots & 87 & 57\\
+       \end{bmatrix}
+\end{equation*}
+% Aumentar o tamanho: {} , [] e ()
+\begin{equation}
+    f(x) =  \left \{ \frac{1}{x^2} \right \}\\
+\end{equation}
+%item
+\section{Item}
+
+\begin{item}
+ \item Análise multivariada 
+ \item Análise multivariada
+\end{item}
+
+\begin{itemize}
+\item Análise combinatória
+\end{itemize}
+\begin{itemize}
+\item Cálculo 1
+\end{itemize}
+
+\begin{itemize}
+\item[1] Análise combinatória
+\item[2] Cálculo 1
+\end{itemize}
+
+\begin{lstlisting}
+print(ola mundo)
+[1] ola mundo
+\end{lstlisting}
+
+\newpage
+\section{Figuras}
+Na figura \ref{fig:my_label} é apresentado um histograma.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{histograma (1).png}
+    \caption{Caption}
+    \label{histograma}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{histograma (1).png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,64 @@
+Manchester City
+A
+1
+Inglaterra
+Paris Saint-Germain
+A
+2
+França
+Liverpool
+B
+1
+Inglaterra
+Atlético Madrid
+B
+2
+Espanha
+Ajax
+C
+1
+Holanda
+Sporting CP
+C
+2
+Portugal
+Real Madrid
+D
+1
+Espanha
+Inter Milan
+D
+2
+Itália
+Bayern Munich
+E
+1
+Alemanha
+Benfica
+E
+2
+Portugal
+Manchester United
+F
+1
+Inglaterra
+Villarreal
+F
+2
+Espanha
+Lille
+G
+1
+França
+Red Bull Salzburg
+G
+2
+Áustria
+Juventus
+H
+1
+Itália
+Chelsea
+H
+2
+Inglaterra

@@ -1,0 +1,3 @@
+# ignoring some files
+*.ipynb_checkpoints
+*.Rhistory
