@@ -1,0 +1,221 @@
+### Data Frames ###
+data() # lista dos conjuntos de dados disponíveis
+
+install.packages("dslabs")
+library(dslabs)
+
+
+data("murders") # carrega a base de dados murders
+# murders contém o número de assassinatos por armas de fogo nos estados
+# americanos no ano de 2010.
+
+murders$population
+str(murders) # estrutura da base de dados
+head(murders) # apresenta as primeiras linhas da base de dados
+tail(murders) # apresentas as últimas linhas da base de dados
+names(murders) # nome das variáveis (cabeçalho)
+
+
+
+# --- Vamos Criar um bd- por meio da função data.frame() e manipulá-lo #
+
+rm(list=objects()) 
+
+N=15 
+# Gerando vetores para construir o data frame
+valor=sample(seq(600,3000,5),N,replace=TRUE) #função sample para amostra aleatória
+
+
+produto=sample(c("tv","notebook","impressora","smartphone"),N,replace=TRUE,prob=c(0.3,0.2,0.1,0.4))
+quantidade=sample(seq(10,100),N)
+mes=sample(seq(1,12),N,replace=TRUE)
+margem=runif(N,min=1.00,max=35.00)
+ano=sample(c(2019,2020,2021),N,replace=TRUE,prob=c(0.50,0.30,0.20))
+
+
+vendas=data.frame(ano,mes,produto,quantidade,valor,margem) #função data.frame()
+rm(ano,mes,produto,quantidade,valor,margem)
+ls()
+rm(N)
+lucro=(c(vendas$quantidade*vendas$valor*vendas$margem)) #criando vetor lucro
+lucro
+
+vendas=cbind(vendas,lucro) 
+vendas
+rm(lucro)
+
+colnames(vendas) # cabeçalho do conjunto de dados
+dim(vendas) # dimensão do data.frame vendas
+
+#acessando dados----
+vetor=c(1,5,10,15,20)
+vetor[4] = 7
+vendas[] #linhas 1 à 5,colunas 1:3 e 5
+vendas
+vendas[c(1, 2), ] #linhas 1 e 2,todas as colunas
+
+#alterando dados
+
+vendas[1:2, 1] = 2021
+vendas[c(1, 2), ]
+
+mean(vendas$lucro)
+mean(vendas[, 7])
+
+colnames(vendas) 
+colnames(vendas) <- c("Ano", "Mes", "Produto","Quantidade" ,"Valor","Margem","Lucro")
+#colocando ou alterando nome das colunas
+colnames(vendas) 
+
+vendas
+vendas = edit(vendas) # editar o banco de dados vendas
+
+vendas
+a = summary(vendas)
+vendas
+vendas[16,] = NULL #Deletar Algo
+
+## Data.table (eficiencia do delete) 
+table(vendas$Produto) # distribuição de frequência da coluna Produto
+vendas$Produto
+colMeans(vendas[,c(5,7)]) # médias das colunas 5 e 7 de vendas
+
+
+which(vendas[, 1] == 2021) # identifica, na coluna 1 de vendas, a posição de
+#registros 2021
+
+
+  which(vendas[, 2] < 6) # identifica, na coluna 2(Mes) de vendas, as posições
+#com registros menores que 6
+vendas[which(vendas[, 2] < 6), 2]
+
+attach(vendas) # identifica as colunas de vendas pelo nome,sem precisar do $
+colnames(vendas)
+vendas$quantidade
+quantidade
+quantidade+10
+quantidade * 2
+median(lucro)
+
+
+detach(vendas) # retirando vendas do caminho de procura.
+
+median(lucro) #já não dará certo
+median(vendas$lucro) #terá que ser assim
+
+
+
+
+
+
+### Importação e exportação de arquivos ###
+
+#Exportação----
+
+
+
+write.table(vendas,file = "vendas2.txt", sep = ";", dec = ".", row.names = FALSE)
+#write.table(vendas, file = "vendas.txt", sep = " ", dec = ",", row.names = FALSE)
+#read.table( file, header = FALSE, sep = "", dec = ".", ...)
+#verifique em 'Files' 
+
+#Importação-----
+
+read.table("E:\Documentos\Oficina R\vendas.csv", header = TRUE) 
+#Lê uma tabela 
+#read.table( file, header = FALSE, sep = "", dec = ".", ...)
+
+
+
+
+
+
+
+### Graficos ###
+
+corretoraA  <- c(45,60,54,62,55,70,38,48,64,55,56,55,54,59,48,65,55,60)
+
+#porcentagem de lucro apresentada durante um período fixado de tempo para
+#cada ação selecionada de uma amostra a. de ações negociadas de uma corretora
+
+
+
+hist(corretoraA) #histograma
+hist(corretoraA , xlab = "Porcetagem de Lucro", ylab =
+       " Frequência ",main = "Histograma dos dados da corretora Joao")
+#modificar as legendas dos eixos com os argumentos xlab e ylab,
+#e alterar o título do gráfico com o argumento main
+
+boxplot(corretoraA ,main = "Boxplot dos dados da corretoraA") #boxplot
+
+barplot(corretoraA , ylab = "Porcetagem de Lucro", main = "CorretoraA") #gráfico de coluna
+
+barplot(corretoraA ,
+        xlab = "Porcetagem de Lucro", main = "CorretoraA", horiz = TRUE) #gráfico de barras
+
+
+plot(corretoraA) #gráfico de dispersão
+
+lines(corretoraA) #ligando os pontos e transformando em gráfico de linhas
+
+### Funções-Criação ###  ---- function () #nome,argumentos,comandos
+
+rm(list=all())
+
+
+#exemplo-------
+
+maior = function (a,b) {
+  
+  if (a < b) {
+    
+    return (b)
+    
+  } else { 
+    
+    return (a)
+    
+  }
+  
+}
+
+a = 11
+b = 12
+
+if (11 < 12) {
+  
+  return (12)
+  
+} else { 
+  
+  return (11)
+  
+}
+
+maior(11,12)
+
+#outro exemplo-------
+
+f = function(x){
+  sum(x^2) - (sum(x)^2)/length(x)}
+
+x = seq(1,22)
+f(x)
+
+
+#outro exemplo-função de primeiro grau
+
+linear = function(a,b,x){y = a*x + b 
+return(y) } 
+x = seq(-10,10,0.1) ; a = 5 ; b = 9
+y = linear(a,b,x) 
+plot(x,y, type = "b")
+seq(-10,10,0.1)
+
+#outro exemplo-função do segundo grau
+quadratica = function(a,b,c,x){y = a*x^2 + b*x + c
+return(y) }
+
+x = seq(-10,10,0.1) ; a = 1; b = 2; c = 4
+y = quadratica(a,b,c,x)
+plot(x,y, type = "b")
