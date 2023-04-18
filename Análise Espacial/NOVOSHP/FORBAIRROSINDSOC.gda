@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <title>BAIRROS_FORTALEZA</title>
+    <layers>
+        <layer>
+            <datasource>
+                <type>ESRI Shapefile</type>
+                <path>FORBAIRROSINDSOC.shp</path>
+            </datasource>
+            <layername>BAIRROS_FORTALEZA</layername>
+            <title/>
+            <variable_order>
+                <time_ids>
+                    <id>time 0</id>
+                </time_ids>
+                <var>OBJECTID</var>
+                <var>CD_GEOCODB</var>
+                <var>NM_BAIRRO</var>
+                <var>Shape_Leng</var>
+                <var>Shape_Area</var>
+                <var>Cod_Bairro</var>
+                <var>Bairro</var>
+                <var>Bairro_ant</var>
+                <var>RK ID_Educ</var>
+                <var>RK ID_dade</var>
+                <var>RK ID_enda</var>
+                <var>RK ID_2010</var>
+                <var>IDHB2_Educ</var>
+                <var>IDHB2_dade</var>
+                <var>IDHB2_enda</var>
+                <var>IDHB2010</var>
+                <var>IDHB2_lass</var>
+            </variable_order>
+            <custom_classifications/>
+            <weights_entries/>
+            <default_vars/>
+        </layer>
+    </layers>
+</project>
