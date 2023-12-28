@@ -1,0 +1,67 @@
+---
+title: "Exercícios - Modelos de Regressão I"
+author: "Antônio Arthur Silva de Lima"
+date: '`r format(Sys.Date(), "%d/%m/%Y")`'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Questão 1
+
+Seja $Y_{i} = \beta_{0} + \beta_{1}X_{i1} + \beta_{2}X_{i2} + \epsilon_{i}, i = 1,2,\dots,n$.
+
+Y: impulsão de um motor de avião
+
+$X_{1}$: velocidade de rotação do motor
+
+$X_{2}$: temperatura ambiente (no momento do teste)
+
+Interprete $\beta_{0}, \beta_{1}$ e $\beta_{2}$.
+
+## Resultados
+
+$\beta_{0}$ é a impulsão do motor do avião quando a velocidade de rotação e a temperatura ambiente são iguais a zero (o que só fará sentido se $\beta_{0}$ também for 0, pois caso contrário, haveria impulsão mesmo com velocidade e temperatura iguais a 0).  
+
+$\beta_{1}$ é a variação na média da impulsão do motor para cada uma unidade a mais ou a menos na velocidade de rotação do motor, considerando a temperatura ambiente como constante.  
+
+$\beta_{2}$ é a variação na média da impulsão do motor para cada uma unidade a mais ou a menos na temperatura ambiente, considerando a velocidade de rotação como constante.
+
+# Questão 2
+
+Faça o gráfico da superfície e das curvas de nível para as funções de regressão:  
+
+**a)** $\mu\left(\underset{\sim}X,\underset{\sim}\beta\right) = 50+10X_{1}+7X_{2}$.  
+
+**b)** $\mu\left(\underset{\sim}X,\underset{\sim}\beta\right) = 50+10X_{1}+7X_{2}+5X_{1}X_{2}$.  
+
+**c)** $\mu\left(\underset{\sim}X,\underset{\sim}\beta\right) = 800+10X_{1}+7X_{2}-8,5X_{1}^2-5X_{2}^2+4X_{1}X_{2}$.  
+
+## Resultados
+
+### a)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(latex2exp)
+x1 = x2 = seq(0,10,length=20)
+vals = function(x1,x2){
+  50+10*x1+7*x2
+}
+
+y = outer(x1,x2,vals)
+
+layout(matrix(c(1,2), nrow = 1, byrow = TRUE), widths = c(5, 3))
+par(mar = c(5, 2, 2, 2)+0.1)
+persp(x1, x2, y, theta = 30, phi = 15, ticktype = "detailed", zlab = "E[Y]", expand = 0.5, zlim = c(0,240))
+par(mar = c(5, 1, 2, 1)+0.1)
+contour(x1,x2,y)
+```
+
+
+
+
+
+
+# Questão 3

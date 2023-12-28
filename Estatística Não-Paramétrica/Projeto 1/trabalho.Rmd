@@ -1,0 +1,287 @@
+---
+title: "Estatística Não-Paramétrica: <br> Projeto I"
+author: Arthur Silva^[arthursilva@alu.ufc.br], Julyet Alves^[julyetsilva@alu.ufc.br], Luan Sousa^[luansousa@protonmail.com]
+date: "`r format(Sys.Date(),'%d/%m/%Y')`"
+output: 
+  rmdformats::downcute:
+    use_bookdown: true
+    code_folding: 'hide'
+bibliography: references.bib
+nocite: '@*'
+reference-section-title: Referências
+lang: pt-br
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+library(kableExtra)
+library(htmltools)
+library(dplyr)
+library(fitdistrplus)
+library(goftest)
+library(extraDistr)
+library(e1071)
+```
+
+```{r include=FALSE}
+dados = c(152.7, 172.0, 172.5, 173.3, 193.0, 204.7, 216.5, 234.9, 262.6, 422.6)
+```
+
+# Introdução
+
+O presente trabalho é parte dos processos avaliativos da disciplina *Estatística Não-Paramétrica*, ofertada pelo Departamento de Estatística e Matemática Aplicada (**DEMA**) da Universidade Federal do Ceará (**UFC**), no curso de Estatística, e ministrada pelo professor Manoel Santos[^1] ([rpubs](https://rpubs.com/santosneto)).
+
+[^1]: [santosneto\@dema.ufc.br](mailto:santosneto@dema.ufc.br){.email}
+
+O intuito do trabalho é aplicar testes não-paramétricos a um conjunto de dados selecionado, a fim de inferir sobre de qual distribuição tais dados advêm.
+
+# Conhecendo os dados
+
+A partir do seguinte vetor de dados (**`r dados`**), de tamanho `r length(dados)`, buscamos encontrar qual distribuição de probabilidade melhor se ajusta a essa amostra, que é descrita em McCool(1974), tratando-se do tempo de vida em horas de 10 suportes de um certo tipo. 
+
+Podemos concluir, em um primeiro olhar, que tratam-se de **dados contínuos**, já que no caso discreto os números são inteiros não negativos. Dessa forma, já reduzimos bastante o espaço de distribuições possíveis.
+
+Também podemos previamente, retirar alguns valores sumarizados dessa amostra, como média e mediana, e comparar tais valores com as propriedades das distribuições contínuas mais conhecidas. A tabela a seguir aponta alguns resultados.
+
+```{r}
+m = density(dados)
+moda = m$x[which.max(m$y)]
+sumario = data.frame(rbind(summary(dados)),var(dados), moda, skewness(dados), kurtosis(dados))
+colnames(sumario) = c('Mín.', '1º Q', 'Mediana', 'Média', '3º Q', 'Máx.', 'Var.', 'Moda', 'Assimetria', 'Curtose')
+```
+
+```{r echo=FALSE}
+kable(round(sumario,2), align = 'c') %>% 
+  row_spec(0,bold = T) %>%
+    kable_styling(full_width = F, bootstrap_options = c('condensed', 'responsive'))
+```
+
+Vemos que a média é maior do que a mediana, sendo a moda o menor valor dentre elas; e que a variância é relativamente alta. Também há a presença de um outlier, que é o valor máximo da amostra, já que este encontra-se longe da média.
+
+A fim de confirmar se a amostra é simétrica ou assimétrica, podemos criar um histograma, mostrando a frequência dos valores e a curva da distribuição amostral, além de criar um boxplot para comprovar a presença do outlier:
+
+```{r echo=FALSE}
+par(mfrow=c(1,2))
+boxplot(dados, main='Boxplot dos dados',horizontal = T)
+hist(dados,prob=T,main='Histograma dos dados',ylab='Fr. Relativa',xlab='Dados')
+lines(density(dados),col='blue',lwd=2)
+```
+
+Os gráficos nos apontam que estamos trabalhando com uma distribuição assimétrica à direita, limitando um pouco mais a quantidade de distribuições possíveis.
+
+Finalmente, podemos começar a inferir com mais confiança de qual distribuição esses dados vêm, tendo em mente as seguintes observações:
+
+1.  Distribuição contínua;
+2.  $\bar{x} > Md > Mo$;
+3.  Assimetria à direita.
+
+Podemos então, testar se nossos dados se ajustam adequadamente aos seguintes modelos, os quais podem atender às observações feitas anteriormente:
+
+-   Exponencial;
+-   Gama;
+-   Log-Normal;
+-   Weibull;
+-   Birnbaum-Saunders.
+
+# Estimações e Testes {.tabset}
+
+Inicialmente, para testar se nossos dados vêm ou não de cada distribuição acima utilizando métodos não paramétricos, precisamos ter estimativas dos parâmetros das distribuições que iremos testar, o que será encontrado com o pacote `fitdistrplus`, que nos dá estimativas de máxima verossimilhança por padrão.
+
+Esse pacote também trás a função `gofstat()`, que testa a qualidade do ajuste das estimativas do parâmetro para a distribuição testada, além de performar testes não paramétricos (*Kolmogorov-Smirnov*, *Cramer-von Mises* e *Anderson-Darling*) para cada distribuição, usando os parâmetros estimados.
+
+A Estimativa de Máxima Verossimilhança (EMV) é um método estatístico amplamente empregado para estimar os parâmetros de uma distribuição de probabilidade que melhor descreve um conjunto de dados. A ideia por trás da EMV é encontrar os valores dos parâmetros que tornam os dados observados mais prováveis sob a distribuição especificada.
+
+## Exponencial
+
+Estimativa para $\lambda$ caso $\text{dados} \sim Exp(\lambda)$:
+
+```{r message=FALSE, warning=FALSE}
+fit_exp = fitdist(dados,'exp'); fit_exp
+```
+
+Testes para a distribuição, levando em conta a hipótese $H_{0}: \text{dados} \sim Exp(\hat{\lambda})$:
+
+```{r message=FALSE, warning=FALSE}
+gof = gofstat(fit_exp); gof
+
+# testes manuais, para ver o valor-p
+ks.test(dados,'pexp',fit_exp$estimate)
+cvm.test(dados,'pexp',fit_exp$estimate)
+ad.test(dados,'pexp',fit_exp$estimate)
+```
+
+Assim, analisando com os níveis de confiança mais usuais no teste de Kolmogorov-Smirnov, como 5%, 2% e 1%, rejeitamos a hipótese de que $\text{dados} \sim Exp(\hat{\lambda})$.
+
+Podemos ainda, comparar graficamente a distribuição empírica dos dados com a distribuição teórica, e também o histograma com a curva teórica, como mostra a figura a seguir, a fim de ilustrar nossa decisão:
+
+```{r, echo=FALSE}
+par(mfrow=c(1,2))
+cdfcomp(fit_exp, main = 'ECDF vs CDF', xlab = 'dados', ylab='F(x)', legendtext = 'Exp')
+denscomp(fit_exp, main='Histograma vs Curva teórica', xlab='dados',ylab = 'Fr. Relativa', legendtext = 'Exp')
+```
+
+## Gama
+
+Estimativa para $\alpha\; \text{e}\; \lambda$ caso $\text{dados} \sim Gama(\alpha;\lambda)$:
+
+```{r}
+fit_gama = fitdist(dados,'gamma'); fit_gama
+```
+
+Testes para a distribuição, levando em conta a hipótese $H_{0}: \text{dados} \sim Gama\left(\hat{\alpha};\hat{\lambda}\right)$:
+
+```{r}
+gof_g = gofstat(fit_gama); gof_g
+
+# testes manuais, para ver o valor-p
+ks.test(dados,'pgamma', shape=fit_gama$estimate[1], rate=fit_gama$estimate[2])
+cvm.test(dados,'pgamma', fit_gama$estimate[1], fit_gama$estimate[2])
+ad.test(dados,'pgamma', fit_gama$estimate[1], fit_gama$estimate[2])
+```
+
+Com isso, há fortes evidências para suspeitar que nossos dados seguem uma distribuição Gama com os parâmetros estimados. Iremos agora, plotar os gráficos de comparação entre distribuição empírica vs acumulada teórica; e o histograma dos dados vs curva teórica:
+
+```{r, echo=FALSE}
+par(mfrow=c(1,2))
+cdfcomp(fit_gama, main = 'ECDF vs CDF', xlab = 'dados', ylab='F(x)', legendtext = 'Gama')
+denscomp(fit_gama, main='Histograma vs Curva teórica', xlab='dados',ylab = 'Fr. Relativa', legendtext = 'Gama')
+```
+
+Logo, comprovamos que a distribuição Gama possui um ajuste relativamente bom para modelar tais dados, visto que as curvas teóricas ficaram bem próximas às amostrais, apesar do histograma revelar certa discrepância.
+
+## Log-Normal
+
+Partindo agora para o modelo *Log-Normal*, queremos testar a hipótese de que nossos dados seguem essa lei. Porém, vamos primeiro estimar os parâmetros:
+
+```{r}
+fit_lnorm = fitdist(dados,'lnorm'); fit_lnorm
+```
+
+Com nossas estimativas em mãos, podemos então realizar nossos testes, bem como verificar a qualidade do ajuste, como mostram as saídas seguintes:
+
+```{r}
+gof_ln = gofstat(fit_lnorm); gof_ln
+
+# testes manuais, para ver o valor-p
+ks.test(dados,'plnorm', fit_lnorm$estimate[1], fit_lnorm$estimate[2])
+cvm.test(dados,'plnorm', fit_lnorm$estimate[1], fit_lnorm$estimate[2])
+ad.test(dados,'plnorm', fit_lnorm$estimate[1], fit_lnorm$estimate[2])
+```
+
+Depreendemos dos testes acima, que há evidências muito fortes para não rejeitar a hipótese nula, pois temos, em todos os testes, os valores-p altos, inclusive, mais altos que os dos testes anteriores para as outras distribuições.
+
+Para checar, iremos também construir os gráficos comparativos já vistos anteriormente:
+
+```{r, echo=FALSE}
+par(mfrow=c(1,2))
+cdfcomp(fit_lnorm, main = 'ECDF vs CDF', xlab = 'dados', ylab='F(x)', legendtext = 'Log-Normal')
+denscomp(fit_lnorm, main='Histograma vs Curva teórica', xlab='dados',ylab = 'Fr. Relativa', legendtext = 'Log-Normal')
+```
+
+É fácil ver que tal distribuição tem melhor ajuste que as anteriores, tanto por meio dos métodos numéricos quanto dos gráficos, pois nota-se uma aproximação maior entre a distribuição empírica e a distribuição acumulada, bem como entre a frequência relativa dos dados junto à densidade da função teórica.
+
+## Weibull
+
+Iremos repetir os mesmos passos anteriores para chechar se nossos dados seguem distribuição Weibull:
+
+```{r}
+fit_wei = fitdist(dados,'weibull'); fit_wei
+```
+
+Então, realizamos os testes com as estimativas:
+
+```{r}
+gof_w = gofstat(fit_wei); gof_w
+
+# testes manuais, para ver o valor-p
+ks.test(dados, 'pweibull', fit_wei$estimate[1], fit_wei$estimate[2])
+cvm.test(dados, 'pweibull', fit_wei$estimate[1], fit_wei$estimate[2])
+ad.test(dados, 'pweibull', fit_wei$estimate[1], fit_wei$estimate[2])
+```
+
+É possível ver que os testes nos apontam que a distribuição Weibull apenas se ajusta melhor quando comparada à distribuição Exponencial, pois tem valores-p menores do que os dos outros modelos.
+
+Mostramos esse resultado graficamente, como mostra a seguir:
+
+```{r, echo=FALSE}
+par(mfrow=c(1,2))
+cdfcomp(fit_wei, main = 'ECDF vs CDF', xlab = 'dados', ylab='F(x)', legendtext = 'Weibull')
+denscomp(fit_wei, main = 'Historama vs Curva teórica', xlab = 'dados', ylab='Fr. Relativa', legendtext = 'Weibull')
+```
+
+## Birnbaum-Saunders
+
+A distribuição Birnbaum-Saunders não está inclusa nos pacotes nativos de distribuições do R, e então, para poder estimá-la, usaremos a biblioteca `extraDistr`, que possui as funções de que precisamos.
+
+Começamos estimando, manualmente, os parâmetros da distribuição, já que a função `fitdist()` necessita de valores iniciais quando usada para distribuições não listadas no pacote (ver @fitdistr29:online). 
+
+Utilizamos como base, os valores iniciais apropriados para este modelo, vistos em sala de aula:
+
+```{r echo=TRUE}
+xb = mean(dados)
+hb = 1/mean(1/dados)
+
+alfa_s = sqrt(2*sqrt(xb/hb)-1)
+beta_s = sqrt(xb*hb)
+
+xb; hb; alfa_s; beta_s
+```
+
+Agora, podemos estimar normalmente:
+
+```{r message=FALSE, warning=FALSE}
+fit_bs = fitdist(dados, 'fatigue', start = list(alpha = alfa_s, beta = beta_s)); fit_bs
+```
+
+E mais uma vez, iremos realizar os testes de qualidade de ajuste:
+
+```{r}
+gof_bs = gofstat(fit_bs); gof_bs
+
+# testes manuais
+ks.test(dados, 'pfatigue', fit_bs$estimate[1], fit_bs$estimate[2])
+cvm.test(dados, 'pfatigue', fit_bs$estimate[1], fit_bs$estimate[2])
+ad.test(dados, 'pfatigue', fit_bs$estimate[1], fit_bs$estimate[2])
+```
+
+Para elucidar nossas estatísticas, como é de praxe, usaremos métodos gráficos:
+
+```{r, echo=FALSE}
+par(mfrow=c(1,2))
+cdfcomp(fit_bs, main = 'ECDF vs CDF', xlab = 'dados', ylab='F(x)', legendtext = 'Birnbaum-Saunders')
+denscomp(fit_bs, main = 'Historama vs Curva teórica', xlab = 'dados', ylab='Fr. Relativa', legendtext = 'Birnbaum-Saunders')
+```
+
+
+# Comparação geral
+
+Para melhor evidenciar e auxiliar na escolha correta da nossa distribuição, os gráficos e tabela a seguir (contendo os valores-p) trazem um condensando do que foi apanhado nas análises anteriores, a fim de facilitar a visualização e validar nossas decisões.
+
+```{r, echo=FALSE}
+par(mfrow=c(1,2))
+plot.legend = c('Exponencial', 'Gama', 'Log-Normal', 'Weibull', 'BS')
+cdfcomp(list(fit_exp, fit_gama, fit_lnorm, fit_wei, fit_bs), legendtext = plot.legend, main = 'ECDF vs CDF', xlab='dados', ylab = 'F(x)', plotstyle = 'ggplot', fitlty = c('solid', 'solid', 'solid', 'solid', 'solid'), fitcol = c('red', 'green', 'blue', 'lightblue', 'orange'))
+denscomp(list(fit_exp, fit_gama, fit_lnorm, fit_wei, fit_bs), legendtext = plot.legend, main = 'Histograma vs Curva teórica', xlab='dados', ylab = 'Fr. Relativa', plotstyle = 'ggplot', fitlty = c('solid', 'solid', 'solid', 'solid', 'solid'), fitcol = c('red', 'green', 'blue', 'lightblue', 'orange'))
+```
+
+
+```{r echo=FALSE}
+tabela = data.frame(row.names = c('Kolmogorov-Smirnov', 'Cramer-von Mises', 'Anderson-Darling'),
+                    Exponencial = c(ks.test(dados,'pexp',fit_exp$estimate)$p.value,cvm.test(dados,'pexp',fit_exp$estimate)$p.value,ad.test(dados,'pexp',fit_exp$estimate)$p.value),
+                    Gama = c(ks.test(dados,'pgamma', shape=fit_gama$estimate[1], rate=fit_gama$estimate[2])$p.value, cvm.test(dados,'pgamma', fit_gama$estimate[1], fit_gama$estimate[2])$p.value,ad.test(dados,'pgamma', fit_gama$estimate[1], fit_gama$estimate[2])$p.value),
+                    Log_Normal = c(ks.test(dados,'plnorm', fit_lnorm$estimate[1], fit_lnorm$estimate[2])$p.value,cvm.test(dados,'plnorm', fit_lnorm$estimate[1], fit_lnorm$estimate[2])$p.value,ad.test(dados,'plnorm', fit_lnorm$estimate[1], fit_lnorm$estimate[2])$p.value),
+           Weibull = c(ks.test(dados, 'pweibull', fit_wei$estimate[1], fit_wei$estimate[2])$p.value,cvm.test(dados, 'pweibull', fit_wei$estimate[1], fit_wei$estimate[2])$p.value,ad.test(dados, 'pweibull', fit_wei$estimate[1], fit_wei$estimate[2])$p.value),
+           Birnbaum_Saunders = c(ks.test(dados, 'pfatigue', fit_bs$estimate[1], fit_bs$estimate[2])$p.value,cvm.test(dados, 'pfatigue', fit_bs$estimate[1], fit_bs$estimate[2])$p.value,ad.test(dados, 'pfatigue', fit_bs$estimate[1], fit_bs$estimate[2])$p.value))
+
+kable(round(tabela, 4), align = 'c') %>% 
+  row_spec(0, bold = T) %>% 
+    kable_styling(full_width = F, bootstrap_options = c('condensed', 'responsive'))
+```
+
+# Conclusão
+
+Partindo de uma amostra pequena --- de apenas 10 elementos --- e realizando os testes não-paramétricos, bem como utilizando-se de métodos gráficos, concluímos que a distribuição que mais se ajusta aos dados é o modelo Log-Normal, que performou melhor nos testes, bem como apresentou curvas teóricas mais próximas à distribuição empírica e ao histograma apresentados, além de ter estimadores com baixo erro padrão, apesar de que a distribuição proposta em [@arquivo762:online], para o mesmo  conjunto, tenha sido o modelo Birnbaum-Saunders.
