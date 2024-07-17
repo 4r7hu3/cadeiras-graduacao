@@ -76,6 +76,10 @@ A partir do gráfico, percebe-se que a série é claramente não estacionária, 
 
 Podemos ver tais propriedades de maneira mais específica a partir da decomposição da série, como mostra a Figura \@ref(fig:figura-2).
 
+A decomposição realizada foi a decomposição aditiva clássica, que estima a tendência e sazonalidade por meio do método de médias móveis centradas, de ordem igual a frequência da série. Primeiro, a tendência é ajustada, e em seguida removida da série. Depois, estima-se a sazonalidade, tomando as médias de cada unidade de tempo para cada período, sendo centrada posteriormente, e logo após, também sendo removida da série. Com isso, obtém-se a componente de erro. No R, a decomposição aditiva é realizada com a função `decompose()`.
+
+Como ambas tendência e sazonalidade não apresentam variações de amplitude significativas, parece mais razoável utilizar a decomposição aditiva /*-detrimento da multiplicativa, pois a última é mais adequada a séries que apresentam variação proporcional ao nível da série.
+
 ```{r figura-2, fig.cap='Decomposição clássica'}
 decompose(dados_ts) |> autoplot() + labs(title = 'Decomposição aditiva', x = 'Tempo')
 ```
@@ -111,12 +115,12 @@ onde *train* é o conjunto treino, *test*, o conjunto teste; e *dados_ts* a sér
 
 A partir das informações que já extraímos, podemos agora começar a propor modelos capazes de modelar o tipo de comportamento apresentado pela série. Como vimos que a mesma é não estacionária, isto é, possui tendência e sazonalidade, parece razoável utilizar:
 
-1. Modelos de Holt-Winters (suavização exponencial);
+1. Modelos de Savização Exponencial;
 
 2. Modelos ARIMA.
 
 
-### Modelo de Holt-Winters
+### Modelos de Suavização Exponencial
 
 Modelos de suavização exponencial estão entre os métodos mais eficazes para entender o comportamento de séries temporais. Previsões com base nesse método são, de maneira resumida, médias ponderadas de observações passadas, onde os pesos decaem exponencialmente quanto mais antiga for a observação, ou seja, é uma abordagem que prioza as observações mais recentes. 
 
@@ -156,9 +160,9 @@ onde $0\le \beta \le 1$ é o parâmetro de suavização da tendência, também e
 
 Por fim , o último método também leva em consideração séries que tenham sazonalidade, adicionando então, uma componente sazonal denotada por $s$, e também um parâmetro de suavização desta componente, denotado por $\gamma$, estando este entre 0 e 1. Além disso, considera duas formas de como a componente sazonal pode entrar no modelo: de maneira aditiva ou multiplicativa.
 
-O método aditivo é usado nos casos em que as variações sazonais são praticamente constantes, isto é, sem muitas mudanças (o que parece ser o caso da série escolhida), enquanto o método multiplicativo é preferível para situações onde as variações sazonais mudam proporcionalmente ao nível da série.
+O método aditivo é usado nos casos em que as variações sazonais são praticamente constantes, isto é, sem muitas mudanças (o que parece ser o caso da série escolhida), enquanto o método multiplicativo é preferível para situações onde as variações sazonais mudam proporcionalmente ao nível da série. Esta análise é praticamente a mesma realizada para escolher a melhor forma de decompor a série.
 
-Deste modo, as equações para ambas as variações do modelo são dadas da seguinte maneira:
+As equações para ambas as variações do modelo são dadas da seguinte maneira:
 
 - Método **aditivo**
 $$
@@ -185,8 +189,9 @@ $$
 $$
 
 
+Dentre as três classes de modelos possíveis dentro dos métodos de suavização exponencial, parece razoável considerar que o terceiro método --- também chamado de modelo de Holt-Winters --- seja o mais apropriado para descrever a série analisada, tendo em vista que a mesma possui tendência e sazonalidade, enquanto que os dois primeiros métodos não as levam em consideração de forma conjunta, performando mal na presença desses fatores.
 
-Finalmente, podemos ajustar os modelos de Holt-Winters aditivo e multiplicativo nos dados de treino da nossa série, realizar previsões, e ver a qualidade do ajuste de cada modelo em relação aos dados de teste, comparando as duas abordagens ao final da modelagem.
+Assim, podemos ajustar então os modelos de Holt-Winters aditivo e multiplicativo nos dados de treino da nossa série, realizar previsões, e ver a qualidade do ajuste de cada modelo em relação aos dados de teste, comparando as duas abordagens ao final da modelagem.
 
 
 #### Ajuste do modelo aditivo 
@@ -281,24 +286,26 @@ De modo resumido, tais indicadores representam:
 - **Theil's U**: estatística U do tipo U2, que mede a qualidade da previsão em relação ao conjunto de teste, dada por $\sqrt{\dfrac{\sum_{i=1}^{n}\left[{\frac{\hat{Y_i} - Y_i}{Y_{i-1}}}\right]^2}{\sum_{i=1}^{n}\left[{\frac{Y_i - Y_{i-1}}{Y_{i-1}}}\right]^2}}$
 
 
-Analisando de maneira conjunta (não é recomendado analisar as métricas de forma individual), é possível concluir que o modelo consegue ter um bom ajuste aos dados, visto que praticamente todos os erros são considerados baixos, especialmente a função de autocorrelação dos resíduos no conjunto de treino. Dentre as medidas acima, uma bastante utilizada e difundida é o **MAPE**, pois entrega uma visão geral e rápida sobre a performance do modelo. No nosso caso, vemos que este valor é de aproximadamente 7,1% no conjunto de teste, reforçando a qualidade do ajuste. Geralmente, valores do **MAPE** abaixo de 10% indicam boa performance. Além disso, a estatística U fica abaixo de 1, indicando que as previsões encontradas pelo modelo são melhores que o método *naive*, isto é, melhores do que um simples chute.
+Analisando de maneira conjunta (não é recomendado analisar as métricas de forma individual), é possível concluir que o modelo consegue ter um bom ajuste aos dados, visto que praticamente todos os erros são considerados baixos, especialmente a função de autocorrelação dos resíduos no conjunto de treino. Dentre as medidas acima, uma bastante utilizada e difundida é o **MAPE**, pois entrega uma visão geral e rápida sobre a performance do modelo. No nosso caso, vemos que este valor é de aproximadamente 7,1% no conjunto de teste, reforçando a qualidade do ajuste. Geralmente, valores do **MAPE** abaixo de 10% indicam boa performance. Além disso, a estatística U fica abaixo de 1, indicando que as previsões encontradas pelo modelo são melhores que um método *naive*, isto é, melhores do que um simples chute.
 
-Também devemos checar os resíduos e o comportamento da função de autocorrelação ao longo dos lags, esperando que a mesma seja baixa e dentro do esperado. Isso pode ser visto de maneira conjunta, graficamente, através da função `checkresiduals()` do pacote *forecast*:
+Também devemos checar os resíduos e o comportamento da função de autocorrelação ao longo dos lags, esperando que a mesma seja baixa e dentro do esperado, isto é, que a autocorrelação entre os resíduos fique em torno de 0 e dentro do intervalo de confiança construído para a mesma, tendo poucos ou nenhum lag significativo (com autocorrelação distante do 0). Isso pode ser visto de maneira conjunta, graficamente, através da função `checkresiduals()` do pacote *forecast*:
 
 
 ```{r analise-residual-adit, fig.cap = 'Análise Residual - modelo aditivo'}
 checkresiduals(hw_a_f, test = F)
 ```
 
-Assim, temos que os resíduos são aproximadamente simétricos em torno do 0, e a função de autocorrelação, com exceção de alguns pontos, tem o comportamento esperado. 
+Assim, temos que os resíduos são aproximadamente simétricos em torno do 0, e que a função de autocorrelação tem o comportamento esperado, ou seja, fica em torno de 0, com poucos lags significativos.
 
-A função `checkresiduals()` também é capaz de retornar o resultado do teste de *Ljung-Box* para autocorrelação, onde $H_0$ assume que os resíduos são independentes:
+A função `checkresiduals()` também é capaz de retornar o resultado do teste de *Ljung-Box* para a autocorrelação, onde $H_0$ assume que os resíduos sejam não autocorrelacionados:
 
 ```{r}
 checkresiduals(hw_a_f, plot = F)
 ```
 
-Portanto, a um nível de significância de 5%, não temos evidências para rejeitar a hipótese nula de independência entre os resíduos, o que finaliza a validação do nosso modelo aditivo.
+Portanto, a um nível de significância de 5%, não temos evidências para rejeitar a hipótese nula de que os resíduos não tenham correlação entre si. Podemos ver também que os resíduos têm o comportanto de um ruído branco, isto é, com média e variância constantes. 
+
+Com isso, finalizamos a validação do nosso modelo aditivo.
 
 
 #### Ajuste do modelo multiplicativo
@@ -374,9 +381,9 @@ checkresiduals(hw_m_f, plot = F)
 ```
 
 
-Logo, a um nível de 5% de significância, temos evidências suficientes para rejeitar a hipótese de que os resíduos sejam independentes entre si.
+Logo, a um nível de 5% de significância, temos evidências suficientes para rejeitar a hipótese de que os resíduos sejam não correlacionados entre si.
 
-Então, concluímos que o modelo aditivo teve o melhor ajuste, sendo este preferível para modelar a série histórica do índice de volume de vendas no varejo cearence, dentre a classe de modelos de suavização exponencial.
+Então, concluímos que o modelo aditivo teve o melhor ajuste, sendo este preferível para modelar a série histórica do índice de volume de vendas no varejo cearense, dentre a classe de modelos de suavização exponencial.
 
 
 Por fim, com os modelos já validados, pode-se ajustar agora o primeiro método à série completa, utilizando os parâmetros estimados no conjunto treino, e em seguida, realizar uma previsão de, por exemplo, 12 meses, o que corresponde aos índices de 2023 (não inclusos no conjunto de dados).
@@ -471,7 +478,7 @@ Podemos também validar o modelo através do teste *Ljung-Box*:
 checkresiduals(m0_fit, plot = F)
 ```
 
-O teste acaba rejeitando a hipótese nula de independência entre os resíduos. Entretando, é muito comum que isso aconteça em vários contextos, não significando necessariamente que o modelo seja ruim. Perceba que os gráficos residuais apresentaram bons resultados, indicando boa qualidade de ajuste.
+O teste acaba rejeitando a hipótese nula de independência entre os resíduos. Entretanto, é muito comum que isso aconteça em vários contextos, não significando necessariamente que o modelo seja ruim. Perceba que os gráficos residuais apresentaram bons resultados, indicando boa qualidade de ajuste.
 
 Por fim, podemos avaliar a performance do modelo aplicando-o a dados de treino e teste, e verificar algumas métricas de avaliação, assim como nos modelos de Holt-Winters anteriormente. Para isso, aplicamos o modelo ajustado no conjunto treino, realizamos uma previsão de 36 meses, e em seguida, chamamos a função `accuracy()`, obtendo eventualmente os números a seguir.
 
