@@ -1,0 +1,13 @@
+Arima(dados_ts, order = c(12,1,12), seasonal = c(0,1,0))
+
+Arima(dados_ts, order = c(5,1,5), seasonal = c(0,1,0))
+
+Arima(dados_ts, order = c(4,1,4), seasonal = c(0,1,0))
+
+Arima(dados_ts, order = c(3,1,4), seasonal = c(0,1,0))
+
+Arima(dados_ts, order = c(2,1,4), seasonal = c(0,1,0))
+
+Arima(dados_ts, order = c(0,1,4), seasonal = c(0,1,0))
+
+Arima(dados_ts, order = c(2,1,2), seasonal = c(0,1,1)) # auto.arima(stepwise=T, approximation=F)

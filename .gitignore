@@ -1,5 +1,4 @@
-# ignoring some files
 *.ipynb_checkpoints
 *.Rhistory
-*.Rproj.user
 **/rsconnect
+.Rproj.user
