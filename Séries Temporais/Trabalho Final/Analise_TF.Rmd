@@ -78,14 +78,14 @@ Podemos ver tais propriedades de maneira mais específica a partir da decomposi�
 
 A decomposição realizada foi a decomposição aditiva clássica, que estima a tendência e sazonalidade por meio do método de médias móveis centradas, de ordem igual a frequência da série. Primeiro, a tendência é ajustada, e em seguida removida da série. Depois, estima-se a sazonalidade, tomando as médias de cada unidade de tempo para cada período, sendo centrada posteriormente, e logo após, também sendo removida da série. Com isso, obtém-se a componente de erro. No R, a decomposição aditiva é realizada com a função `decompose()`.
 
-Como ambas tendência e sazonalidade não apresentam variações de amplitude significativas, parece mais razoável utilizar a decomposição aditiva /*-detrimento da multiplicativa, pois a última é mais adequada a séries que apresentam variação proporcional ao nível da série.
+Como ambas tendência e sazonalidade não apresentam variações de amplitude significativas, parece mais razoável utilizar a decomposição aditiva em detrimento da multiplicativa, pois a última é mais adequada a séries que apresentam variação proporcional ao nível da série.
 
 ```{r figura-2, fig.cap='Decomposição clássica'}
 decompose(dados_ts) |> autoplot() + labs(title = 'Decomposição aditiva', x = 'Tempo')
 ```
 
 
-Em um primeiro momento, pode-se infereir que tal comportamento deva-se a presença ou ausência de datas festivas ao longo dos meses, como natal e réveillon em dezembro (altos índices); carnaval, semana santa e festas juninas entre fevereiro e julho. Também é possível destacar a queda acentuada do índice no início de 2020, que foi marcado pela pandemia de Covid-19, e as seguintes altas e baixas, entre 2021 --- ainda na pandemia --- e 2022, que podem ter sido decorrentes da liberação do programa Auxílio Brasil, como forma de alavancar a economia naquele período.
+Em um primeiro momento, pode-se infereir a partir do gráfico que tal comportamento deva-se a presença ou ausência de datas festivas ao longo dos meses, como natal e réveillon em dezembro (altos índices); carnaval, semana santa e festas juninas entre fevereiro e julho. Também é possível destacar a queda acentuada do índice no início de 2020, que foi marcado pela pandemia de Covid-19, e as seguintes altas e baixas, entre 2021 --- ainda na pandemia --- e 2022, que podem ter sido decorrentes da liberação do programa Auxílio Brasil, como forma de alavancar a economia naquele período.
 
 
 ## Dados de treino e teste
@@ -115,7 +115,7 @@ onde *train* é o conjunto treino, *test*, o conjunto teste; e *dados_ts* a sér
 
 A partir das informações que já extraímos, podemos agora começar a propor modelos capazes de modelar o tipo de comportamento apresentado pela série. Como vimos que a mesma é não estacionária, isto é, possui tendência e sazonalidade, parece razoável utilizar:
 
-1. Modelos de Savização Exponencial;
+1. Modelos de Suavização Exponencial;
 
 2. Modelos ARIMA.
 
@@ -191,7 +191,15 @@ $$
 
 Dentre as três classes de modelos possíveis dentro dos métodos de suavização exponencial, parece razoável considerar que o terceiro método --- também chamado de modelo de Holt-Winters --- seja o mais apropriado para descrever a série analisada, tendo em vista que a mesma possui tendência e sazonalidade, enquanto que os dois primeiros métodos não as levam em consideração de forma conjunta, performando mal na presença desses fatores.
 
-Assim, podemos ajustar então os modelos de Holt-Winters aditivo e multiplicativo nos dados de treino da nossa série, realizar previsões, e ver a qualidade do ajuste de cada modelo em relação aos dados de teste, comparando as duas abordagens ao final da modelagem.
+Poderíamos ainda considerar uma terceira abordagem, que generaliza os métodos de suavização exponencial, chamada de *modelo de espaço de estados*. Esta abordagem consiste em equações que descrevem tanto a parte observada quanto as mudanças na parte aleatória ao longo do tempo, e considera a interação da última de maneira aditiva ou multiplicativa. Estes modelos são conhecidos pela forma **ETS(., ., .)**, que denota as componentes de Erro, Tendência e Sazonalidade. As possibilidades de ajuste para cada componente são
+
+1. *Erro*: Aditiva ou Multiplicativa,
+2. *Tendência*: Nula, Aditiva ou Aditiva Amortizada,
+3. *Sazonalidade*: Nula, Aditiva ou Multiplicativa.
+
+Para séries que apresentam uma tendência de crescimento de forma indefinida, ou para horizontes de previsão muito longos, os métodos de suavização exponencial tendem a superestimar o comportamento da série, especialmente no último caso. Desta forma, uma alternativa que surgiu foi acrescentar aos modelos um parâmetro de "amortização" da tendência, $0 < \phi < 1$, que interage com os parâmetros $\alpha \;,  \beta\; \text{e}\; \gamma$.
+
+Finalmente, podemos ajustar então os modelos de Holt-Winters aditivo, multiplicativo e ETS nos dados de treino da nossa série, realizar previsões, e ver a qualidade do ajuste de cada modelo em relação aos dados de teste, comparando as três abordagens ao final da modelagem.
 
 
 #### Ajuste do modelo aditivo 
@@ -203,7 +211,6 @@ No R, ajustamos os dados de treino ao modelo aditivo a partir da função `HoltW
 ```{r modelo aditivo, include=FALSE}
 hw_a = HoltWinters(train)
 hw_a_f = forecast(hw_a, h = 36)
-autoplot(train) + autolayer(test) + autolayer(hw_a_f, PI=F)
 metricas_hw_a = accuracy(hw_a_f, x = test)
 ```
 
@@ -220,13 +227,28 @@ A função irá automaticamente estimar os parâmetros de suavização e as comp
 |`r hw_a$alpha `|`r hw_a$beta `|`r hw_a$gamma `|
 
 
+Com isso, podemos criar um gráfico dos valores ajustados, mostrado a seguir, e ter uma primeira impressão da qualidade do ajuste. Também devemos observar a soma dos quadrados dos resíduos, que neste caso foi de `r round(hw_a$SSE, 4)`.
+
+```{r}
+autoplot(train, series = 'Observado') + 
+  autolayer(hw_a$fitted[, 'xhat'], series = 'Ajuste') +
+  scale_colour_manual(values = c('Observado' = 'royalblue1', 'Ajuste' = '#EB832E')) +
+  labs(title = 'Ajuste do modelo aditivo no cojunto treino', 
+       x = 'Tempo', 
+       y = 'Índice', 
+       caption = 'Nota-se um bom ajuste através da sobreposição das linhas.') +
+  guides(colour = guide_legend(title = 'Séries')) +
+  theme(plot.caption = element_text(hjust = 0))
+```
+
+
 Com o modelo pronto, podemos agora realizar uma previsão de 3 anos à frente (36 meses), utilizando a função `forecast()`, do pacote *forecast*, da seguinte maneira:
 
 ```R
 hw_a_f = forecast(hw_a, h = 36)
 ```
 
-Podemos então, comparar os resultados previstos com os dados do conjunto de teste, como mostra a Figura \@ref(fig:figura-3).
+Em seguida, vamos comparar os resultados previstos com os dados do conjunto de teste, como mostra a Figura \@ref(fig:figura-3).
 
 
 ```{r figura-3, echo=FALSE, fig.cap='Previsto x Real no modelo aditivo'}
@@ -234,7 +256,7 @@ autoplot(train, series='Treino') +
   autolayer(test, series='Teste') + 
   autolayer(hw_a_f, PI=F, series= 'Previsão') +
   scale_colour_manual(values = c('Treino' = 'royalblue1', 'Teste' = 'black', 'Previsão' = 'darkred')) + 
-  labs(x = 'Tempo', y = 'Índice', title = 'Comparativo') +
+  labs(x = 'Tempo', y = 'Índice', title = 'Comparativo: Previsto x Realizado') +
   guides(colour = guide_legend(title = 'Séries'))
 ```
 
@@ -297,15 +319,39 @@ checkresiduals(hw_a_f, test = F)
 
 Assim, temos que os resíduos são aproximadamente simétricos em torno do 0, e que a função de autocorrelação tem o comportamento esperado, ou seja, fica em torno de 0, com poucos lags significativos.
 
+Também podemos plotar a função de autocorrelação parcial, esperando também que a mesma contenha poucos ou nenhum lag significativo, como mostra a figura abaixo.
+
+```{r fi, fig.cap = 'PACF residual - modelo aditivo'}
+Pacf(hw_a_f$residuals)
+```
+
 A função `checkresiduals()` também é capaz de retornar o resultado do teste de *Ljung-Box* para a autocorrelação, onde $H_0$ assume que os resíduos sejam não autocorrelacionados:
 
 ```{r}
 checkresiduals(hw_a_f, plot = F)
 ```
 
-Portanto, a um nível de significância de 5%, não temos evidências para rejeitar a hipótese nula de que os resíduos não tenham correlação entre si. Podemos ver também que os resíduos têm o comportanto de um ruído branco, isto é, com média e variância constantes. 
+Portanto, a um nível de significância de 5%, não temos evidências para rejeitar a hipótese nula de que os resíduos não tenham correlação entre si.
 
-Com isso, finalizamos a validação do nosso modelo aditivo.
+Ainda, podemos utilizar dois outros testes estatísticos a fim de atestar que os resíduos do nosso modelo correspondem a um ruído branco, isto é, a um processo puramente aleatório, que por definição, é estacionário.
+
+O primeiro teste é o *Teste Aumentado de Dickey-Fuller*, que testa a hipótese nula de que a série analisada tem uma raíz unitária, ou seja, que a mesma é não estacionária.
+
+Já o segundo teste, chamado de *Kwiatkowski-Phillips-Schmidt-Shin (KPSS)*, testa a hipótese nula de que a série analisada é estacionária, seja pelo nível ou pela tendência.
+
+Computando ambos os testes, e considerando um nível de significância padrão de 5%, esperamos obter um *valor-p* < 0.05 no primeiro teste, e um *valor-p* > 0.05 no segundo teste. Com as funções `adf.test()` e `kpss.test()` presentes no pacote *tseries*, encontramos o resultado desejado, como mostram as saídas seguintes.
+
+```{r}
+hw_a_f$residuals |> na.omit() |> adf.test()
+```
+
+
+```{r}
+hw_a_f$residuals |> na.omit() |> kpss.test()
+```
+
+
+Assim, vemos que os resíduos têm o comportanto de um ruído branco, isto é, com média e variância aproximadamente constantes. Com isso, finalizamos a validação do nosso modelo aditivo.
 
 
 #### Ajuste do modelo multiplicativo
@@ -332,9 +378,25 @@ Assim como anteriormente, a função irá automaticamente estimar os parâmetros
 |:---:|:---:|:---:|
 |`r hw_m$alpha `|`r hw_m$beta `|`r hw_m$gamma `|
 
-Note que os valores estimados foram próximos ao modelo aditivo, sendo a maior diferença entre as componentes de nível em cada modelo.
 
-Com os valores estimados em mãos, realizamos então a previsão do índice para os anos de 2020 a 2022 (36 meses):
+Note que os valores estimados foram próximos ao modelo aditivo, estando a maior diferença entre as componentes de nível em cada modelo.
+
+Novamente, é possível obter uma primeira impressão da qualidade do ajuste através do gráfico da série observada *vs* ajustada, mostrado abaixo. Perceba como as estimativas são próximas às observações, tais quais no método aditivo, porém captando melhor os picos da série. Apesar disso, a soma dos quadrados dos resíduos foi de `r round(hw_m$SSE, 4)`.
+
+```{r}
+autoplot(train, series = 'Observado') + 
+  autolayer(hw_m$fitted[, 'xhat'], series = 'Ajuste') + 
+  scale_colour_manual(values = c('Observado' = 'royalblue1', 'Ajuste' = '#EB832E')) +
+  labs(title = 'Ajuste do modelo multiplicativo no cojunto treino',
+       x = 'Tempo',
+       y = 'Índice',
+       caption = 'Nota-se um bom ajuste através da sobreposição das linhas.') +
+  guides(colour = guide_legend(title = 'Séries')) + 
+  theme(plot.caption = element_text(hjust = 0))
+```
+
+
+Agora, com os valores estimados em mãos, realizamos então a previsão do índice para os anos de 2020 a 2022 (36 meses):
 
 ```R
 hw_m_f = forecast(hw_m, h = 36)
@@ -348,7 +410,7 @@ autoplot(train, series='Treino') +
   autolayer(test, series='Teste') + 
   autolayer(hw_m_f, PI=F, series= 'Previsão') +
   scale_colour_manual(values = c('Treino' = 'royalblue1', 'Teste' = 'black', 'Previsão' = 'darkred')) + 
-  labs(x = 'Tempo', y = 'Índice', title = 'Comparativo') +
+  labs(x = 'Tempo', y = 'Índice', title = 'Comparativo: Previsto vs Realizado') +
   guides(colour = guide_legend(title = 'Séries'))
 ```
 
@@ -374,7 +436,12 @@ Também é necessário realizar, assim como no primeiro modelo, os gráficos par
 checkresiduals(hw_m_f, test = F)
 ```
 
-Assim, é fácil perceber que os resíduos são levemente assimétricos à esquerda, e que a função de autocorrelação possui um comportamento esperado inferior ao do modelo aditivo, o que pode ser comprovado também pelo teste de *Ljung-Box*:
+Assim, é fácil perceber que os resíduos são levemente assimétricos à esquerda, e que a função de autocorrelação possui um comportamento esperado inferior ao do modelo aditivo, o que pode ser comprovado também pela função de autocorrelação parcial e pelo teste de *Ljung-Box*:
+
+```{r}
+Pacf(hw_m_f$residuals)
+```
+
 
 ```{r}
 checkresiduals(hw_m_f, plot = F)
@@ -383,14 +450,124 @@ checkresiduals(hw_m_f, plot = F)
 
 Logo, a um nível de 5% de significância, temos evidências suficientes para rejeitar a hipótese de que os resíduos sejam não correlacionados entre si.
 
-Então, concluímos que o modelo aditivo teve o melhor ajuste, sendo este preferível para modelar a série histórica do índice de volume de vendas no varejo cearense, dentre a classe de modelos de suavização exponencial.
+Também devemos, assim como no modelo aditivo, testar a hipótese de estacionariedade do modelo, a um nível de significância de 5%.
 
+
+```{r}
+hw_m_f$residuals |> na.omit() |> adf.test()
+```
+
+```{r}
+hw_m_f$residuals |> na.omit() |> kpss.test()
+```
+
+O primeiro teste rejeita a hipótese nula de não estacionariedade, porém, com o valor da estatística de teste maior que a do modelo aditivo. Já o segundo teste não rejeita a hipótese nula de estacionariedade, apesar de o *valor-p* ter ficado muito próximo ao nível descritivo (0.05). Estes resultados são um indicativo de que o modelo multiplicativo não teve um ajuste tão bom quanto o modelo aditivo anterior.
+
+
+#### Ajuste do modelo de ETS
+
+\hfill\break
+
+Modelos ETS podem ser facilmente obtidos no R com a função `ets()` presente no pacote *forecast*, que, assim como nas funções de ajuste anteriores, automatiza a escolha do modelo a partir de funções de perda e/ou de verossimilhança:
+
+```{r modelo ssm, include = F}
+ssm = ets(train)
+ssm_f = forecast(ssm, h = 36)
+metricas_ssm = accuracy(ssm_f, x = test)
+```
+
+```R
+ssm = ets(train)
+```
+
+O ajuste nos forceneu um modelo **ETS(M, Ad, M)**, isto é, com erro na forma aditiva, tendência amortizada, e sazonalidade multiplicativa, com as seguintes estimativas dos parâmetros:
+
+|$\hat{\alpha}$|$\hat{\beta}$|$\hat{\gamma}$|$\hat{\phi}$|
+|:---:|:---:|:---:|:---:|
+|`r ssm$par['alpha'] `|`r ssm$par['beta'] `|`r ssm$par['gamma'] `|`r ssm$par['phi'] `|
+
+Novamente, podemos ter uma primeira impressão da qualidade do ajuste comparando as séries observada e ajustada de maneira conjunta, como mostra o gráfico logo abaixo. A soma dos quadrados resíduos foi bem maior que a dos modelos prévios: `r sum((ssm$x - ssm$fitted)^2) |> round(4)`.
+
+```{r}
+autoplot(train, series = 'Observado') + 
+  autolayer(ssm$fitted, series = 'Ajuste') + 
+  labs(title = 'Ajuste do modelo ETS(M, Ad, M)',
+       x = 'Tempo',
+       y = 'Índice',
+       caption = 'Nota-se um bom ajuste através da sobreposição das linhas.') + 
+  scale_colour_manual(values = c('Observado' = 'royalblue1', 'Ajuste' = '#EB832E')) + 
+  guides(colour = guide_legend(title = 'Séries')) + 
+  theme(plot.caption = element_text(hjust = 0))
+```
+
+
+Realizamos então uma previsão de 3 anos, e comparamos os resultado com o conjunto de teste (Figura \@ref(fig:figura-8)).
+
+```R
+ssm_f = forecast(ssm, h = 36)
+```
+
+```{r figura-8, echo=FALSE, fig.cap='Previsto x Real no modelo ETS'}
+autoplot(train, series='Treino') + 
+  autolayer(test, series='Teste') + 
+  autolayer(ssm_f, PI=F, series= 'Previsão') +
+  scale_colour_manual(values = c('Treino' = 'royalblue1', 'Teste' = 'black', 'Previsão' = 'darkred')) + 
+  labs(x = 'Tempo', y = 'Índice', title = 'Comparativo: Previsto vs Realizado') +
+  guides(colour = guide_legend(title = 'Séries'))
+```
+
+Pelo comparativo gráfico, percebe-se um ajuste inferior aos modelos anteriores (apesar de próximo ao modelo multiplicativo), o que pode ser validado numericamente pelas medidas de erro mostradas na tabela abaixo.
+
+```{r indicadores-ssm}
+metricas_ssm |> 
+  as.data.frame(row.names = c('Treino', 'Teste')) |>
+  kable('latex', booktabs=T, align = 'c') |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+Note que a estatística U também ficou acima de 1, indicando a inferioridade do modelo frente a métodos *naive*, e que o **MPE** foi praticamenteo o dobro da medida do modelo multiplicativo.
+
+Vamos ainda validar o modelo através da verificação de atendimento aos pressupostos, assim como nos casos anteriores.
+
+A figura \@ref(fig:figura-9) nos aponta que, aparentemente, os resíduos gerados são ruídos brancos, com média e variância constante, e simétricos em torno de 0, além de haver poucos lags significativos na função de autocorrelação, que é muito similar à do método de Holt-Winters multiplicativo.
+
+```{r figura-9, echo = F, fig.cap = 'Análise Residual - modelo ETS'}
+checkresiduals(ssm_f$residuals, test = F)
+```
+
+
+Também devemos avaliar a função de autocorrelação parcial dos resíduos, apresentada logo abaixo, além dos 3 testes estatísticos já utilizados anteriormente.
+
+\hfill\break
+
+```{r}
+ssm_f$residuals |> Pacf()
+```
+
+\hfill\break
+
+```{r}
+checkresiduals(ssm_f$residuals, plot = F)
+```
+
+```{r}
+ssm_f$residuals |> adf.test()
+```
+
+
+```{r}
+ssm$residuals |> kpss.test()
+```
+
+Desta forma, vemos que a função de autocorrelação parcial apresentou 3 lags significativos: um a mais do que no modelo multiplicativo e dois a mais que no modelo aditivo. Os testes, em sua maioria, nos levaram a não rejeitar a hipótese de estacionariedade dos resíduos, com excessão do teste de *Ljung-Box*, que apresentou um *valor-p* abaixo do nível descritivo padrão, que foi também menor do que os dos ajustes anteriores.
+
+Então, considerando todas as análises de forma conjunta, concluímos que o modelo aditivo teve o melhor ajuste, sendo este preferível para modelar a série histórica do índice de volume de vendas no varejo cearense, dentre a classe de modelos de suavização exponencial, e considerando também modelos de espaço de estados.
 
 Por fim, com os modelos já validados, pode-se ajustar agora o primeiro método à série completa, utilizando os parâmetros estimados no conjunto treino, e em seguida, realizar uma previsão de, por exemplo, 12 meses, o que corresponde aos índices de 2023 (não inclusos no conjunto de dados).
 
 ### Modelos ARIMA
 
-A classe dos *Modelos Autorregressivos Integrados de Médias Móveis* é bastante ampla e muito utilizada na análise de séries temporais, entregando em geral, previsões com boa qualidade. Esse tipo de modelo, diferente dos métodos de suavização exponencial, tenta descrever os dados por meio do comportamento da sua autocorrelação, ao invés de descrever componentes de têndencia e sazonalidade.
+A classe dos *Modelos Autorregressivos Integrados de Médias Móveis* é bastante ampla e muito utilizada na análise de séries temporais, entregando em geral, previsões com boa qualidade. Esse tipo de modelo, diferente dos métodos de suavização exponencial, tenta descrever os dados por meio do comportamento da sua autocorrelação, ao invés de descrever componentes de nível, têndencia e sazonalidade.
 
 Um método muito comum e recomendado ao se trabalhar com modelos ARIMA é o de *Box-Jenkins*, que consiste basicamente em quatro etapas, sendo elas
 
@@ -404,11 +581,11 @@ Um método muito comum e recomendado ao se trabalhar com modelos ARIMA é o de *
 
 Este processo pode ser iterado várias vezes, até que se encontre um modelo satisfatório.
 
-Aplicando a metodologia na série proposta no trabalho, e sabendo que a mesma não atende às condições iniciais para utilização de modelos ARIMA, podemos realizar transformações, mais especificamente de duas formas: ajustar as componentes sazonal e de tendência, ou realizar diferenças, objetivando encontrar estacionariedade.
+Aplicando a metodologia na série proposta no trabalho, e sabendo que a mesma não atende às condições iniciais para utilização de modelos ARIMA, podemos realizar transformações na mesma, como logarítmo e diferenças, objetivando encontrar estacionariedade.
 
-A primeira abordagem pode ser feita subtraindo da série original, as componentes estimadas através da decomposição. A segunda abordagem, por sua vez, poder ser feita simplesmente realizando uma diferenciação simples (que geralmente é suficiente), ou primeiro realizar uma diferenciação sazonal e em seguida uma diferenciação simples. Iremos considerar a segunda abordagem.
+A transformação logarítmica é mais indicada para séries com variância muito instável, que crescem ou decrescem bruscamente proporcionalmente ao nível da série, o que não parece ser o nosso caso. Já as diferenças são realizadas de maneira a estabilizar a média da série, objetivando torná-la estacionária. Ainda para as diferenças, é possível realizá-las considerando ou não a sazonalidade, de modo que a(s) diferença(s) sazonal(ais) é(são) realizada(s) primeiro, visando retirar a influência da sazonalidade. Outro detalhe em relação à diferenciação reside na perda de informação quanto maior a ordem das diferenças, por exemplo, se é realizada uma diferença simples, então, perde-se um dado; caso sejam duas diferenças, perde-se dois dados, e assim sucessivamente.
 
-Como nossa série possui forte sazonalidade, iremos primeiro realizar uma diferenciação sazonal, isto é, tomar diferenças com base em um lag de 12 meses. Desta forma, perdemos as primeiras 12 observações.
+Como nossa série possui forte sazonalidade, parece então razoável considerar uma diferenciação sazonal, isto é, tomar diferenças com base em um lag de 12 meses, que é a frequência da mesma. Desta forma, perdemos as primeiras 12 observações.
 
 ```{r echo=TRUE}
 Zt_diff_SZ = diff(dados_ts, lag = 12)
@@ -416,7 +593,7 @@ Zt_diff_SZ = diff(dados_ts, lag = 12)
 
 Podemos então verificar os gráficos da série transformada, da autocorrelação e autocorrelação parcial, como mostra a Figura \@ref(fig:figura-5).
 
-```{r figura-5, echo=F, fig.cap='Verificação de estacionariedade'}
+```{r figura-5, echo=F, fig.cap='Verificação de estacionariedade: diferença sazonal'}
 Zt_diff_SZ |> ggtsdisplay()
 ```
 
@@ -428,29 +605,37 @@ Zt_diff_SM = diff(Zt_diff_SZ)
 
 Verificamos novamente o comportamento da série transformada através dos gráficos.
 
-```{r}
+```{r figura-6, echo=FALSE, fig.cap = 'Verificação de estacionariedade: diferença sazonal e simples'}
 Zt_diff_SM |> ggtsdisplay()
 ```
 
-Com isso, aparentemente a série tornou-se estacionária. Para validar essa hipótese, podemos realizar 2 testes estatísticos, sendo eles o teste aumentado de *Dickey-Fuller* e o teste de *Kwiatkowski-Phillips-Schmidt-Shin* (KPSS). Ambos os testes estão presentes no pacote *tseries*.
+Com isso, aparentemente a série tornou-se estacionária, visto que tanto a média quanto a variância parecem ser constantes/estáveis, além das funções de autocorrelação apresentarem poucos lags significativos. Para validar essa afirmação, podemos realizar 3 testes estatísticos, sendo eles o *Teste Aumentado de Dickey-Fuller*, o teste de *Kwiatkowski-Phillips-Schmidt-Shin (KPSS)* e o teste *Ljung-Box*, realizados logo abaixo.
 
 ```{r echo=FALSE}
 Zt_diff_SM |> adf.test()
 ```
 
-O teste aumentado de Dickey-Fuller nos aponta que há evidências suficientes para rejeitar a hipótese de não estacionariedade ($H_0: \text{série não estacionária}$).
+O teste aumentado de Dickey-Fuller nos aponta que há evidências suficientes para rejeitar a hipótese de não estacionariedade.
 
 ```{r echo=FALSE}
 Zt_diff_SM |> kpss.test()
 ```
 
-O teste KPSS também indica que os dados sejam estacionários. Desta forma, já validando a nova série como sendo estacionária, podemos então olhar para o gráfico das funções de autocorrelação e autocorrelação parcial, e com base neles, sugerir alguns modelos iniciais, comparando uns com os outros e verificando a performance de cada um.
+O teste KPSS também indica que os dados sejam estacionários.
+
+```{r}
+Zt_diff_SM |> Box.test(type = 'Ljung-Box')
+```
+
+Por fim, o teste de *Ljung-Box* também indica que a série diferençada seja estacionária, pois não há evidências para rejeitar a hipótese nula de não autocorrelação entre os lags.
+
+Desta forma, já validando a nova série como sendo estacionária, podemos então olhar para o gráfico das funções de autocorrelação e autocorrelação parcial (Figura \@ref(fig:figura-6)), e com base neles, sugerir alguns modelos iniciais, comparando uns com os outros e verificando a performance de cada um.
 
 #### Primeiro modelo sugerido
 
 \hfill\break
 
-Analisando as funções de autocorrelação, nota-se que ambas aparentam ser curvas sinusoidais, com correlações mais significativas no lag 12. Nota-se também, em ambos os gráficos, aproximadamente 4 ou 5 lags significativos. Além disso, é fácil perceber que as funções decaem para 0 após o 12º lag. Daí, uma primeira sugestão de modelo poderia ser o $ARIMA(12,1,12)(0,1,0)_{12}$, onde $p = 12;\; d = 1;\; q =12$. Como foi realizada uma diferença sazonal, também deve-se utilizar $D = 1$, que corresponde à parte sazonal.
+Analisando as funções de autocorrelação, nota-se que ambas aparentam ser curvas sinusoidais, com correlações mais significativas no lag 12. Nota-se também, em ambos os gráficos, aproximadamente 4 ou 5 lags significativos. Além disso, é fácil perceber que as funções decaem para 0 após o 12º lag. Daí, é natural pensar primeiro em um modelo $ARIMA(12,1,12)(0,1,0)_{12}$, onde $p = 12;\; d = 1;\; q =12$ e $D = 1$, que corresponde à parte sazonal. Entretanto, nem sempre modelos com mais parâmetros são os mais apropriados, tendo em vista que a estimação será mais lenta, que nem todos os parâmetros estimados serão significativos, e que haverá redução no critério da parcimônia. 
 
 No R, isto pode ser realizado da seguinte maneira:
 
