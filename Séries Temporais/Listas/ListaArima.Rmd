@@ -1,0 +1,387 @@
+---
+title: "Modelos ARIMA com metodologia Box-Jenkins"
+subtitle: |
+   | Universidade Federal do Ceará
+   | Centro de Ciências
+   | Departamento de Estatística e Matemática Aplicada
+   | Bacharelado em Estatística
+   | Análise de Séries Temporais
+author: "Antônio Arthur Silva de Lima"
+lang: "pt-br"
+date: "14 de julho de 2024"
+geometry: "top=2.5cm,right=2cm,left=2cm,margin=2.5cm"
+urlcolor: blue
+linkcolor: black
+output:
+   bookdown::pdf_document2:
+     toc: true
+     toc_depth: 4
+     extra_dependencies: "float"
+     number_sections: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	fig.align = "center",
+	fig.pos = "H",
+	message = FALSE,
+	warning = FALSE,
+	out.width = "65%",
+  options(knitr.kable.NA = '---')
+)
+```
+
+```{r libraries, message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(forecast)
+library(tseries)
+library(knitr)
+library(kableExtra)
+library(readxl)
+library(xts)
+library(patchwork)
+```
+
+\newpage
+
+## Série
+
+```{r dados, include=FALSE}
+# lendo dados
+atmosfera = read_excel("~/Documentos/UFC/Séries Temporais/dados/atmosfera.xlsx", range = "A1:C366")
+#View(atmosfera)
+umidade = xts(atmosfera$umidade, order.by = atmosfera$DATA)
+umidade
+
+# treino / teste
+treino = umidade['1997-01-01/1997-12-24']
+teste = umidade['1997-12-25/']
+```
+
+A série considerada para análise é a de **Umidade**, presente no conjunto *Atmosfera* e disponível neste [link](https://www.ime.usp.br/~pam/atmosfera.xls). A mesma constitui uma série diária, que vai de 01 de janeiro de 1997 a 31 de dezembro do mesmo ano, e trata dos níveis de umidade em dada região.
+
+Primeiramente, podemos visualizar a série e fazer algumas pontuações acerca do seu comportamento, tendo em mente a medologia Box-Jenkins para o processo de modelagem.
+
+```{r}
+umidade |> autoplot() + labs(x = 'Tempo', 
+                             y = 'Umidade', 
+                             title = 'Níveis diários de umidade em dada região', 
+                             subtitle = 'janeiro de 1997 a dezembro de 1997')
+```
+
+
+Pelo gráfico, é fácil perceber que não temos a presença de tendência ou sazonalidade, sendo razoável supor então que a série já seja estacionária, com média constante próxima de 80. Também é razoável supor que a série apresente baixa variância ou desvio padrão, pois o gráfico não aparenta ter muitas variações bruscas de mais (como várias quedas ou picos muito fortes).
+
+Vamos atestar essas inferências a partir dos testes estatísticos *KPSS* e o *teste aumentado de Dickey-Fuller*.
+
+```{r}
+umidade |> kpss.test()
+```
+
+Pelo teste *KPSS*, não temos evidências suficientes para rejeitar a hipótese nula de estacionariedade da série.
+
+```{r}
+umidade |> adf.test()
+```
+
+Da mesma maneira, o *teste aumentado de Dickey-Fuller* nos aponta que os dados sejam de fato estacionários.
+
+Para a sugestão de modelos, é necessário também que analisemos as funções de autocorrelação e autocorrelação parcial abaixo, pois estas nos auxiliam a escolher a ordem de tais modelos.
+
+```{r}
+um_acf = umidade |> Acf(plot = F) |> autoplot()
+um_pacf = umidade |> Pacf(plot = F) |> autoplot()
+
+um_acf | um_pacf
+```
+
+
+Também não devemos esquecer de dividir a nossa série em conjunto de treino e teste, a fim de avaliar a performance do ajuste e de previsões:
+
+```R
+treino = umidade['1997-01-01/1997-12-24']
+teste = umidade['1997-12-25/']
+```
+
+Com isso, estamos prontos para ajustar alguns modelos.
+
+## Primeiro modelo
+
+A partir do gráfico das funções de autocorrelação e autocorrelação parcial, notamos que o primeiro tem um comportamento aproximadamente sinusoidal, enquanto o segundo decai rapidamente para 0 logo após o primeiro lag, mas possuindo ainda dois lags significantes, ainda que um deles (lag 3) esteja próximo do intervalo de confiança. 
+
+Tal comportamento pode ser indicativo de um modelo ARIMA(1,0,0), ou simplesmente um modelo AR(1). Desta forma, ajustamos esse modelo no R, encontrando as estimativas dos parâmetros. É importante perceber valores altos para os critérios da informação.
+
+```{r, echo=TRUE}
+fit1 = treino |> Arima(order = c(1,0,0)); fit1
+```
+
+```{r}
+# função para calcular a significância dos parâmetros estimados
+# a partir da comparação entre os valores calculados X tabelados
+
+get_significance = function(m, series, nd) {
+  Coef = coef(m)[coef(m) != 0] |> names()
+  Val = coef(m)[coef(m) != 0]
+  S.E. = sqrt(diag(vcov(m)))
+  Tcalc = abs(Val/S.E.)
+  Ttab = qt(p = 1-nd/2, df = length(series)-length(Coef))
+  tab = tibble(Coef = Coef,
+               Val = Val,
+               S.E. = S.E.,
+               '|Tcalc|' = Tcalc,
+               Ttab = Ttab)
+  
+  return(tab)
+}
+```
+
+```{r, include=F}
+fit1_sig = get_significance(m = fit1, series = treino, nd = 0.05); fit1_sig
+```
+
+
+Testando a significância dos parâmetros através do *teste t* bicaudal, e utilizando um nível descritível de 5%, chegamos à conclusão de que ambos os parâmetros estimados são significativos para o modelo. A tabela a seguir apresenta as estimativas, estatísticas e valor crítico dos testes.
+
+```{r}
+fit1_sig |> as.data.frame(row.names = fit1_sig$Coef) |> 
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+Iremos agora checar a estacionariedade dos resíduos do modelo, a fim de atestar se os mesmos comportam-se como ruídos brancos, ou seja, com média e variância constantes.
+
+Realizando primeiro o *teste aumentado de Dickey-Fuller* e o teste *KPSS* abaixo, temos indícios de que os resíduos sejam estacionários. Também podemos aplicar o *teste Ljung-Box* e testar a hipótese de estacionariedade através dele.
+
+```{r}
+fit1$residuals |> kpss.test()
+fit1$residuals |> adf.test()
+fit1$residuals |> Box.test(type = 'Ljung-Box')
+```
+
+Devemos também checar os gráficos das funções de autocorrelação e autocorrelação parcial dos resíduos.
+
+```{r}
+fit1$residuals |> ggtsdisplay()
+```
+
+Vemos que apesar do comportamento da série realmente parecer a de um processo aleatório, não queremos que haja pontos significantes nas funções de autocorrelação, o que não é o caso para os resíduos do nosso modelo, que apresentam pelo menos dois desses pontos em cada gráfico.
+
+Além disso, também devemos atestar a normalidade dos resíduos, e checar que a raíz inversa do polinômio esteja dentro do círculo unitário. Ambos os testes também atestam as suposições do nosso modelo.
+
+```{r}
+fit1$residuals |> shapiro.test()
+```
+
+
+```{r}
+autoplot(fit1)
+```
+
+
+Por fim, com o modelo validado, podemos fazer uma previsão de horizonte igual a 7, compará-la ao conjunto de teste, extrair algumas medidas de erro e de qualidade de ajuste, para, posteriormente, fazer uma comparação com outras sugestões de modelos. Isso é realizado da seguinte maneira:
+
+
+```{r, echo=TRUE}
+fit1_f = forecast(fit1, h = 7)
+metricas_fit1 = accuracy(fit1_f, x = teste)
+```
+
+```{r}
+metricas_fit1 |> as.data.frame(row.names = c('Treino', 'Teste')) |> 
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+Também podemos plotar um gráfico do ajuste e da previsão, junto com o intervalo de confiança para a previsão.
+
+```{r}
+autoplot(fit1_f$x) + autolayer(fit1_f$fitted) + autolayer(fit1_f)
+```
+
+
+Assim, temos valores baixos para as medidas de erro no geral, tanto no conjunto treino quanto no de teste, porém, ainda veremos outros modelos possíveis capazes de modelar a série, e escolher aquele com melhor ajuste.
+
+## Segundo modelo
+
+Como já visto anteriormente com os gráficos de autocorrelação da série original, temos no segundo gráfico (PACF) 3 lags significativos, sendo eles os lags 1, 3 e 15. Como já ajustamos um ARIMA(1,0,0), poderíamos desta vez ajustar um ARIMA(3,0,0), olhando agora para o terceiro lag. O 15º lag, por ser uma observação muito distante, possivelmente seja um outlier, e não indica necessariamente que um modelo com 15 parâmetros deva ser ajustado, afinal, devemos prezar pelo critério da parcimônia, e então, não o levamos em consideração para a análise neste momento.
+
+```{r echo=TRUE}
+fit2 = treino |> Arima(order = c(3,0,0)); fit2
+```
+
+Assim, temos uma leve redução na variância estimada, *AIC* e *AICc*. Testando a significância dos parâmetros, também obtemos a tabela a seguir, e vemos que todos eles são significativos para o modelo.
+
+```{r, include=FALSE}
+fit2_sig = get_significance(m = fit2, series = treino, nd = 0.05); fit2_sig
+```
+
+```{r}
+fit2_sig |> as.data.frame(row.names = fit2_sig$Coef) |> 
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+Realizamos os testes abaixo e confirmamos que os resíduos comportam-se como ruído branco.
+
+```{r}
+fit2$residuals |> kpss.test()
+fit2$residuals |> adf.test()
+fit2$residuals |> Box.test(type = 'Ljung-Box')
+```
+E plotando as funções de autocorrelação, junto da série residual, vemos que parece sim haver aleatoriedade, e também notamos menos lags significantes do que no modelo anterior.
+
+```{r}
+fit2$residuals |> ggtsdisplay()
+```
+
+Vemos então que o teste de *Shapiro-Wilk* aponta normalidade, e que as raízes inversas do polinômio estão dentro do círculo unitário.
+
+```{r}
+fit2$residuals |> shapiro.test()
+```
+
+```{r}
+fit2 |> autoplot()
+```
+
+Agora, realizamos então uma previsão para o modelo de teste, e obtemos as medidas de erro a seguir.
+
+```{r echo=TRUE}
+fit2_f = fit2 |> forecast(h = 7)
+metricas_fit2 = accuracy(fit2_f, x = teste)
+```
+
+```{r}
+metricas_fit2 |> as.data.frame(row.names = c('Treino', 'Teste')) |> 
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+Vemos então uma leve redução na maioria dessas medidas para ambos os conjuntos. Plotando agora o gráfico do ajuste e da previsão, com o intervalo de confiança para a mesma, podemos ver que houve uma leve melhora.
+
+```{r}
+autoplot(fit2_f$x) + autolayer(fit2_f$fitted) + autolayer(fit2_f)
+```
+
+Portanto, temos também um bom ajuste, levemente melhor comparado ao primeiro modelo, todavia, ainda temos lags significantes presentes nas funções de autocorrelação, o que será agora o objetivo principal no próximo modelo sugerido.
+
+
+## Terceiro modelo
+
+Já sabendo que o 15° lag ainda possui influência mesmo em um ARIMA(3,0,0), podemos então levá-lo em consideração na modelagem, sem necessariamente adicionar os lags 4 ao 14, tendo em vista que desejamos um modelo o mais simples possível. Isso é feito no R com o código abaixo.
+
+```{r, echo=TRUE}
+fit3 = treino |> Arima(order = c(15,0,0), fixed = c(NA, NA, NA, rep(0, 11), NA, NA)); fit3
+```
+
+Com isso, é possível perceber a grande diferença de redução nos critérios da informação e na variância, mesmo com um parâmetro a mais estimado. Também é importante mencionar que como não tomamos diferenças na série, há então uma média $\mu$ adicionada no modelo, que também é estimada.
+
+Verificamos então a significância de todos os parâmetros estimados com a tabela abaixo, podendo ver que todos eles de fato são significativos para o modelo.
+
+```{r include=FALSE}
+fit3_sig = get_significance(m = fit3, series = treino, nd = 0.05); fit3_sig
+```
+
+```{r}
+fit3_sig |> as.data.frame(row.names = fit3_sig$Coef) |> 
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+Em seguida, vamos usar os mesmos testes para verificar que há estacionariedade nos resíduos do nosso modelo.
+
+```{r}
+fit3$residuals |> kpss.test()
+fit3$residuals |> adf.test()
+fit3$residuals |> Box.test(type = 'Ljung-Box')
+```
+Checamos os gráfico da série residual e autocorrelações, e vemos que finalmente não há nenhum lag significante em qualquer dos gráficos, além de que a série comporta-se como um ruído branco.
+
+```{r}
+fit3$residuals |> ggtsdisplay()
+```
+
+Utilizando o teste de normalidade e das inversas das raízes do polinômio, também temos esta parte da validação atendida.
+
+```{r}
+fit3$residuals |> shapiro.test()
+```
+
+```{r}
+autoplot(fit3)
+```
+
+Logo, terminamos nossa validação extraindo as medidas de erro para o conjunto de teste, e plotamos em seguida o ajuste sobre a série, junto da previsão ao respectivo intervalo de confiança.
+
+```{r}
+fit3_f = forecast(fit3, h = 7)
+metricas_fit3 = accuracy(fit3_f, x = teste)
+```
+
+```{r}
+metricas_fit3 |> as.data.frame(row.names = c('Treino', 'Teste')) |> 
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+```{r}
+autoplot(fit3_f$x) + autolayer(fit3_f$fitted) + autolayer(fit3_f)
+```
+
+
+## Modelo final
+
+Ao encontrar um modelo que atende a todos os nossos pressupostos, encerramos o processo iterativo do método de Box-Jenkins, podendo então especificar o modelo, ajustá-lo a série completa, e realizar previsões. Logo, com o passo 3, encontramos um $ARIMA(15,0,0)$, com $\phi_{4}, \dots, \phi_{14} = 0$, e média $\mu$ diferente de zero, de forma
+
+$$
+(1 - \phi_{1}B - \phi_{2}B^2 - \phi_{3}B^3 - \phi_{15}B^{15})Z_{t} = \mu + a_{t},
+$$
+
+onde as estimativas para os coeficientes e a média são
+
+- $\hat{\phi}_{1} \approx 0,5824\\$
+
+- $\hat{\phi}_{2} \approx -0,1647\\$
+
+- $\hat{\phi}_{3} \approx 0,1088\\$
+
+- $\hat{\phi}_{15} \approx 0,1805\\$
+
+- $\hat{\mu} \approx 81,2506$
+
+com $\hat{\sigma_a^2} \approx 43,07$.
+
+Com a especificação do modelo, fazemos o ajuste considerando toda a série.
+
+```{r, echo=TRUE}
+m = umidade |> Arima(order = c(15,0,0), fixed = c(rep(NA, 3), rep(0,11), rep(NA, 2))); m
+```
+
+Realizamos então uma previsão, de uma semana, por exemplo.
+
+```{r echo=TRUE}
+m_prev = forecast(m, h = 7)
+```
+
+```{r}
+prev = m_prev$mean
+ic_l80 = m_prev$lower[,1]; ic_u80 = m_prev$upper[,1]
+ic_l95 = m_prev$lower[,2]; ic_u95 = m_prev$upper[,2]
+um_prev = cbind(prev, ic_l80, ic_u80, ic_l95, ic_u95) |> xts(order.by = seq.Date(ymd(19980101), ymd(19980107), by = 'day'))
+
+um_prev |> as.data.frame() |> 
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+Temos então uma previsão que varia entre 81,8 e 76,5, indicando que, durante a primeira semana de 1998, a umidade relativa do ar foi decaindo, possivelmente indicando um tempo um pouco mais seco, porém ainda dentro do ideal (faixa entre 50% a 100%).
+
+```{r}
+um_prev$prev |> autoplot() + labs(x = 'Tempo', 
+                                  y = 'Umidade', 
+                                  title = 'Previsão da umidade relativa do ar', 
+                                  subtitle = '01-01-1998 a 07-01-1998',
+                                  caption = 'Previsão de queda indicando dias mais secos')
+```
+

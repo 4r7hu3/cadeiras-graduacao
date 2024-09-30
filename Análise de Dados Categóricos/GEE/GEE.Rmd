@@ -1,0 +1,347 @@
+---
+title: "Modelos Marginais para Respostas Agrupadas Correlacionadas"
+subtitle: "Análise de Dados Categorizados"
+author: 
+  - Antônio Arthur Silva de Lima 
+  - Romulo Barros de Freitas
+date: "19/09/2024"
+output: 
+  html_document:
+    highlight: pygments
+    theme: flatly
+    number_sections: no
+    code_folding: hide
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libs, include=FALSE, message=FALSE}
+library(tidyverse)
+library(geepack)
+library(kableExtra)
+library(hnp)
+library(broom)
+setwd("/home/arthur/Documentos/UFC/Análise de Dados Categóricos/GEE")
+```
+
+
+# Exemplo 1
+
+O arquivo **repiratório.txt**, disponível em <https://www.ime.usp.br/~giapaula/respiratorio.txt>, trata de dados relacionados a dois tratamentos aplicados em pacientes com problemas respiratórios. O exemplo é discutido em Myers, Montgomery e Vining (2002), e também está presente no livro do Professor Gilberto A. Paula. A tabela abaixo traz um vislubre dos dados.
+
+```{r load}
+resp = read.table('respiratorio.txt')
+colnames(resp) = c('paciente', 'tratamento', 'sexo', 'idade', 'nivel_base', 'condicao')
+resp$aux = rep(c(1,2,3,4), 56)
+resp = resp |> relocate(aux, .before = paciente) 
+
+resp |> head() |> 
+  kable(align = 'c', caption = '<center><strong>Seis primeiras observações do conjunto</strong></center>') |> 
+  kable_classic() |> 
+  kable_styling(bootstrap_options = c('hover', 'responsive'))
+```
+
+\lineskip
+
+Cada paciente foi observado em quatro momentos distintos, nos quais mediu-se a condição respiratória (boa ou ruim) em relação ao tipo de tratamento que receberam (droga ou placebo). Também foram observadas as variáveis de sexo, idade e nível base da condição para cada paciente. As informações foram codificadas da seguinte maneira:
+
+- **Tratamento**: 0 para droga ativa e 1 para placebo;
+- **Sexo**: 0 para feminino e 1 para masculino;
+- **Nível Base**: 0 para ausência e 1 para presença;
+- **Condição**: 0 para boa e 1 para ruim.
+
+A idade dos pacientes está medida em anos, e uma coluna auxiliar foi criada para indicar o momento da observação. Ao todo, **`r resp |> dplyr::select(paciente) |> n_distinct()`** pacientes foram analisados, dentre os quais **27** receberam o tratamento com a droga ativa, e **29** receberam o placebo.
+
+Em um primeiro momento, poderíamos analisar a incidência de problemas respiratórios ao longo de cada observação, considerando tanto o grupo que recebeu a droga ativa quanto o grupo placebo.
+
+```{r tabIncidencia}
+tabIncid = resp |> filter(condicao == 1) |> 
+  group_by(tratamento, aux) |> 
+  count() |> 
+  pivot_wider(values_from = n, names_from = aux)
+
+tabIncid = tabIncid |> ungroup() |> dplyr::select(-tratamento) |> as.data.frame()
+rownames(tabIncid) = c('Tratamento', 'Placebo')
+
+tabIncid |> kable(align = 'c', 
+                  caption = '<center><strong>Incidência de problemas respiratórios</strong></center>',
+                  col.names = c(str_c('Observação', ' ', 1:4)))|> 
+  kable_classic() |> 
+  kable_styling(bootstrap_options = c('hover', 'responsive'))
+```
+Vemos claramente que o grupo que recebeu a droga tende a diminuir o número de condições consideradas ruins, enquanto que para o grupo placebo o valor não muda significativamente. Também poderíamos, apenas para ilustrar, ver a situação oposta, isto é, a não incidência de problemas respiratórios ao longo das quatro observações, e também concluir que o índice melhorou apenas para o grupo com a droga ativa.
+
+```{r tabNaoIncidencia}
+tabNaoIncid = resp |> filter(condicao == 0) |> 
+  group_by(tratamento, aux) |> 
+  count() |> 
+  pivot_wider(values_from = n, names_from = aux)
+
+tabNaoIncid = tabNaoIncid |> ungroup() |> dplyr::select(-tratamento) |> as.data.frame()
+rownames(tabNaoIncid) = c('Tratamento', 'Placebo')
+
+tabNaoIncid |> kable(align = 'c', 
+                  caption = '<center><strong>Não incidência de problemas respiratórios</strong></center>',
+                  col.names = c(str_c('Observação', ' ', 1:4)))|> 
+  kable_classic() |> 
+  kable_styling(bootstrap_options = c('hover', 'responsive'))
+```
+
+Portanto, temos fortes evidências para supor que, de fato, o uso da droga reduz as chances de condições respiratórias ruins.
+
+## Modelagem
+
+Denotando por $Y_{ij}$ a condição (boa = 0; ruim = 1) do $i$-ésimo paciente na $j$-ésima observação, onde $i = 1,2,\dots,56$ e $j = 1,2,3,4$, temos uma variável resposta binária, seguindo distribuição Bernouli com média $\pi_{ij}$. Dessa forma, podemos utilizar como função $g(\mu_{ij})$ a função logit, e obter a parte sistemática de um modelo dada por
+
+$$
+\log \left\{\dfrac{\pi_{ij}}{1 - \pi_{ij}}\right\} = \beta_0 + \beta_1{Idade_i} + \beta_2{Tratamento_i} + \beta_3{Sexo_i} + \beta_4{Base_i}
+$$
+Para a matriz de correlação que entra no modelo, poderíamos supor uma matriz trabalho assumindo a estrutura autoregressiva, pois apesar de não termos explicitamente observações no tempo, podemos tratá-las desta maneira, já que são sequenciais. Assim, utilizamos o seguinte código no R para realizar o ajuste:
+
+
+```{r fit-ar1, class.source = "fold-show"}
+fit1.resp = geeglm(condicao ~ idade + tratamento + sexo + nivel_base,
+                   id = paciente,
+                   family = binomial(link = 'logit'),
+                   data = resp,
+                   corstr = 'ar1')
+```
+
+Podemos então obter as estimativas realizando um `summary()` do modelo:
+
+```{r summary-ar1, class.source = "fold-show"}
+summary(fit1.resp)
+```
+
+É possível notar a baixa correlação entre as respostas de um mesmo indivíduo ($\hat{\alpha} \approx 0,23$), indicando que possivelmente um modelo ajustado com a estrutura de correlação independente, *i.e.* um modelo linear generalizado, também poderia ser usado. Pelas estimativas dos parâmetros, pode-se concluir que o resultado da condição respiratória independe da pré-existência de um nível base, mas depende da idade, do sexo e do tratamento que o paciente recebeu.
+
+Conforme esperado, há um aumento nas chances de condição respiratória ruim para pessoas mais velhas. A razão de chances entre o sexo feminino e masculino é estimada por $e^{2,03352}$ = `r exp(2.03352)`. Ou seja, as **mulheres têm `r exp(2.03352)` vezes** a chance dos homens de terem o problema. Já para o tipo de tratamento, temos que os pacientes tratados com placebo possuem $e^{1.01359}$ = **`r exp(1.01359)` vezes as chances dos pacientes que receberam a droga ativa** de terem a condição respiratória ruim. Para tais conclusões, devemos considerar que as demais variáveis sejam fixas.
+
+Podemos ter uma noção da qualidade do ajuste através do gráfico dos resíduos de Pearson contra os pacientes, como mostra a figura abaixo:
+
+```{r pacientes-resid, echo=FALSE, include=FALSE}
+fit1.resids = resid(fit1.resp, 'pearson')
+which(fit1.resids <=-2)
+resp$paciente[which(fit1.resids <=-2)]
+```
+
+
+```{r resid-fti1}
+plot(fit1.resp$id, resid(fit1.resp, 'pearson'), xlab='Pacientes', ylab='Resíduo de Pearson')
+text(x = 17.5, y = -2.6, label = '(18,-2.97)')
+text(x = 27.5, y = -2.6, label = '(28,-3.02)')
+```
+
+Com exceção de dois resíduos, referentes aos pacientes #18 e #28, todos os demais caem dentro do intervalo [-2,2], indicando um bom ajuste do modelo com estrutura de correlação AR(1). Podemos também verificar o gráfico da distância de Cook contra os pacientes, e ver que os mesmos pacientes também ficam mais distantes da nuvem de pontos, confirmando que ambos são pontos de influência. Apesar disso, ao remover os dois pontos do modelo, não se nota diferenças significativas nas estimativas. Além dos dois pontos, também nota-se um valor levemente maior para o paciente #53 no gráfico da distância de Cook, mas ainda permanecendo próximo à nuvem de pontos.
+
+
+```{r pacientes-cook, echo=FALSE, include=FALSE}
+X = model.matrix(fit1.resp)
+alavanca = diag(X %*% solve(t(X) %*% X) %*% t(X))
+cooks_d = (resid(fit1.resp, 'pearson')^2 * alavanca) / (1 - alavanca)^2
+resp$paciente[which(cooks_d >= 0.2)]
+```
+
+
+```{r cook-fit1}
+X = model.matrix(fit1.resp)
+alavanca = diag(X %*% solve(t(X) %*% X) %*% t(X))
+cooks_d = ((resid(fit1.resp, 'pearson')^2) * alavanca) / (1 - alavanca)^2
+plot(resp$paciente, cooks_d, xlab = 'Paciente', ylab='Distância de Cook')
+text(x = 17.5, y = 0.51, label='(18,0.555)', cex = 0.8)
+text(x = 29, y = 0.48, label='(28,0.520)', cex = 0.8)
+```
+
+Por fim, iremos plotar um gráfico de envelopes simulados, assumindo uma distribuição normal de probabilidades com os resíduos de Pearson e 100 valores simulados da distribuição. Utilizamos um nível de confiança padrão de 95%:
+
+```{r envsim-fit1}
+set.seed(0)
+hnp(fit1.resp, sim = 100, 
+    resid.type = 'pearson', 
+    halfnormal = F, 
+    print.on = T, 
+    paint.out = T, 
+    xlab = 'Percentil da N(0,1)',
+    ylab = 'Resíduo de Pearson')
+```
+
+A partir das simulações, vemos que há poucos ou nenhum afastamento (dependerá dos valores simulados) da suposição de distribuição marginal de Bernoulli com estrutura de correlação autoregressiva de ordem 1, indicando então um bom ajuste.
+
+Apenas para poder confirmar nossa hipótese anterior de que um modelo linear generalizado poderia ser ajustado, ou seja, considerando que haja independência entre as variáveis no *cluster*, fazemos o ajuste desse modelo de duas formas, e confirmamos que as estimativas não diferem tanto.
+
+
+Com a função `geeglm()`: 
+
+```{r fit2-ind, class.source = "fold-show"}
+fit2.resp = geeglm(condicao ~ idade + tratamento + sexo + nivel_base,
+                   id = paciente,
+                   family = binomial(link = 'logit'),
+                   data = resp,
+                   corstr = 'independence')
+```
+
+Com a função `glm()`:
+
+```{r fit3-ind, class.source = "fold-show"}
+fit3.resp = glm(condicao ~ idade + tratamento + sexo + nivel_base,
+                family = binomial(link = 'logit'),
+                data = resp)
+```
+
+```{r model-comparison}
+fit1_tidy = tidy(fit1.resp) 
+fit2_tidy = tidy(fit2.resp) 
+fit3_tidy = tidy(fit3.resp)
+
+bind_rows(fit1_tidy, fit2_tidy, fit3_tidy) |> 
+  kable(align = 'c', 
+        caption = '<center><strong>Comparativo de modelos</strong></center>', 
+        col.names = c('Modelo', 'Estimativa', 'Erro Padrão', 'Estatística', 'Valor-p')) |> 
+  pack_rows('geeglm_ar1', start_row = 1, end_row = 5) |> 
+  pack_rows('geeglm_ind.', start_row = 6, end_row = 10) |> 
+  pack_rows('glm', start_row = 11, end_row = 15) |> 
+  kable_classic() 
+
+```
+
+Uma proposta de critério para seleção de modelos ao se trabalhar com equações de estimação generalizadas é o **QIC**, proposto por Hardin e Hilbe (2003). Para o modelo com estrutura autoregressiva de correlação obtemos um QIC de `r QIC(fit1.resp)[1] |> round(2)`, enquanto que para o modelo linear generalizado temos um valor de `r QIC(fit2.resp)[1] |> round(2)`, evidenciando a semelhança entre os dois modelos.
+
+
+# Exemplo 2
+
+A *General Social Survey* (GSS) ou Pesquisa Social Geral, monitora desde 1972 as mudanças sociais e tem estudado a crescente complexidade da sociedade americana. Dados da pesquisa de 2018, acessados através do *GSS Data Explorer*, contêm respostas de 1467 pessoas para perguntas sobre o nível de confiança em várias instituições, como educação, medicina e comunidade científica, e agrupam as respostas em *Quase nenhuma*, *Alguma* e *Muita* confiança. Também estão presentes as variáveis de idade, sexo e um identificador de respostas classificadas como sendo *Muita* confiança na instituição avaliada. A variável *question* indica a referida instituição.
+
+```{r load2}
+gss = read.csv('gss.csv')
+
+gss |> head() |> 
+  kable(align = 'c', caption = '<center><strong>Seis primeiras observações do conjunto</strong></center>') |> 
+  kable_classic() |> 
+  kable_styling(bootstrap_options = c('hover', 'responsive'))
+```
+
+O objetivo do estudo é modelar a proporção de respostas de *Muita* confiança para as três instituições. Em um primeiro momento, podemos ver o quantitaivo agrupado para cada categoria, como mostra a tabela abaixo:
+
+```{r tabConfianca}
+tabConf = gss |> group_by(question, conf) |>
+  count() |>
+  pivot_wider(names_from = conf, values_from = n)
+
+tabConf |> kable(align = 'c', 
+                  caption = '<center><strong>Confiança em instituições americanas</strong></center>') |> 
+  kable_classic() |> 
+  kable_styling(bootstrap_options = c('hover', 'responsive')) |> 
+  add_header_above(c(" " = 1, 'Confidence' = 3))
+
+```
+
+Se em um primeiro momento ignoramos a correlação entre as variáveis, tratando-as como independentes, podemos calcular as razaões de chances estimadas de ter *Muita* confiança para cada instituição:
+
+- Odds Educação: $\quad \dfrac{370}{276 + 821} = 0.337$
+
+- Odds Medicina: $\quad \dfrac{525}{194 + 748} = 0.557$
+
+- Odds Ciência: $\quad \dfrac{665}{95 + 707} = 0.829$
+
+O erro padrão das diferenças no log da razão de odds para, por exemplo, Educação e Medicina, seria de 
+
+$$\sqrt{\dfrac{1}{370} + \dfrac{1}{(276 + 821)} + \dfrac{1}{525} + \dfrac{1}{(194 + 748)}} = 0,0811.$$
+E entre Educação e Ciência seria de 
+
+$$\sqrt{\dfrac{1}{370} + \dfrac{1}{(276 + 821)} + \dfrac{1}{665} + \dfrac{1}{(95 + 707)}} = 0.0798.$$
+Entretanto, esperamos que esses erros sejam ainda menores considerando que as variáveis estejam correlacionadas positivamente e que tal correlação seja levada em consideração.
+
+## Modelagem
+
+Como o foco do trabalho é analisar a proporção de respostas de *Muita* confiança para as três instituições, temos então uma variável binária repetida 1467 vezes, isto é, para cada sujeito entrevistado. Assim, um modelo para as respostas agrupadas, considerando apenas as instituições como variáveis explicativas seria:
+
+$$\log \left(\dfrac{\pi_{ij}}{1-\pi_{ij}}\right) = \beta_{0} + Med_{ij}\beta_{1} + Cie_{ij}\beta_{2},$$
+
+onde $\pi_{ij}$ é a probabilidade de sucesso (*Muita* confiança) para o $i$-ésimo sujeito e $j$-ésima pergunta (instituição). $\beta_{1}$, nesse caso, é interpretado como o log da razão de chances de um sujeito responder que tem *Muita* confiança na Medicina em relação à Educação (base). Assumindo que haja independência entre as respostas, podemos ajustar um modelo da seguinte maneira:
+
+
+```{r fitInd, class.source = "fold-show"}
+
+fit.ind = geeglm(greatly ~ question, 
+                 data = gss, 
+                 id = id, 
+                 family = binomial(link = 'logit'), 
+                 corstr = 'independence', scale.fix = T)
+```
+
+O parâmetro `scale.fix = T` evita que o R introduza um parâmetro de superdispersão ao modelo. O sumário é apresentado logo abaixo.
+
+```{r summaryFitInd, class.source = "fold-show"}
+summary(fit.ind)
+```
+As estimativas dos parâmetros, assim como no exemplo anterior, serão as mesmas para o caso de uso da função `glm()`, porém, com os erros estimados de forma diferente, já que na abordagem *GEE* utiliza-se o estimador sanduíche, ou estimador robusto. O resumo da função `anova()` abaixo confirma que o nível de confiança varia significativamente em cada instituição, estando a maior proporção de respostas com *Muita* confiança atribuídas à comunidade científica americana. 
+
+```{r anovaFitInd}
+anova(fit.ind)
+```
+
+Outras opções para a estrutura de correlação de trabalho podem produzir resultados ligeiramente diferentes, mas, em geral, os resultados não são muito sensíveis à estrutura de correlação de trabalho especificada porque as correlações empíricas entre as respostas dos dados são dominantes nos cálculos do GEE. Com isso em mente, um bom compromisso entre ajuste do modelo e parcimônia de parâmetros é a estrutura permutável, que permite um único parâmetro de correlação para todas as respostas em pares em um sujeito. Os resultados abaixo são para a estrutura permutável; estes são particularmente semelhantes aos da estrutura de correlação independente neste exemplo porque a correlação estimada nos dados é pequena.
+
+```{r fitExch, class.source = "fold-show"}
+fit.exch = geeglm(greatly ~ question, 
+                  data = gss, 
+                  id = id, 
+                  family = binomial, 
+                  corstr = "exchangeable", 
+                  scale.fix = T)
+```
+
+```{r summaryFitExch, class.source = "fold-show"}
+summary(fit.exch)
+```
+
+Com a idade (centralizada em torno de sua média), o modelo pode ser estendido para
+
+$$\log \left(\dfrac{\pi_{ij}}{1-\pi_{ij}}\right) = \beta_{0} + Med_{ij}\beta_{1} + Cie_{ij}\beta_{2} + C.age_{i}\beta_{3}.$$
+
+Adicionar mais preditores, incluindo interações, não altera a abordagem GEE para estimativa, mas as interpretações dos parâmetros são ajustadas para outros efeitos. Por exemplo, $\beta_{0}$ agora representa o log odds de ter *Muito* de confiança na Educação (base)
+para um sujeito com a idade média destes dados de pesquisa, que acontece ser 48,1 anos. $\beta_{3}$ é a mudança no log odds de ter *Muito* de confiança na Educação para cada aumento de 1 ano na idade do sujeito. Além disso, esse efeito é comum para as outras instituições também, a menos que a interação seja levada em consideração. O ajuste no R é realizado da seguinte maneira:
+
+
+```{r fitAge, class.source = "fold-show"}
+gss$c.age = gss$age - mean(gss$age)
+
+fit.age = geeglm(greatly ~ question + c.age, 
+                 data = gss, 
+                 id = id, 
+                 family = binomial, 
+                 corstr = 'exchangeable', 
+                 scale.fix=T)
+```
+
+```{r summaryFitAge}
+summary(fit.age)
+```
+
+Assim, além da instituição em questão, vemos que a confiança de uma pessoa também está relacionada com a idade. Para cada ano adicional de idade, as chances estimadas de ter *Muito* de confiança no sistema educacional (ou em qualquer outro) são multiplicadas por $e^{-0.00504} = 0,995$. Desta forma, para pessoas mais velhas, a proporção de sucessos tende a ser menor, mas esse efeito é muito pequeno em termos práticos.
+A significância estatística provavelmente se deve ao grande tamanho da amostra. Um comparativo final dos modelos para o exemplo é mostrado na tabela a seguir.
+
+
+```{r tabComparativa2}
+fit1_2_tidy = tidy(fit.ind) 
+fit2_2_tidy = tidy(fit.exch) 
+fit3_2_tidy = tidy(fit.age)
+
+bind_rows(fit1_2_tidy, fit2_2_tidy, fit3_2_tidy) |> 
+  kable(align = 'c', 
+        caption = '<center><strong>Comparativo de modelos</strong></center>', 
+        col.names = c('Modelo', 'Estimativa', 'Erro Padrão', 'Estatística', 'Valor-p')) |> 
+  pack_rows('geeglm_ind.', start_row = 1, end_row = 3) |> 
+  pack_rows('geeglm_exch.', start_row = 4, end_row = 6) |> 
+  pack_rows('geeglm.age', start_row = 7, end_row = 10) |> 
+  kable_classic() 
+```
+
+
+

@@ -1,0 +1,4402 @@
+id,age,sex,question,conf,greatly
+3,42,Male,coneduc,Only some,0
+3,42,Male,conmedic,A great deal,1
+3,42,Male,consci,A great deal,1
+4,63,Female,coneduc,Hardly any,0
+4,63,Female,conmedic,Hardly any,0
+4,63,Female,consci,A great deal,1
+5,71,Male,coneduc,Only some,0
+5,71,Male,conmedic,A great deal,1
+5,71,Male,consci,A great deal,1
+7,59,Female,coneduc,A great deal,1
+7,59,Female,conmedic,A great deal,1
+7,59,Female,consci,Only some,0
+8,43,Male,coneduc,Hardly any,0
+8,43,Male,conmedic,Only some,0
+8,43,Male,consci,A great deal,1
+9,62,Female,coneduc,Hardly any,0
+9,62,Female,conmedic,Only some,0
+9,62,Female,consci,Only some,0
+10,55,Male,coneduc,Only some,0
+10,55,Male,conmedic,Only some,0
+10,55,Male,consci,A great deal,1
+12,34,Female,coneduc,Only some,0
+12,34,Female,conmedic,Only some,0
+12,34,Female,consci,Only some,0
+14,44,Male,coneduc,Only some,0
+14,44,Male,conmedic,A great deal,1
+14,44,Male,consci,A great deal,1
+15,41,Female,coneduc,A great deal,1
+15,41,Female,conmedic,Only some,0
+15,41,Female,consci,Hardly any,0
+17,55,Female,coneduc,Only some,0
+17,55,Female,conmedic,Only some,0
+17,55,Female,consci,Only some,0
+19,40,Female,coneduc,A great deal,1
+19,40,Female,conmedic,Only some,0
+19,40,Female,consci,A great deal,1
+20,30,Male,coneduc,Only some,0
+20,30,Male,conmedic,A great deal,1
+20,30,Male,consci,Only some,0
+23,40,Female,coneduc,Only some,0
+23,40,Female,conmedic,Only some,0
+23,40,Female,consci,Only some,0
+26,82,Male,coneduc,A great deal,1
+26,82,Male,conmedic,A great deal,1
+26,82,Male,consci,A great deal,1
+28,42,Female,coneduc,Only some,0
+28,42,Female,conmedic,Only some,0
+28,42,Female,consci,Hardly any,0
+29,40,Female,coneduc,A great deal,1
+29,40,Female,conmedic,Only some,0
+29,40,Female,consci,A great deal,1
+30,20,Male,coneduc,Only some,0
+30,20,Male,conmedic,A great deal,1
+30,20,Male,consci,A great deal,1
+31,74,Female,coneduc,Hardly any,0
+31,74,Female,conmedic,Hardly any,0
+31,74,Female,consci,Hardly any,0
+32,89,Male,coneduc,A great deal,1
+32,89,Male,conmedic,A great deal,1
+32,89,Male,consci,A great deal,1
+33,60,Female,coneduc,Only some,0
+33,60,Female,conmedic,A great deal,1
+33,60,Female,consci,A great deal,1
+35,55,Female,coneduc,A great deal,1
+35,55,Female,conmedic,A great deal,1
+35,55,Female,consci,A great deal,1
+36,65,Male,coneduc,Only some,0
+36,65,Male,conmedic,A great deal,1
+36,65,Male,consci,A great deal,1
+38,34,Male,coneduc,Only some,0
+38,34,Male,conmedic,A great deal,1
+38,34,Male,consci,Only some,0
+39,45,Male,coneduc,A great deal,1
+39,45,Male,conmedic,Only some,0
+39,45,Male,consci,A great deal,1
+41,65,Female,coneduc,Only some,0
+41,65,Female,conmedic,Only some,0
+41,65,Female,consci,Only some,0
+43,62,Female,coneduc,Only some,0
+43,62,Female,conmedic,Only some,0
+43,62,Female,consci,Only some,0
+44,60,Male,coneduc,Only some,0
+44,60,Male,conmedic,A great deal,1
+44,60,Male,consci,A great deal,1
+45,62,Female,coneduc,Only some,0
+45,62,Female,conmedic,Only some,0
+45,62,Female,consci,A great deal,1
+46,46,Female,coneduc,Only some,0
+46,46,Female,conmedic,Hardly any,0
+46,46,Female,consci,Only some,0
+47,40,Male,coneduc,A great deal,1
+47,40,Male,conmedic,A great deal,1
+47,40,Male,consci,A great deal,1
+48,53,Female,coneduc,Only some,0
+48,53,Female,conmedic,Only some,0
+48,53,Female,consci,A great deal,1
+49,75,Male,coneduc,A great deal,1
+49,75,Male,conmedic,Only some,0
+49,75,Male,consci,A great deal,1
+51,22,Male,coneduc,Only some,0
+51,22,Male,conmedic,Only some,0
+51,22,Male,consci,Only some,0
+53,59,Female,coneduc,Hardly any,0
+53,59,Female,conmedic,Only some,0
+53,59,Female,consci,A great deal,1
+54,33,Female,coneduc,A great deal,1
+54,33,Female,conmedic,Only some,0
+54,33,Female,consci,A great deal,1
+55,46,Male,coneduc,Only some,0
+55,46,Male,conmedic,Only some,0
+55,46,Male,consci,Only some,0
+56,55,Male,coneduc,Only some,0
+56,55,Male,conmedic,Only some,0
+56,55,Male,consci,A great deal,1
+57,43,Female,coneduc,Only some,0
+57,43,Female,conmedic,Only some,0
+57,43,Female,consci,A great deal,1
+59,23,Male,coneduc,A great deal,1
+59,23,Male,conmedic,A great deal,1
+59,23,Male,consci,A great deal,1
+60,28,Female,coneduc,Hardly any,0
+60,28,Female,conmedic,Hardly any,0
+60,28,Female,consci,A great deal,1
+62,42,Female,coneduc,Hardly any,0
+62,42,Female,conmedic,Hardly any,0
+62,42,Female,consci,A great deal,1
+65,53,Male,coneduc,Hardly any,0
+65,53,Male,conmedic,Only some,0
+65,53,Male,consci,Only some,0
+68,59,Female,coneduc,A great deal,1
+68,59,Female,conmedic,Only some,0
+68,59,Female,consci,Hardly any,0
+70,33,Female,coneduc,A great deal,1
+70,33,Female,conmedic,Hardly any,0
+70,33,Female,consci,Only some,0
+71,35,Male,coneduc,A great deal,1
+71,35,Male,conmedic,A great deal,1
+71,35,Male,consci,A great deal,1
+72,37,Male,coneduc,Only some,0
+72,37,Male,conmedic,Hardly any,0
+72,37,Male,consci,Only some,0
+74,42,Female,coneduc,Only some,0
+74,42,Female,conmedic,A great deal,1
+74,42,Female,consci,A great deal,1
+75,21,Male,coneduc,A great deal,1
+75,21,Male,conmedic,Only some,0
+75,21,Male,consci,A great deal,1
+77,37,Female,coneduc,Only some,0
+77,37,Female,conmedic,Only some,0
+77,37,Female,consci,Only some,0
+79,47,Female,coneduc,Only some,0
+79,47,Female,conmedic,Only some,0
+79,47,Female,consci,Only some,0
+83,37,Female,coneduc,Only some,0
+83,37,Female,conmedic,Hardly any,0
+83,37,Female,consci,Only some,0
+85,70,Male,coneduc,Only some,0
+85,70,Male,conmedic,Only some,0
+85,70,Male,consci,A great deal,1
+87,53,Female,coneduc,Only some,0
+87,53,Female,conmedic,Only some,0
+87,53,Female,consci,Only some,0
+88,46,Male,coneduc,Only some,0
+88,46,Male,conmedic,Only some,0
+88,46,Male,consci,A great deal,1
+89,55,Male,coneduc,A great deal,1
+89,55,Male,conmedic,A great deal,1
+89,55,Male,consci,A great deal,1
+90,28,Male,coneduc,Only some,0
+90,28,Male,conmedic,Only some,0
+90,28,Male,consci,A great deal,1
+91,42,Male,coneduc,Hardly any,0
+91,42,Male,conmedic,Only some,0
+91,42,Male,consci,Only some,0
+93,29,Male,coneduc,A great deal,1
+93,29,Male,conmedic,A great deal,1
+93,29,Male,consci,Only some,0
+94,62,Female,coneduc,Only some,0
+94,62,Female,conmedic,Only some,0
+94,62,Female,consci,Only some,0
+96,22,Male,coneduc,Only some,0
+96,22,Male,conmedic,Only some,0
+96,22,Male,consci,Only some,0
+97,69,Female,coneduc,Only some,0
+97,69,Female,conmedic,Only some,0
+97,69,Female,consci,Only some,0
+99,32,Female,coneduc,A great deal,1
+99,32,Female,conmedic,Only some,0
+99,32,Female,consci,A great deal,1
+103,50,Male,coneduc,A great deal,1
+103,50,Male,conmedic,A great deal,1
+103,50,Male,consci,A great deal,1
+104,78,Female,coneduc,Hardly any,0
+104,78,Female,conmedic,A great deal,1
+104,78,Female,consci,Only some,0
+105,56,Male,coneduc,Hardly any,0
+105,56,Male,conmedic,Hardly any,0
+105,56,Male,consci,A great deal,1
+107,23,Male,coneduc,Only some,0
+107,23,Male,conmedic,A great deal,1
+107,23,Male,consci,A great deal,1
+108,67,Female,coneduc,Only some,0
+108,67,Female,conmedic,A great deal,1
+108,67,Female,consci,Only some,0
+109,54,Female,coneduc,A great deal,1
+109,54,Female,conmedic,A great deal,1
+109,54,Female,consci,A great deal,1
+110,62,Female,coneduc,Only some,0
+110,62,Female,conmedic,Only some,0
+110,62,Female,consci,Only some,0
+111,55,Female,coneduc,Only some,0
+111,55,Female,conmedic,A great deal,1
+111,55,Female,consci,A great deal,1
+112,56,Female,coneduc,A great deal,1
+112,56,Female,conmedic,Only some,0
+112,56,Female,consci,A great deal,1
+113,58,Male,coneduc,Only some,0
+113,58,Male,conmedic,A great deal,1
+113,58,Male,consci,A great deal,1
+115,70,Male,coneduc,Only some,0
+115,70,Male,conmedic,A great deal,1
+115,70,Male,consci,A great deal,1
+117,65,Male,coneduc,Only some,0
+117,65,Male,conmedic,Only some,0
+117,65,Male,consci,Only some,0
+118,42,Female,coneduc,Only some,0
+118,42,Female,conmedic,Only some,0
+118,42,Female,consci,A great deal,1
+119,48,Female,coneduc,Only some,0
+119,48,Female,conmedic,Only some,0
+119,48,Female,consci,Only some,0
+121,56,Female,coneduc,Only some,0
+121,56,Female,conmedic,Hardly any,0
+121,56,Female,consci,Only some,0
+123,76,Female,coneduc,Only some,0
+123,76,Female,conmedic,A great deal,1
+123,76,Female,consci,A great deal,1
+124,59,Female,coneduc,Only some,0
+124,59,Female,conmedic,A great deal,1
+124,59,Female,consci,A great deal,1
+126,48,Male,coneduc,Hardly any,0
+126,48,Male,conmedic,Only some,0
+126,48,Male,consci,A great deal,1
+128,39,Female,coneduc,Only some,0
+128,39,Female,conmedic,Hardly any,0
+128,39,Female,consci,A great deal,1
+130,39,Female,coneduc,Only some,0
+130,39,Female,conmedic,Only some,0
+130,39,Female,consci,A great deal,1
+131,52,Female,coneduc,Only some,0
+131,52,Female,conmedic,Only some,0
+131,52,Female,consci,Only some,0
+133,60,Male,coneduc,Only some,0
+133,60,Male,conmedic,A great deal,1
+133,60,Male,consci,A great deal,1
+134,69,Male,coneduc,Only some,0
+134,69,Male,conmedic,Only some,0
+134,69,Male,consci,Only some,0
+135,60,Male,coneduc,Hardly any,0
+135,60,Male,conmedic,Only some,0
+135,60,Male,consci,Only some,0
+136,22,Female,coneduc,A great deal,1
+136,22,Female,conmedic,A great deal,1
+136,22,Female,consci,Only some,0
+138,35,Female,coneduc,Hardly any,0
+138,35,Female,conmedic,A great deal,1
+138,35,Female,consci,A great deal,1
+139,38,Female,coneduc,Only some,0
+139,38,Female,conmedic,Only some,0
+139,38,Female,consci,A great deal,1
+141,55,Male,coneduc,Hardly any,0
+141,55,Male,conmedic,Hardly any,0
+141,55,Male,consci,Only some,0
+142,34,Male,coneduc,Hardly any,0
+142,34,Male,conmedic,A great deal,1
+142,34,Male,consci,A great deal,1
+144,18,Male,coneduc,Hardly any,0
+144,18,Male,conmedic,Hardly any,0
+144,18,Male,consci,Only some,0
+145,56,Male,coneduc,Only some,0
+145,56,Male,conmedic,A great deal,1
+145,56,Male,consci,A great deal,1
+147,34,Male,coneduc,Hardly any,0
+147,34,Male,conmedic,Hardly any,0
+147,34,Male,consci,Hardly any,0
+148,26,Female,coneduc,Hardly any,0
+148,26,Female,conmedic,Hardly any,0
+148,26,Female,consci,Only some,0
+150,59,Female,coneduc,A great deal,1
+150,59,Female,conmedic,Only some,0
+150,59,Female,consci,A great deal,1
+151,39,Female,coneduc,Only some,0
+151,39,Female,conmedic,A great deal,1
+151,39,Female,consci,A great deal,1
+152,77,Female,coneduc,A great deal,1
+152,77,Female,conmedic,Only some,0
+152,77,Female,consci,Only some,0
+153,35,Female,coneduc,A great deal,1
+153,35,Female,conmedic,A great deal,1
+153,35,Female,consci,Only some,0
+154,46,Female,coneduc,Only some,0
+154,46,Female,conmedic,A great deal,1
+154,46,Female,consci,A great deal,1
+155,57,Male,coneduc,Only some,0
+155,57,Male,conmedic,A great deal,1
+155,57,Male,consci,A great deal,1
+156,35,Female,coneduc,Only some,0
+156,35,Female,conmedic,Only some,0
+156,35,Female,consci,Only some,0
+159,48,Female,coneduc,Only some,0
+159,48,Female,conmedic,Only some,0
+159,48,Female,consci,Only some,0
+161,18,Female,coneduc,A great deal,1
+161,18,Female,conmedic,A great deal,1
+161,18,Female,consci,Only some,0
+162,18,Female,coneduc,A great deal,1
+162,18,Female,conmedic,Only some,0
+162,18,Female,consci,A great deal,1
+164,51,Female,coneduc,Only some,0
+164,51,Female,conmedic,Only some,0
+164,51,Female,consci,Only some,0
+166,71,Female,coneduc,Only some,0
+166,71,Female,conmedic,Only some,0
+166,71,Female,consci,A great deal,1
+167,43,Male,coneduc,A great deal,1
+167,43,Male,conmedic,Hardly any,0
+167,43,Male,consci,A great deal,1
+169,46,Male,coneduc,Only some,0
+169,46,Male,conmedic,A great deal,1
+169,46,Male,consci,A great deal,1
+171,19,Male,coneduc,Hardly any,0
+171,19,Male,conmedic,A great deal,1
+171,19,Male,consci,A great deal,1
+173,60,Female,coneduc,Hardly any,0
+173,60,Female,conmedic,Hardly any,0
+173,60,Female,consci,Only some,0
+174,63,Female,coneduc,Only some,0
+174,63,Female,conmedic,A great deal,1
+174,63,Female,consci,A great deal,1
+175,36,Male,coneduc,Only some,0
+175,36,Male,conmedic,A great deal,1
+175,36,Male,consci,Only some,0
+176,40,Female,coneduc,A great deal,1
+176,40,Female,conmedic,A great deal,1
+176,40,Female,consci,A great deal,1
+178,61,Male,coneduc,Hardly any,0
+178,61,Male,conmedic,Hardly any,0
+178,61,Male,consci,Only some,0
+179,27,Male,coneduc,Only some,0
+179,27,Male,conmedic,A great deal,1
+179,27,Male,consci,A great deal,1
+181,36,Female,coneduc,A great deal,1
+181,36,Female,conmedic,A great deal,1
+181,36,Female,consci,A great deal,1
+182,74,Female,coneduc,Only some,0
+182,74,Female,conmedic,A great deal,1
+182,74,Female,consci,A great deal,1
+184,34,Male,coneduc,Only some,0
+184,34,Male,conmedic,Only some,0
+184,34,Male,consci,A great deal,1
+186,21,Female,coneduc,Only some,0
+186,21,Female,conmedic,A great deal,1
+186,21,Female,consci,A great deal,1
+187,72,Female,coneduc,Only some,0
+187,72,Female,conmedic,Only some,0
+187,72,Female,consci,Only some,0
+189,21,Female,coneduc,Only some,0
+189,21,Female,conmedic,A great deal,1
+189,21,Female,consci,A great deal,1
+190,46,Male,coneduc,Only some,0
+190,46,Male,conmedic,Only some,0
+190,46,Male,consci,A great deal,1
+191,53,Male,coneduc,A great deal,1
+191,53,Male,conmedic,Only some,0
+191,53,Male,consci,A great deal,1
+192,74,Female,coneduc,Only some,0
+192,74,Female,conmedic,Only some,0
+192,74,Female,consci,A great deal,1
+195,57,Male,coneduc,Only some,0
+195,57,Male,conmedic,Hardly any,0
+195,57,Male,consci,A great deal,1
+197,53,Female,coneduc,Hardly any,0
+197,53,Female,conmedic,Hardly any,0
+197,53,Female,consci,Hardly any,0
+199,38,Female,coneduc,Only some,0
+199,38,Female,conmedic,Only some,0
+199,38,Female,consci,Only some,0
+203,68,Female,coneduc,Only some,0
+203,68,Female,conmedic,Only some,0
+203,68,Female,consci,A great deal,1
+205,43,Male,coneduc,A great deal,1
+205,43,Male,conmedic,A great deal,1
+205,43,Male,consci,A great deal,1
+206,69,Female,coneduc,Hardly any,0
+206,69,Female,conmedic,Hardly any,0
+206,69,Female,consci,Only some,0
+208,57,Male,coneduc,Hardly any,0
+208,57,Male,conmedic,Hardly any,0
+208,57,Male,consci,Only some,0
+209,50,Male,coneduc,Only some,0
+209,50,Male,conmedic,Only some,0
+209,50,Male,consci,A great deal,1
+210,25,Female,coneduc,A great deal,1
+210,25,Female,conmedic,A great deal,1
+210,25,Female,consci,A great deal,1
+211,75,Male,coneduc,Only some,0
+211,75,Male,conmedic,Only some,0
+211,75,Male,consci,A great deal,1
+212,46,Male,coneduc,Only some,0
+212,46,Male,conmedic,Only some,0
+212,46,Male,consci,Only some,0
+214,18,Female,coneduc,Only some,0
+214,18,Female,conmedic,A great deal,1
+214,18,Female,consci,A great deal,1
+215,62,Female,coneduc,Only some,0
+215,62,Female,conmedic,Only some,0
+215,62,Female,consci,Hardly any,0
+217,70,Female,coneduc,A great deal,1
+217,70,Female,conmedic,Only some,0
+217,70,Female,consci,Only some,0
+218,50,Male,coneduc,A great deal,1
+218,50,Male,conmedic,A great deal,1
+218,50,Male,consci,Only some,0
+220,33,Female,coneduc,A great deal,1
+220,33,Female,conmedic,Hardly any,0
+220,33,Female,consci,Only some,0
+221,34,Female,coneduc,Hardly any,0
+221,34,Female,conmedic,Only some,0
+221,34,Female,consci,Only some,0
+222,46,Female,coneduc,Hardly any,0
+222,46,Female,conmedic,Only some,0
+222,46,Female,consci,A great deal,1
+224,28,Male,coneduc,A great deal,1
+224,28,Male,conmedic,Only some,0
+224,28,Male,consci,Only some,0
+226,29,Female,coneduc,Hardly any,0
+226,29,Female,conmedic,A great deal,1
+226,29,Female,consci,A great deal,1
+228,28,Female,coneduc,Only some,0
+228,28,Female,conmedic,A great deal,1
+228,28,Female,consci,A great deal,1
+229,48,Female,coneduc,Hardly any,0
+229,48,Female,conmedic,Only some,0
+229,48,Female,consci,Only some,0
+230,24,Female,coneduc,Hardly any,0
+230,24,Female,conmedic,Only some,0
+230,24,Female,consci,Hardly any,0
+232,42,Female,coneduc,A great deal,1
+232,42,Female,conmedic,A great deal,1
+232,42,Female,consci,Only some,0
+233,44,Male,coneduc,Only some,0
+233,44,Male,conmedic,A great deal,1
+233,44,Male,consci,A great deal,1
+235,29,Male,coneduc,Only some,0
+235,29,Male,conmedic,Only some,0
+235,29,Male,consci,Only some,0
+236,48,Female,coneduc,Hardly any,0
+236,48,Female,conmedic,A great deal,1
+236,48,Female,consci,A great deal,1
+238,88,Female,coneduc,Only some,0
+238,88,Female,conmedic,Only some,0
+238,88,Female,consci,Only some,0
+239,65,Male,coneduc,Only some,0
+239,65,Male,conmedic,A great deal,1
+239,65,Male,consci,A great deal,1
+241,58,Female,coneduc,Only some,0
+241,58,Female,conmedic,Only some,0
+241,58,Female,consci,Only some,0
+242,26,Male,coneduc,Only some,0
+242,26,Male,conmedic,Hardly any,0
+242,26,Male,consci,Only some,0
+243,61,Female,coneduc,A great deal,1
+243,61,Female,conmedic,Only some,0
+243,61,Female,consci,Only some,0
+245,22,Female,coneduc,Only some,0
+245,22,Female,conmedic,A great deal,1
+245,22,Female,consci,Only some,0
+247,29,Male,coneduc,Only some,0
+247,29,Male,conmedic,Hardly any,0
+247,29,Male,consci,Only some,0
+248,70,Male,coneduc,A great deal,1
+248,70,Male,conmedic,Only some,0
+248,70,Male,consci,Only some,0
+249,34,Male,coneduc,Only some,0
+249,34,Male,conmedic,Only some,0
+249,34,Male,consci,A great deal,1
+251,84,Female,coneduc,Only some,0
+251,84,Female,conmedic,Only some,0
+251,84,Female,consci,Only some,0
+252,37,Male,coneduc,Hardly any,0
+252,37,Male,conmedic,Only some,0
+252,37,Male,consci,A great deal,1
+253,61,Female,coneduc,Only some,0
+253,61,Female,conmedic,A great deal,1
+253,61,Female,consci,Only some,0
+254,58,Female,coneduc,A great deal,1
+254,58,Female,conmedic,A great deal,1
+254,58,Female,consci,Only some,0
+257,36,Male,coneduc,Only some,0
+257,36,Male,conmedic,A great deal,1
+257,36,Male,consci,A great deal,1
+260,31,Male,coneduc,A great deal,1
+260,31,Male,conmedic,A great deal,1
+260,31,Male,consci,Hardly any,0
+262,26,Male,coneduc,Only some,0
+262,26,Male,conmedic,Only some,0
+262,26,Male,consci,A great deal,1
+263,45,Male,coneduc,Only some,0
+263,45,Male,conmedic,A great deal,1
+263,45,Male,consci,A great deal,1
+264,54,Female,coneduc,Hardly any,0
+264,54,Female,conmedic,Only some,0
+264,54,Female,consci,Only some,0
+266,19,Male,coneduc,Only some,0
+266,19,Male,conmedic,A great deal,1
+266,19,Male,consci,A great deal,1
+267,58,Male,coneduc,Only some,0
+267,58,Male,conmedic,Hardly any,0
+267,58,Male,consci,A great deal,1
+268,50,Female,coneduc,Only some,0
+268,50,Female,conmedic,Only some,0
+268,50,Female,consci,Only some,0
+269,36,Male,coneduc,Hardly any,0
+269,36,Male,conmedic,Only some,0
+269,36,Male,consci,Only some,0
+271,51,Male,coneduc,A great deal,1
+271,51,Male,conmedic,Hardly any,0
+271,51,Male,consci,A great deal,1
+273,29,Female,coneduc,Only some,0
+273,29,Female,conmedic,A great deal,1
+273,29,Female,consci,A great deal,1
+275,67,Female,coneduc,A great deal,1
+275,67,Female,conmedic,A great deal,1
+275,67,Female,consci,A great deal,1
+276,53,Male,coneduc,Only some,0
+276,53,Male,conmedic,Only some,0
+276,53,Male,consci,A great deal,1
+277,45,Male,coneduc,Only some,0
+277,45,Male,conmedic,A great deal,1
+277,45,Male,consci,A great deal,1
+278,36,Female,coneduc,Only some,0
+278,36,Female,conmedic,Only some,0
+278,36,Female,consci,A great deal,1
+279,60,Male,coneduc,Only some,0
+279,60,Male,conmedic,Hardly any,0
+279,60,Male,consci,A great deal,1
+280,63,Female,coneduc,Only some,0
+280,63,Female,conmedic,Only some,0
+280,63,Female,consci,Only some,0
+282,34,Male,coneduc,Only some,0
+282,34,Male,conmedic,Only some,0
+282,34,Male,consci,A great deal,1
+283,58,Male,coneduc,Hardly any,0
+283,58,Male,conmedic,Only some,0
+283,58,Male,consci,Only some,0
+285,71,Female,coneduc,A great deal,1
+285,71,Female,conmedic,A great deal,1
+285,71,Female,consci,A great deal,1
+286,67,Female,coneduc,Only some,0
+286,67,Female,conmedic,Only some,0
+286,67,Female,consci,Only some,0
+287,65,Female,coneduc,A great deal,1
+287,65,Female,conmedic,A great deal,1
+287,65,Female,consci,A great deal,1
+289,46,Female,coneduc,Only some,0
+289,46,Female,conmedic,Hardly any,0
+289,46,Female,consci,Only some,0
+291,59,Male,coneduc,Hardly any,0
+291,59,Male,conmedic,Only some,0
+291,59,Male,consci,Hardly any,0
+292,63,Female,coneduc,A great deal,1
+292,63,Female,conmedic,Only some,0
+292,63,Female,consci,A great deal,1
+293,38,Female,coneduc,Only some,0
+293,38,Female,conmedic,A great deal,1
+293,38,Female,consci,A great deal,1
+295,18,Female,coneduc,A great deal,1
+295,18,Female,conmedic,Only some,0
+295,18,Female,consci,A great deal,1
+297,18,Female,coneduc,Only some,0
+297,18,Female,conmedic,Only some,0
+297,18,Female,consci,Only some,0
+300,44,Female,coneduc,Only some,0
+300,44,Female,conmedic,A great deal,1
+300,44,Female,consci,Only some,0
+301,46,Female,coneduc,Only some,0
+301,46,Female,conmedic,A great deal,1
+301,46,Female,consci,A great deal,1
+302,56,Female,coneduc,A great deal,1
+302,56,Female,conmedic,A great deal,1
+302,56,Female,consci,A great deal,1
+304,52,Female,coneduc,Only some,0
+304,52,Female,conmedic,A great deal,1
+304,52,Female,consci,A great deal,1
+305,69,Male,coneduc,Only some,0
+305,69,Male,conmedic,Only some,0
+305,69,Male,consci,Only some,0
+307,25,Male,coneduc,Hardly any,0
+307,25,Male,conmedic,Only some,0
+307,25,Male,consci,Only some,0
+308,33,Male,coneduc,Hardly any,0
+308,33,Male,conmedic,Hardly any,0
+308,33,Male,consci,Hardly any,0
+309,45,Female,coneduc,A great deal,1
+309,45,Female,conmedic,Only some,0
+309,45,Female,consci,A great deal,1
+310,57,Male,coneduc,Only some,0
+310,57,Male,conmedic,A great deal,1
+310,57,Male,consci,A great deal,1
+313,58,Male,coneduc,A great deal,1
+313,58,Male,conmedic,A great deal,1
+313,58,Male,consci,A great deal,1
+314,42,Male,coneduc,Only some,0
+314,42,Male,conmedic,Only some,0
+314,42,Male,consci,A great deal,1
+316,25,Female,coneduc,Hardly any,0
+316,25,Female,conmedic,Hardly any,0
+316,25,Female,consci,Only some,0
+318,73,Female,coneduc,Only some,0
+318,73,Female,conmedic,Only some,0
+318,73,Female,consci,Hardly any,0
+319,34,Female,coneduc,Hardly any,0
+319,34,Female,conmedic,Only some,0
+319,34,Female,consci,A great deal,1
+321,78,Female,coneduc,Only some,0
+321,78,Female,conmedic,A great deal,1
+321,78,Female,consci,A great deal,1
+324,58,Female,coneduc,A great deal,1
+324,58,Female,conmedic,A great deal,1
+324,58,Female,consci,Hardly any,0
+325,73,Male,coneduc,Only some,0
+325,73,Male,conmedic,Only some,0
+325,73,Male,consci,Only some,0
+326,83,Female,coneduc,A great deal,1
+326,83,Female,conmedic,A great deal,1
+326,83,Female,consci,A great deal,1
+328,70,Female,coneduc,Only some,0
+328,70,Female,conmedic,Hardly any,0
+328,70,Female,consci,Hardly any,0
+329,31,Female,coneduc,Only some,0
+329,31,Female,conmedic,Only some,0
+329,31,Female,consci,Only some,0
+330,24,Female,coneduc,Only some,0
+330,24,Female,conmedic,A great deal,1
+330,24,Female,consci,Only some,0
+331,42,Male,coneduc,A great deal,1
+331,42,Male,conmedic,A great deal,1
+331,42,Male,consci,Only some,0
+332,34,Female,coneduc,A great deal,1
+332,34,Female,conmedic,A great deal,1
+332,34,Female,consci,A great deal,1
+333,70,Female,coneduc,Only some,0
+333,70,Female,conmedic,Hardly any,0
+333,70,Female,consci,Only some,0
+334,37,Female,coneduc,Only some,0
+334,37,Female,conmedic,Only some,0
+334,37,Female,consci,Only some,0
+337,26,Female,coneduc,Only some,0
+337,26,Female,conmedic,A great deal,1
+337,26,Female,consci,A great deal,1
+338,54,Male,coneduc,A great deal,1
+338,54,Male,conmedic,A great deal,1
+338,54,Male,consci,A great deal,1
+339,40,Female,coneduc,Only some,0
+339,40,Female,conmedic,A great deal,1
+339,40,Female,consci,Only some,0
+340,56,Female,coneduc,Only some,0
+340,56,Female,conmedic,A great deal,1
+340,56,Female,consci,A great deal,1
+341,60,Male,coneduc,Only some,0
+341,60,Male,conmedic,A great deal,1
+341,60,Male,consci,Only some,0
+343,35,Female,coneduc,A great deal,1
+343,35,Female,conmedic,A great deal,1
+343,35,Female,consci,A great deal,1
+344,55,Male,coneduc,Only some,0
+344,55,Male,conmedic,A great deal,1
+344,55,Male,consci,A great deal,1
+346,77,Female,coneduc,A great deal,1
+346,77,Female,conmedic,Only some,0
+346,77,Female,consci,Only some,0
+347,30,Female,coneduc,Only some,0
+347,30,Female,conmedic,A great deal,1
+347,30,Female,consci,A great deal,1
+350,37,Female,coneduc,Hardly any,0
+350,37,Female,conmedic,Only some,0
+350,37,Female,consci,Only some,0
+351,51,Female,coneduc,Only some,0
+351,51,Female,conmedic,Only some,0
+351,51,Female,consci,Only some,0
+353,60,Female,coneduc,Only some,0
+353,60,Female,conmedic,Only some,0
+353,60,Female,consci,A great deal,1
+356,36,Female,coneduc,Only some,0
+356,36,Female,conmedic,Only some,0
+356,36,Female,consci,A great deal,1
+357,34,Female,coneduc,Only some,0
+357,34,Female,conmedic,A great deal,1
+357,34,Female,consci,Only some,0
+358,39,Male,coneduc,Hardly any,0
+358,39,Male,conmedic,Only some,0
+358,39,Male,consci,A great deal,1
+360,70,Male,coneduc,A great deal,1
+360,70,Male,conmedic,Only some,0
+360,70,Male,consci,A great deal,1
+361,60,Male,coneduc,Only some,0
+361,60,Male,conmedic,Only some,0
+361,60,Male,consci,Only some,0
+363,32,Female,coneduc,Only some,0
+363,32,Female,conmedic,Only some,0
+363,32,Female,consci,Only some,0
+365,44,Male,coneduc,Hardly any,0
+365,44,Male,conmedic,Only some,0
+365,44,Male,consci,Only some,0
+366,67,Female,coneduc,A great deal,1
+366,67,Female,conmedic,A great deal,1
+366,67,Female,consci,A great deal,1
+368,27,Female,coneduc,Only some,0
+368,27,Female,conmedic,A great deal,1
+368,27,Female,consci,A great deal,1
+369,30,Female,coneduc,A great deal,1
+369,30,Female,conmedic,A great deal,1
+369,30,Female,consci,A great deal,1
+372,38,Male,coneduc,Only some,0
+372,38,Male,conmedic,Only some,0
+372,38,Male,consci,A great deal,1
+374,67,Female,coneduc,Only some,0
+374,67,Female,conmedic,Only some,0
+374,67,Female,consci,A great deal,1
+376,68,Female,coneduc,Only some,0
+376,68,Female,conmedic,Only some,0
+376,68,Female,consci,Only some,0
+377,18,Female,coneduc,Only some,0
+377,18,Female,conmedic,A great deal,1
+377,18,Female,consci,A great deal,1
+380,61,Female,coneduc,Only some,0
+380,61,Female,conmedic,A great deal,1
+380,61,Female,consci,A great deal,1
+381,72,Male,coneduc,Hardly any,0
+381,72,Male,conmedic,A great deal,1
+381,72,Male,consci,Only some,0
+384,48,Male,coneduc,Only some,0
+384,48,Male,conmedic,A great deal,1
+384,48,Male,consci,A great deal,1
+387,30,Female,coneduc,A great deal,1
+387,30,Female,conmedic,A great deal,1
+387,30,Female,consci,A great deal,1
+389,38,Male,coneduc,A great deal,1
+389,38,Male,conmedic,Only some,0
+389,38,Male,consci,Only some,0
+392,28,Male,coneduc,Only some,0
+392,28,Male,conmedic,Only some,0
+392,28,Male,consci,A great deal,1
+396,77,Female,coneduc,A great deal,1
+396,77,Female,conmedic,A great deal,1
+396,77,Female,consci,A great deal,1
+397,89,Male,coneduc,Only some,0
+397,89,Male,conmedic,Only some,0
+397,89,Male,consci,A great deal,1
+398,69,Male,coneduc,Only some,0
+398,69,Male,conmedic,Only some,0
+398,69,Male,consci,A great deal,1
+401,34,Male,coneduc,Only some,0
+401,34,Male,conmedic,Only some,0
+401,34,Male,consci,A great deal,1
+402,77,Female,coneduc,A great deal,1
+402,77,Female,conmedic,Only some,0
+402,77,Female,consci,Only some,0
+403,20,Female,coneduc,A great deal,1
+403,20,Female,conmedic,A great deal,1
+403,20,Female,consci,A great deal,1
+404,38,Female,coneduc,A great deal,1
+404,38,Female,conmedic,A great deal,1
+404,38,Female,consci,A great deal,1
+406,69,Male,coneduc,Only some,0
+406,69,Male,conmedic,Only some,0
+406,69,Male,consci,Only some,0
+408,43,Female,coneduc,A great deal,1
+408,43,Female,conmedic,A great deal,1
+408,43,Female,consci,A great deal,1
+409,64,Female,coneduc,Hardly any,0
+409,64,Female,conmedic,A great deal,1
+409,64,Female,consci,A great deal,1
+411,69,Female,coneduc,Only some,0
+411,69,Female,conmedic,A great deal,1
+411,69,Female,consci,Only some,0
+414,63,Female,coneduc,Only some,0
+414,63,Female,conmedic,A great deal,1
+414,63,Female,consci,Only some,0
+417,46,Male,coneduc,Only some,0
+417,46,Male,conmedic,Hardly any,0
+417,46,Male,consci,Only some,0
+418,41,Male,coneduc,Only some,0
+418,41,Male,conmedic,A great deal,1
+418,41,Male,consci,Only some,0
+421,65,Male,coneduc,Hardly any,0
+421,65,Male,conmedic,A great deal,1
+421,65,Male,consci,A great deal,1
+422,59,Female,coneduc,A great deal,1
+422,59,Female,conmedic,A great deal,1
+422,59,Female,consci,A great deal,1
+423,47,Male,coneduc,Only some,0
+423,47,Male,conmedic,Hardly any,0
+423,47,Male,consci,Only some,0
+424,27,Female,coneduc,Only some,0
+424,27,Female,conmedic,Only some,0
+424,27,Female,consci,Only some,0
+425,57,Female,coneduc,Only some,0
+425,57,Female,conmedic,Hardly any,0
+425,57,Female,consci,Only some,0
+426,74,Female,coneduc,Only some,0
+426,74,Female,conmedic,A great deal,1
+426,74,Female,consci,A great deal,1
+427,51,Female,coneduc,Only some,0
+427,51,Female,conmedic,A great deal,1
+427,51,Female,consci,Only some,0
+429,46,Female,coneduc,A great deal,1
+429,46,Female,conmedic,A great deal,1
+429,46,Female,consci,A great deal,1
+431,65,Female,coneduc,Only some,0
+431,65,Female,conmedic,Only some,0
+431,65,Female,consci,A great deal,1
+432,36,Male,coneduc,Hardly any,0
+432,36,Male,conmedic,Only some,0
+432,36,Male,consci,A great deal,1
+433,80,Female,coneduc,A great deal,1
+433,80,Female,conmedic,A great deal,1
+433,80,Female,consci,A great deal,1
+434,32,Female,coneduc,Only some,0
+434,32,Female,conmedic,Hardly any,0
+434,32,Female,consci,Hardly any,0
+438,59,Female,coneduc,Only some,0
+438,59,Female,conmedic,Only some,0
+438,59,Female,consci,Hardly any,0
+439,55,Female,coneduc,Hardly any,0
+439,55,Female,conmedic,A great deal,1
+439,55,Female,consci,A great deal,1
+440,31,Female,coneduc,A great deal,1
+440,31,Female,conmedic,Only some,0
+440,31,Female,consci,Only some,0
+441,31,Male,coneduc,A great deal,1
+441,31,Male,conmedic,A great deal,1
+441,31,Male,consci,Only some,0
+442,35,Female,coneduc,Hardly any,0
+442,35,Female,conmedic,Hardly any,0
+442,35,Female,consci,Only some,0
+443,32,Female,coneduc,Hardly any,0
+443,32,Female,conmedic,Only some,0
+443,32,Female,consci,A great deal,1
+446,22,Male,coneduc,A great deal,1
+446,22,Male,conmedic,A great deal,1
+446,22,Male,consci,A great deal,1
+447,37,Female,coneduc,A great deal,1
+447,37,Female,conmedic,Only some,0
+447,37,Female,consci,Only some,0
+450,55,Female,coneduc,Hardly any,0
+450,55,Female,conmedic,A great deal,1
+450,55,Female,consci,Only some,0
+452,29,Female,coneduc,Hardly any,0
+452,29,Female,conmedic,Only some,0
+452,29,Female,consci,Only some,0
+453,83,Female,coneduc,Hardly any,0
+453,83,Female,conmedic,Hardly any,0
+453,83,Female,consci,Hardly any,0
+454,33,Female,coneduc,A great deal,1
+454,33,Female,conmedic,A great deal,1
+454,33,Female,consci,A great deal,1
+457,65,Male,coneduc,Hardly any,0
+457,65,Male,conmedic,Only some,0
+457,65,Male,consci,A great deal,1
+458,37,Female,coneduc,A great deal,1
+458,37,Female,conmedic,A great deal,1
+458,37,Female,consci,A great deal,1
+460,22,Female,coneduc,A great deal,1
+460,22,Female,conmedic,A great deal,1
+460,22,Female,consci,A great deal,1
+461,28,Male,coneduc,Only some,0
+461,28,Male,conmedic,Only some,0
+461,28,Male,consci,A great deal,1
+462,24,Female,coneduc,Only some,0
+462,24,Female,conmedic,Hardly any,0
+462,24,Female,consci,Hardly any,0
+463,43,Male,coneduc,A great deal,1
+463,43,Male,conmedic,Only some,0
+463,43,Male,consci,A great deal,1
+464,32,Male,coneduc,Only some,0
+464,32,Male,conmedic,Only some,0
+464,32,Male,consci,A great deal,1
+467,48,Female,coneduc,Only some,0
+467,48,Female,conmedic,Hardly any,0
+467,48,Female,consci,Only some,0
+468,76,Male,coneduc,A great deal,1
+468,76,Male,conmedic,Only some,0
+468,76,Male,consci,Hardly any,0
+470,70,Female,coneduc,Only some,0
+470,70,Female,conmedic,Only some,0
+470,70,Female,consci,Only some,0
+472,37,Female,coneduc,Hardly any,0
+472,37,Female,conmedic,Only some,0
+472,37,Female,consci,A great deal,1
+474,43,Male,coneduc,Only some,0
+474,43,Male,conmedic,Hardly any,0
+474,43,Male,consci,Only some,0
+475,19,Female,coneduc,A great deal,1
+475,19,Female,conmedic,A great deal,1
+475,19,Female,consci,A great deal,1
+476,70,Male,coneduc,A great deal,1
+476,70,Male,conmedic,Only some,0
+476,70,Male,consci,A great deal,1
+477,40,Female,coneduc,A great deal,1
+477,40,Female,conmedic,A great deal,1
+477,40,Female,consci,A great deal,1
+478,59,Male,coneduc,Only some,0
+478,59,Male,conmedic,Only some,0
+478,59,Male,consci,A great deal,1
+480,31,Male,coneduc,Only some,0
+480,31,Male,conmedic,Only some,0
+480,31,Male,consci,Only some,0
+481,51,Female,coneduc,A great deal,1
+481,51,Female,conmedic,Only some,0
+481,51,Female,consci,A great deal,1
+482,32,Female,coneduc,Hardly any,0
+482,32,Female,conmedic,Hardly any,0
+482,32,Female,consci,Only some,0
+484,27,Male,coneduc,Only some,0
+484,27,Male,conmedic,Only some,0
+484,27,Male,consci,A great deal,1
+486,50,Female,coneduc,A great deal,1
+486,50,Female,conmedic,A great deal,1
+486,50,Female,consci,A great deal,1
+488,85,Female,coneduc,Only some,0
+488,85,Female,conmedic,Only some,0
+488,85,Female,consci,Only some,0
+489,33,Male,coneduc,Only some,0
+489,33,Male,conmedic,Only some,0
+489,33,Male,consci,Only some,0
+490,31,Female,coneduc,Only some,0
+490,31,Female,conmedic,Only some,0
+490,31,Female,consci,Only some,0
+491,46,Female,coneduc,Only some,0
+491,46,Female,conmedic,Only some,0
+491,46,Female,consci,A great deal,1
+492,72,Male,coneduc,A great deal,1
+492,72,Male,conmedic,A great deal,1
+492,72,Male,consci,A great deal,1
+493,50,Female,coneduc,Only some,0
+493,50,Female,conmedic,A great deal,1
+493,50,Female,consci,A great deal,1
+494,66,Male,coneduc,A great deal,1
+494,66,Male,conmedic,Only some,0
+494,66,Male,consci,Only some,0
+495,35,Female,coneduc,Only some,0
+495,35,Female,conmedic,A great deal,1
+495,35,Female,consci,Only some,0
+497,33,Female,coneduc,A great deal,1
+497,33,Female,conmedic,Hardly any,0
+497,33,Female,consci,A great deal,1
+498,66,Female,coneduc,A great deal,1
+498,66,Female,conmedic,Only some,0
+498,66,Female,consci,Only some,0
+499,53,Male,coneduc,Only some,0
+499,53,Male,conmedic,Hardly any,0
+499,53,Male,consci,Hardly any,0
+501,33,Male,coneduc,Hardly any,0
+501,33,Male,conmedic,Only some,0
+501,33,Male,consci,Only some,0
+503,30,Female,coneduc,Hardly any,0
+503,30,Female,conmedic,A great deal,1
+503,30,Female,consci,Only some,0
+504,37,Male,coneduc,A great deal,1
+504,37,Male,conmedic,Hardly any,0
+504,37,Male,consci,Only some,0
+505,38,Male,coneduc,Hardly any,0
+505,38,Male,conmedic,Only some,0
+505,38,Male,consci,A great deal,1
+507,66,Male,coneduc,Only some,0
+507,66,Male,conmedic,Only some,0
+507,66,Male,consci,A great deal,1
+509,39,Male,coneduc,Only some,0
+509,39,Male,conmedic,A great deal,1
+509,39,Male,consci,A great deal,1
+510,33,Female,coneduc,Only some,0
+510,33,Female,conmedic,Only some,0
+510,33,Female,consci,Only some,0
+511,68,Female,coneduc,Only some,0
+511,68,Female,conmedic,A great deal,1
+511,68,Female,consci,A great deal,1
+516,48,Female,coneduc,A great deal,1
+516,48,Female,conmedic,Only some,0
+516,48,Female,consci,Only some,0
+517,73,Male,coneduc,A great deal,1
+517,73,Male,conmedic,A great deal,1
+517,73,Male,consci,A great deal,1
+519,59,Female,coneduc,A great deal,1
+519,59,Female,conmedic,A great deal,1
+519,59,Female,consci,A great deal,1
+520,72,Male,coneduc,A great deal,1
+520,72,Male,conmedic,Only some,0
+520,72,Male,consci,Only some,0
+521,68,Male,coneduc,A great deal,1
+521,68,Male,conmedic,Only some,0
+521,68,Male,consci,A great deal,1
+522,60,Female,coneduc,Only some,0
+522,60,Female,conmedic,Only some,0
+522,60,Female,consci,Only some,0
+523,63,Male,coneduc,Only some,0
+523,63,Male,conmedic,Only some,0
+523,63,Male,consci,Only some,0
+525,35,Female,coneduc,Only some,0
+525,35,Female,conmedic,Hardly any,0
+525,35,Female,consci,Only some,0
+526,22,Female,coneduc,Only some,0
+526,22,Female,conmedic,A great deal,1
+526,22,Female,consci,Hardly any,0
+528,76,Female,coneduc,Only some,0
+528,76,Female,conmedic,Only some,0
+528,76,Female,consci,Only some,0
+530,56,Female,coneduc,Only some,0
+530,56,Female,conmedic,Only some,0
+530,56,Female,consci,Only some,0
+532,59,Male,coneduc,A great deal,1
+532,59,Male,conmedic,A great deal,1
+532,59,Male,consci,Hardly any,0
+533,55,Male,coneduc,Only some,0
+533,55,Male,conmedic,Only some,0
+533,55,Male,consci,Only some,0
+534,57,Male,coneduc,Only some,0
+534,57,Male,conmedic,A great deal,1
+534,57,Male,consci,A great deal,1
+536,33,Female,coneduc,Hardly any,0
+536,33,Female,conmedic,Only some,0
+536,33,Female,consci,Only some,0
+539,39,Female,coneduc,A great deal,1
+539,39,Female,conmedic,Only some,0
+539,39,Female,consci,Only some,0
+541,49,Female,coneduc,A great deal,1
+541,49,Female,conmedic,A great deal,1
+541,49,Female,consci,A great deal,1
+542,71,Male,coneduc,A great deal,1
+542,71,Male,conmedic,Only some,0
+542,71,Male,consci,A great deal,1
+544,52,Male,coneduc,Only some,0
+544,52,Male,conmedic,A great deal,1
+544,52,Male,consci,A great deal,1
+545,35,Female,coneduc,Only some,0
+545,35,Female,conmedic,Only some,0
+545,35,Female,consci,Only some,0
+546,54,Female,coneduc,Only some,0
+546,54,Female,conmedic,Only some,0
+546,54,Female,consci,Only some,0
+552,61,Male,coneduc,Hardly any,0
+552,61,Male,conmedic,Only some,0
+552,61,Male,consci,A great deal,1
+554,21,Female,coneduc,A great deal,1
+554,21,Female,conmedic,A great deal,1
+554,21,Female,consci,A great deal,1
+555,41,Female,coneduc,Only some,0
+555,41,Female,conmedic,A great deal,1
+555,41,Female,consci,A great deal,1
+557,71,Male,coneduc,Hardly any,0
+557,71,Male,conmedic,Only some,0
+557,71,Male,consci,Only some,0
+558,89,Male,coneduc,Only some,0
+558,89,Male,conmedic,A great deal,1
+558,89,Male,consci,Only some,0
+559,66,Male,coneduc,Only some,0
+559,66,Male,conmedic,Only some,0
+559,66,Male,consci,A great deal,1
+560,28,Male,coneduc,Only some,0
+560,28,Male,conmedic,A great deal,1
+560,28,Male,consci,A great deal,1
+561,85,Female,coneduc,Only some,0
+561,85,Female,conmedic,A great deal,1
+561,85,Female,consci,Only some,0
+562,70,Male,coneduc,A great deal,1
+562,70,Male,conmedic,A great deal,1
+562,70,Male,consci,A great deal,1
+565,28,Male,coneduc,Only some,0
+565,28,Male,conmedic,A great deal,1
+565,28,Male,consci,A great deal,1
+566,74,Female,coneduc,Only some,0
+566,74,Female,conmedic,Only some,0
+566,74,Female,consci,A great deal,1
+567,53,Female,coneduc,Only some,0
+567,53,Female,conmedic,A great deal,1
+567,53,Female,consci,A great deal,1
+569,67,Male,coneduc,Only some,0
+569,67,Male,conmedic,Only some,0
+569,67,Male,consci,Only some,0
+571,28,Female,coneduc,Hardly any,0
+571,28,Female,conmedic,Only some,0
+571,28,Female,consci,Only some,0
+572,23,Female,coneduc,Only some,0
+572,23,Female,conmedic,Only some,0
+572,23,Female,consci,Only some,0
+573,37,Male,coneduc,Only some,0
+573,37,Male,conmedic,A great deal,1
+573,37,Male,consci,A great deal,1
+574,27,Male,coneduc,A great deal,1
+574,27,Male,conmedic,A great deal,1
+574,27,Male,consci,A great deal,1
+575,32,Female,coneduc,Hardly any,0
+575,32,Female,conmedic,Hardly any,0
+575,32,Female,consci,Hardly any,0
+577,22,Female,coneduc,Only some,0
+577,22,Female,conmedic,Only some,0
+577,22,Female,consci,Only some,0
+578,38,Male,coneduc,Only some,0
+578,38,Male,conmedic,Only some,0
+578,38,Male,consci,A great deal,1
+579,45,Female,coneduc,A great deal,1
+579,45,Female,conmedic,Only some,0
+579,45,Female,consci,A great deal,1
+581,30,Female,coneduc,Hardly any,0
+581,30,Female,conmedic,Hardly any,0
+581,30,Female,consci,A great deal,1
+583,44,Female,coneduc,A great deal,1
+583,44,Female,conmedic,Only some,0
+583,44,Female,consci,Only some,0
+584,56,Male,coneduc,Only some,0
+584,56,Male,conmedic,A great deal,1
+584,56,Male,consci,Only some,0
+585,45,Female,coneduc,Only some,0
+585,45,Female,conmedic,Only some,0
+585,45,Female,consci,Only some,0
+586,27,Female,coneduc,A great deal,1
+586,27,Female,conmedic,A great deal,1
+586,27,Female,consci,Hardly any,0
+587,53,Male,coneduc,Only some,0
+587,53,Male,conmedic,Only some,0
+587,53,Male,consci,Only some,0
+588,66,Female,coneduc,A great deal,1
+588,66,Female,conmedic,A great deal,1
+588,66,Female,consci,Only some,0
+590,50,Female,coneduc,A great deal,1
+590,50,Female,conmedic,Only some,0
+590,50,Female,consci,Hardly any,0
+591,18,Female,coneduc,Only some,0
+591,18,Female,conmedic,Only some,0
+591,18,Female,consci,Only some,0
+592,51,Male,coneduc,Only some,0
+592,51,Male,conmedic,Only some,0
+592,51,Male,consci,A great deal,1
+593,63,Female,coneduc,Only some,0
+593,63,Female,conmedic,Only some,0
+593,63,Female,consci,Only some,0
+594,57,Female,coneduc,A great deal,1
+594,57,Female,conmedic,Only some,0
+594,57,Female,consci,Only some,0
+595,68,Male,coneduc,A great deal,1
+595,68,Male,conmedic,Only some,0
+595,68,Male,consci,Only some,0
+596,64,Male,coneduc,Only some,0
+596,64,Male,conmedic,Only some,0
+596,64,Male,consci,Only some,0
+598,58,Female,coneduc,Only some,0
+598,58,Female,conmedic,A great deal,1
+598,58,Female,consci,Only some,0
+599,53,Female,coneduc,Hardly any,0
+599,53,Female,conmedic,Only some,0
+599,53,Female,consci,Only some,0
+600,28,Male,coneduc,A great deal,1
+600,28,Male,conmedic,A great deal,1
+600,28,Male,consci,Only some,0
+602,53,Male,coneduc,Only some,0
+602,53,Male,conmedic,Only some,0
+602,53,Male,consci,Only some,0
+603,56,Male,coneduc,A great deal,1
+603,56,Male,conmedic,Only some,0
+603,56,Male,consci,Only some,0
+605,64,Female,coneduc,Hardly any,0
+605,64,Female,conmedic,A great deal,1
+605,64,Female,consci,A great deal,1
+607,64,Female,coneduc,Only some,0
+607,64,Female,conmedic,Only some,0
+607,64,Female,consci,Only some,0
+609,42,Female,coneduc,Only some,0
+609,42,Female,conmedic,Only some,0
+609,42,Female,consci,A great deal,1
+612,40,Female,coneduc,A great deal,1
+612,40,Female,conmedic,A great deal,1
+612,40,Female,consci,Hardly any,0
+614,24,Female,coneduc,A great deal,1
+614,24,Female,conmedic,A great deal,1
+614,24,Female,consci,Only some,0
+615,27,Female,coneduc,A great deal,1
+615,27,Female,conmedic,A great deal,1
+615,27,Female,consci,A great deal,1
+616,34,Female,coneduc,A great deal,1
+616,34,Female,conmedic,A great deal,1
+616,34,Female,consci,A great deal,1
+617,24,Female,coneduc,A great deal,1
+617,24,Female,conmedic,Only some,0
+617,24,Female,consci,Hardly any,0
+618,34,Female,coneduc,A great deal,1
+618,34,Female,conmedic,A great deal,1
+618,34,Female,consci,A great deal,1
+619,44,Female,coneduc,A great deal,1
+619,44,Female,conmedic,Only some,0
+619,44,Female,consci,A great deal,1
+620,80,Female,coneduc,Only some,0
+620,80,Female,conmedic,Only some,0
+620,80,Female,consci,Only some,0
+621,61,Female,coneduc,Hardly any,0
+621,61,Female,conmedic,Only some,0
+621,61,Female,consci,A great deal,1
+623,41,Female,coneduc,Only some,0
+623,41,Female,conmedic,Only some,0
+623,41,Female,consci,Only some,0
+626,49,Female,coneduc,Only some,0
+626,49,Female,conmedic,A great deal,1
+626,49,Female,consci,A great deal,1
+627,59,Female,coneduc,A great deal,1
+627,59,Female,conmedic,A great deal,1
+627,59,Female,consci,A great deal,1
+628,31,Female,coneduc,Hardly any,0
+628,31,Female,conmedic,Hardly any,0
+628,31,Female,consci,Only some,0
+632,29,Female,coneduc,A great deal,1
+632,29,Female,conmedic,Only some,0
+632,29,Female,consci,Only some,0
+633,39,Female,coneduc,A great deal,1
+633,39,Female,conmedic,A great deal,1
+633,39,Female,consci,A great deal,1
+634,27,Female,coneduc,Only some,0
+634,27,Female,conmedic,A great deal,1
+634,27,Female,consci,Only some,0
+636,48,Female,coneduc,A great deal,1
+636,48,Female,conmedic,Only some,0
+636,48,Female,consci,Only some,0
+637,28,Female,coneduc,A great deal,1
+637,28,Female,conmedic,A great deal,1
+637,28,Female,consci,A great deal,1
+639,42,Female,coneduc,Hardly any,0
+639,42,Female,conmedic,A great deal,1
+639,42,Female,consci,Only some,0
+640,38,Female,coneduc,Hardly any,0
+640,38,Female,conmedic,Hardly any,0
+640,38,Female,consci,Only some,0
+642,40,Male,coneduc,Hardly any,0
+642,40,Male,conmedic,Only some,0
+642,40,Male,consci,A great deal,1
+643,57,Male,coneduc,Hardly any,0
+643,57,Male,conmedic,A great deal,1
+643,57,Male,consci,Only some,0
+645,60,Female,coneduc,Hardly any,0
+645,60,Female,conmedic,Only some,0
+645,60,Female,consci,A great deal,1
+646,55,Female,coneduc,Only some,0
+646,55,Female,conmedic,A great deal,1
+646,55,Female,consci,Only some,0
+648,25,Male,coneduc,A great deal,1
+648,25,Male,conmedic,A great deal,1
+648,25,Male,consci,A great deal,1
+649,19,Female,coneduc,A great deal,1
+649,19,Female,conmedic,A great deal,1
+649,19,Female,consci,Only some,0
+651,60,Female,coneduc,Only some,0
+651,60,Female,conmedic,Only some,0
+651,60,Female,consci,Only some,0
+654,28,Male,coneduc,Hardly any,0
+654,28,Male,conmedic,Only some,0
+654,28,Male,consci,A great deal,1
+655,36,Female,coneduc,A great deal,1
+655,36,Female,conmedic,A great deal,1
+655,36,Female,consci,A great deal,1
+656,29,Female,coneduc,Only some,0
+656,29,Female,conmedic,Only some,0
+656,29,Female,consci,Only some,0
+657,40,Male,coneduc,Only some,0
+657,40,Male,conmedic,Only some,0
+657,40,Male,consci,Only some,0
+658,47,Male,coneduc,Hardly any,0
+658,47,Male,conmedic,A great deal,1
+658,47,Male,consci,Only some,0
+661,63,Male,coneduc,A great deal,1
+661,63,Male,conmedic,A great deal,1
+661,63,Male,consci,Only some,0
+663,47,Female,coneduc,Only some,0
+663,47,Female,conmedic,Only some,0
+663,47,Female,consci,Only some,0
+666,36,Female,coneduc,Hardly any,0
+666,36,Female,conmedic,Only some,0
+666,36,Female,consci,Only some,0
+667,34,Male,coneduc,Only some,0
+667,34,Male,conmedic,A great deal,1
+667,34,Male,consci,A great deal,1
+668,30,Female,coneduc,Only some,0
+668,30,Female,conmedic,Only some,0
+668,30,Female,consci,Only some,0
+669,71,Female,coneduc,Hardly any,0
+669,71,Female,conmedic,Hardly any,0
+669,71,Female,consci,Only some,0
+670,28,Female,coneduc,A great deal,1
+670,28,Female,conmedic,A great deal,1
+670,28,Female,consci,Only some,0
+671,65,Male,coneduc,Only some,0
+671,65,Male,conmedic,Only some,0
+671,65,Male,consci,A great deal,1
+672,49,Male,coneduc,Hardly any,0
+672,49,Male,conmedic,Hardly any,0
+672,49,Male,consci,Hardly any,0
+673,32,Male,coneduc,Only some,0
+673,32,Male,conmedic,Only some,0
+673,32,Male,consci,Only some,0
+676,22,Male,coneduc,Hardly any,0
+676,22,Male,conmedic,A great deal,1
+676,22,Male,consci,A great deal,1
+678,86,Male,coneduc,Only some,0
+678,86,Male,conmedic,Only some,0
+678,86,Male,consci,Only some,0
+679,59,Female,coneduc,Only some,0
+679,59,Female,conmedic,Only some,0
+679,59,Female,consci,Hardly any,0
+681,54,Male,coneduc,Hardly any,0
+681,54,Male,conmedic,Only some,0
+681,54,Male,consci,Hardly any,0
+682,71,Female,coneduc,A great deal,1
+682,71,Female,conmedic,A great deal,1
+682,71,Female,consci,Only some,0
+685,34,Male,coneduc,Only some,0
+685,34,Male,conmedic,A great deal,1
+685,34,Male,consci,A great deal,1
+686,52,Female,coneduc,A great deal,1
+686,52,Female,conmedic,A great deal,1
+686,52,Female,consci,Only some,0
+689,23,Male,coneduc,Only some,0
+689,23,Male,conmedic,Hardly any,0
+689,23,Male,consci,Only some,0
+691,34,Male,coneduc,Only some,0
+691,34,Male,conmedic,Hardly any,0
+691,34,Male,consci,Only some,0
+692,32,Female,coneduc,Hardly any,0
+692,32,Female,conmedic,Hardly any,0
+692,32,Female,consci,Only some,0
+695,46,Male,coneduc,Only some,0
+695,46,Male,conmedic,Only some,0
+695,46,Male,consci,A great deal,1
+697,79,Female,coneduc,A great deal,1
+697,79,Female,conmedic,A great deal,1
+697,79,Female,consci,A great deal,1
+699,40,Female,coneduc,Only some,0
+699,40,Female,conmedic,Only some,0
+699,40,Female,consci,Only some,0
+700,89,Female,coneduc,A great deal,1
+700,89,Female,conmedic,A great deal,1
+700,89,Female,consci,A great deal,1
+701,65,Male,coneduc,Only some,0
+701,65,Male,conmedic,A great deal,1
+701,65,Male,consci,Only some,0
+702,69,Female,coneduc,Only some,0
+702,69,Female,conmedic,Only some,0
+702,69,Female,consci,Only some,0
+703,73,Male,coneduc,Only some,0
+703,73,Male,conmedic,A great deal,1
+703,73,Male,consci,Hardly any,0
+705,46,Female,coneduc,A great deal,1
+705,46,Female,conmedic,Only some,0
+705,46,Female,consci,A great deal,1
+707,71,Male,coneduc,Only some,0
+707,71,Male,conmedic,Only some,0
+707,71,Male,consci,Hardly any,0
+709,68,Female,coneduc,Only some,0
+709,68,Female,conmedic,Only some,0
+709,68,Female,consci,A great deal,1
+712,26,Male,coneduc,Only some,0
+712,26,Male,conmedic,Only some,0
+712,26,Male,consci,A great deal,1
+714,70,Male,coneduc,A great deal,1
+714,70,Male,conmedic,Only some,0
+714,70,Male,consci,A great deal,1
+715,38,Female,coneduc,A great deal,1
+715,38,Female,conmedic,Only some,0
+715,38,Female,consci,Hardly any,0
+716,39,Male,coneduc,Only some,0
+716,39,Male,conmedic,A great deal,1
+716,39,Male,consci,A great deal,1
+717,19,Male,coneduc,A great deal,1
+717,19,Male,conmedic,Only some,0
+717,19,Male,consci,Only some,0
+718,45,Male,coneduc,Only some,0
+718,45,Male,conmedic,A great deal,1
+718,45,Male,consci,A great deal,1
+721,19,Female,coneduc,Hardly any,0
+721,19,Female,conmedic,Hardly any,0
+721,19,Female,consci,A great deal,1
+722,48,Female,coneduc,Hardly any,0
+722,48,Female,conmedic,Only some,0
+722,48,Female,consci,Only some,0
+723,38,Female,coneduc,Hardly any,0
+723,38,Female,conmedic,Only some,0
+723,38,Female,consci,Only some,0
+724,24,Male,coneduc,Only some,0
+724,24,Male,conmedic,Only some,0
+724,24,Male,consci,A great deal,1
+726,50,Male,coneduc,A great deal,1
+726,50,Male,conmedic,A great deal,1
+726,50,Male,consci,A great deal,1
+727,48,Male,coneduc,A great deal,1
+727,48,Male,conmedic,Hardly any,0
+727,48,Male,consci,Only some,0
+729,59,Male,coneduc,A great deal,1
+729,59,Male,conmedic,Only some,0
+729,59,Male,consci,Only some,0
+730,25,Male,coneduc,Only some,0
+730,25,Male,conmedic,Only some,0
+730,25,Male,consci,Only some,0
+732,40,Female,coneduc,A great deal,1
+732,40,Female,conmedic,Only some,0
+732,40,Female,consci,Only some,0
+733,73,Female,coneduc,Only some,0
+733,73,Female,conmedic,Hardly any,0
+733,73,Female,consci,A great deal,1
+736,43,Male,coneduc,Only some,0
+736,43,Male,conmedic,Only some,0
+736,43,Male,consci,Only some,0
+737,68,Female,coneduc,Only some,0
+737,68,Female,conmedic,A great deal,1
+737,68,Female,consci,Only some,0
+738,18,Male,coneduc,Only some,0
+738,18,Male,conmedic,A great deal,1
+738,18,Male,consci,A great deal,1
+739,54,Female,coneduc,Only some,0
+739,54,Female,conmedic,Only some,0
+739,54,Female,consci,A great deal,1
+741,28,Female,coneduc,Only some,0
+741,28,Female,conmedic,Only some,0
+741,28,Female,consci,A great deal,1
+742,46,Male,coneduc,Only some,0
+742,46,Male,conmedic,Only some,0
+742,46,Male,consci,Only some,0
+743,47,Male,coneduc,Only some,0
+743,47,Male,conmedic,A great deal,1
+743,47,Male,consci,Only some,0
+745,18,Male,coneduc,A great deal,1
+745,18,Male,conmedic,A great deal,1
+745,18,Male,consci,A great deal,1
+747,65,Female,coneduc,Hardly any,0
+747,65,Female,conmedic,Only some,0
+747,65,Female,consci,Hardly any,0
+748,25,Female,coneduc,A great deal,1
+748,25,Female,conmedic,A great deal,1
+748,25,Female,consci,Only some,0
+749,30,Male,coneduc,Only some,0
+749,30,Male,conmedic,Only some,0
+749,30,Male,consci,Only some,0
+751,68,Female,coneduc,Only some,0
+751,68,Female,conmedic,Only some,0
+751,68,Female,consci,Only some,0
+752,47,Male,coneduc,Only some,0
+752,47,Male,conmedic,A great deal,1
+752,47,Male,consci,A great deal,1
+753,61,Male,coneduc,A great deal,1
+753,61,Male,conmedic,Hardly any,0
+753,61,Male,consci,Only some,0
+754,23,Male,coneduc,Only some,0
+754,23,Male,conmedic,Only some,0
+754,23,Male,consci,Only some,0
+756,19,Male,coneduc,Hardly any,0
+756,19,Male,conmedic,Only some,0
+756,19,Male,consci,Only some,0
+758,34,Female,coneduc,A great deal,1
+758,34,Female,conmedic,Only some,0
+758,34,Female,consci,Only some,0
+761,64,Male,coneduc,A great deal,1
+761,64,Male,conmedic,Only some,0
+761,64,Male,consci,Only some,0
+763,42,Female,coneduc,Only some,0
+763,42,Female,conmedic,A great deal,1
+763,42,Female,consci,Only some,0
+764,44,Female,coneduc,Only some,0
+764,44,Female,conmedic,Hardly any,0
+764,44,Female,consci,Only some,0
+766,43,Male,coneduc,Only some,0
+766,43,Male,conmedic,Only some,0
+766,43,Male,consci,A great deal,1
+769,36,Male,coneduc,Hardly any,0
+769,36,Male,conmedic,Hardly any,0
+769,36,Male,consci,Only some,0
+770,30,Male,coneduc,Only some,0
+770,30,Male,conmedic,Only some,0
+770,30,Male,consci,A great deal,1
+771,58,Male,coneduc,Only some,0
+771,58,Male,conmedic,A great deal,1
+771,58,Male,consci,A great deal,1
+775,51,Female,coneduc,Hardly any,0
+775,51,Female,conmedic,Only some,0
+775,51,Female,consci,A great deal,1
+776,27,Female,coneduc,Only some,0
+776,27,Female,conmedic,A great deal,1
+776,27,Female,consci,A great deal,1
+778,28,Male,coneduc,Hardly any,0
+778,28,Male,conmedic,Only some,0
+778,28,Male,consci,Only some,0
+779,34,Male,coneduc,Only some,0
+779,34,Male,conmedic,Only some,0
+779,34,Male,consci,A great deal,1
+780,40,Female,coneduc,Only some,0
+780,40,Female,conmedic,A great deal,1
+780,40,Female,consci,A great deal,1
+781,35,Female,coneduc,Only some,0
+781,35,Female,conmedic,Only some,0
+781,35,Female,consci,Only some,0
+782,70,Male,coneduc,Only some,0
+782,70,Male,conmedic,Hardly any,0
+782,70,Male,consci,Only some,0
+785,56,Male,coneduc,A great deal,1
+785,56,Male,conmedic,Only some,0
+785,56,Male,consci,A great deal,1
+787,33,Female,coneduc,Only some,0
+787,33,Female,conmedic,Only some,0
+787,33,Female,consci,A great deal,1
+790,55,Male,coneduc,Only some,0
+790,55,Male,conmedic,A great deal,1
+790,55,Male,consci,A great deal,1
+792,74,Female,coneduc,A great deal,1
+792,74,Female,conmedic,Only some,0
+792,74,Female,consci,Only some,0
+794,24,Female,coneduc,A great deal,1
+794,24,Female,conmedic,A great deal,1
+794,24,Female,consci,A great deal,1
+795,62,Male,coneduc,Only some,0
+795,62,Male,conmedic,Hardly any,0
+795,62,Male,consci,A great deal,1
+796,74,Female,coneduc,Only some,0
+796,74,Female,conmedic,Only some,0
+796,74,Female,consci,A great deal,1
+797,24,Female,coneduc,Only some,0
+797,24,Female,conmedic,Only some,0
+797,24,Female,consci,Only some,0
+799,59,Female,coneduc,Hardly any,0
+799,59,Female,conmedic,Only some,0
+799,59,Female,consci,Only some,0
+802,19,Female,coneduc,Only some,0
+802,19,Female,conmedic,Only some,0
+802,19,Female,consci,Only some,0
+804,40,Male,coneduc,Only some,0
+804,40,Male,conmedic,Only some,0
+804,40,Male,consci,A great deal,1
+806,61,Male,coneduc,Only some,0
+806,61,Male,conmedic,Only some,0
+806,61,Male,consci,Only some,0
+808,39,Male,coneduc,Only some,0
+808,39,Male,conmedic,Only some,0
+808,39,Male,consci,Only some,0
+809,45,Female,coneduc,Only some,0
+809,45,Female,conmedic,Only some,0
+809,45,Female,consci,Only some,0
+810,60,Male,coneduc,Only some,0
+810,60,Male,conmedic,Only some,0
+810,60,Male,consci,Only some,0
+811,32,Male,coneduc,Only some,0
+811,32,Male,conmedic,A great deal,1
+811,32,Male,consci,A great deal,1
+812,39,Male,coneduc,Only some,0
+812,39,Male,conmedic,A great deal,1
+812,39,Male,consci,A great deal,1
+813,52,Female,coneduc,Only some,0
+813,52,Female,conmedic,Hardly any,0
+813,52,Female,consci,Only some,0
+814,44,Female,coneduc,Only some,0
+814,44,Female,conmedic,Hardly any,0
+814,44,Female,consci,Only some,0
+815,59,Female,coneduc,Only some,0
+815,59,Female,conmedic,Only some,0
+815,59,Female,consci,Only some,0
+816,46,Female,coneduc,Only some,0
+816,46,Female,conmedic,Only some,0
+816,46,Female,consci,A great deal,1
+818,26,Male,coneduc,A great deal,1
+818,26,Male,conmedic,A great deal,1
+818,26,Male,consci,A great deal,1
+819,31,Male,coneduc,Only some,0
+819,31,Male,conmedic,A great deal,1
+819,31,Male,consci,Only some,0
+820,19,Male,coneduc,A great deal,1
+820,19,Male,conmedic,Only some,0
+820,19,Male,consci,A great deal,1
+821,40,Female,coneduc,Only some,0
+821,40,Female,conmedic,Hardly any,0
+821,40,Female,consci,Only some,0
+822,64,Male,coneduc,Only some,0
+822,64,Male,conmedic,Only some,0
+822,64,Male,consci,A great deal,1
+823,25,Male,coneduc,Only some,0
+823,25,Male,conmedic,Hardly any,0
+823,25,Male,consci,A great deal,1
+824,56,Male,coneduc,Only some,0
+824,56,Male,conmedic,A great deal,1
+824,56,Male,consci,Only some,0
+825,41,Female,coneduc,Only some,0
+825,41,Female,conmedic,A great deal,1
+825,41,Female,consci,A great deal,1
+826,54,Female,coneduc,Only some,0
+826,54,Female,conmedic,Only some,0
+826,54,Female,consci,A great deal,1
+829,56,Female,coneduc,Only some,0
+829,56,Female,conmedic,Only some,0
+829,56,Female,consci,Only some,0
+831,50,Male,coneduc,Only some,0
+831,50,Male,conmedic,A great deal,1
+831,50,Male,consci,A great deal,1
+832,69,Male,coneduc,Only some,0
+832,69,Male,conmedic,Only some,0
+832,69,Male,consci,Only some,0
+833,49,Male,coneduc,Only some,0
+833,49,Male,conmedic,Only some,0
+833,49,Male,consci,Only some,0
+834,61,Male,coneduc,Only some,0
+834,61,Male,conmedic,Only some,0
+834,61,Male,consci,Only some,0
+835,38,Female,coneduc,Only some,0
+835,38,Female,conmedic,Hardly any,0
+835,38,Female,consci,Only some,0
+836,74,Male,coneduc,Only some,0
+836,74,Male,conmedic,Only some,0
+836,74,Male,consci,Only some,0
+837,40,Female,coneduc,Only some,0
+837,40,Female,conmedic,Only some,0
+837,40,Female,consci,Only some,0
+839,41,Male,coneduc,Only some,0
+839,41,Male,conmedic,A great deal,1
+839,41,Male,consci,A great deal,1
+840,78,Male,coneduc,Only some,0
+840,78,Male,conmedic,A great deal,1
+840,78,Male,consci,Only some,0
+842,50,Female,coneduc,Only some,0
+842,50,Female,conmedic,A great deal,1
+842,50,Female,consci,A great deal,1
+843,41,Female,coneduc,Only some,0
+843,41,Female,conmedic,Only some,0
+843,41,Female,consci,A great deal,1
+845,56,Male,coneduc,Only some,0
+845,56,Male,conmedic,A great deal,1
+845,56,Male,consci,A great deal,1
+847,25,Male,coneduc,Hardly any,0
+847,25,Male,conmedic,Only some,0
+847,25,Male,consci,Only some,0
+848,55,Female,coneduc,Only some,0
+848,55,Female,conmedic,Hardly any,0
+848,55,Female,consci,A great deal,1
+850,39,Female,coneduc,Only some,0
+850,39,Female,conmedic,Only some,0
+850,39,Female,consci,Only some,0
+851,42,Female,coneduc,Only some,0
+851,42,Female,conmedic,Only some,0
+851,42,Female,consci,A great deal,1
+852,25,Male,coneduc,Only some,0
+852,25,Male,conmedic,Only some,0
+852,25,Male,consci,Hardly any,0
+853,76,Female,coneduc,A great deal,1
+853,76,Female,conmedic,Only some,0
+853,76,Female,consci,Only some,0
+856,53,Female,coneduc,Only some,0
+856,53,Female,conmedic,A great deal,1
+856,53,Female,consci,A great deal,1
+858,62,Female,coneduc,Only some,0
+858,62,Female,conmedic,Only some,0
+858,62,Female,consci,Only some,0
+859,56,Female,coneduc,Only some,0
+859,56,Female,conmedic,Only some,0
+859,56,Female,consci,Only some,0
+860,70,Male,coneduc,Only some,0
+860,70,Male,conmedic,Only some,0
+860,70,Male,consci,A great deal,1
+861,35,Male,coneduc,Hardly any,0
+861,35,Male,conmedic,Hardly any,0
+861,35,Male,consci,A great deal,1
+863,32,Male,coneduc,A great deal,1
+863,32,Male,conmedic,Only some,0
+863,32,Male,consci,A great deal,1
+864,27,Female,coneduc,Hardly any,0
+864,27,Female,conmedic,A great deal,1
+864,27,Female,consci,Hardly any,0
+865,67,Male,coneduc,A great deal,1
+865,67,Male,conmedic,Only some,0
+865,67,Male,consci,A great deal,1
+867,31,Male,coneduc,Hardly any,0
+867,31,Male,conmedic,Hardly any,0
+867,31,Male,consci,Only some,0
+868,79,Female,coneduc,Only some,0
+868,79,Female,conmedic,A great deal,1
+868,79,Female,consci,Only some,0
+869,41,Female,coneduc,Hardly any,0
+869,41,Female,conmedic,Hardly any,0
+869,41,Female,consci,Hardly any,0
+871,42,Female,coneduc,Only some,0
+871,42,Female,conmedic,Hardly any,0
+871,42,Female,consci,Only some,0
+872,89,Female,coneduc,Only some,0
+872,89,Female,conmedic,Only some,0
+872,89,Female,consci,Only some,0
+875,77,Male,coneduc,Hardly any,0
+875,77,Male,conmedic,Only some,0
+875,77,Male,consci,Only some,0
+876,42,Female,coneduc,Hardly any,0
+876,42,Female,conmedic,A great deal,1
+876,42,Female,consci,A great deal,1
+878,64,Female,coneduc,Only some,0
+878,64,Female,conmedic,Only some,0
+878,64,Female,consci,Only some,0
+879,83,Female,coneduc,Hardly any,0
+879,83,Female,conmedic,Hardly any,0
+879,83,Female,consci,Only some,0
+881,31,Female,coneduc,A great deal,1
+881,31,Female,conmedic,A great deal,1
+881,31,Female,consci,A great deal,1
+882,42,Female,coneduc,Only some,0
+882,42,Female,conmedic,A great deal,1
+882,42,Female,consci,Only some,0
+884,47,Male,coneduc,Only some,0
+884,47,Male,conmedic,Only some,0
+884,47,Male,consci,Only some,0
+886,53,Female,coneduc,Only some,0
+886,53,Female,conmedic,Hardly any,0
+886,53,Female,consci,Only some,0
+887,57,Male,coneduc,A great deal,1
+887,57,Male,conmedic,A great deal,1
+887,57,Male,consci,A great deal,1
+889,83,Female,coneduc,Only some,0
+889,83,Female,conmedic,Only some,0
+889,83,Female,consci,A great deal,1
+890,68,Female,coneduc,A great deal,1
+890,68,Female,conmedic,A great deal,1
+890,68,Female,consci,Only some,0
+891,64,Male,coneduc,Only some,0
+891,64,Male,conmedic,Only some,0
+891,64,Male,consci,Only some,0
+893,70,Female,coneduc,A great deal,1
+893,70,Female,conmedic,Only some,0
+893,70,Female,consci,A great deal,1
+894,21,Male,coneduc,Only some,0
+894,21,Male,conmedic,Only some,0
+894,21,Male,consci,Only some,0
+895,29,Male,coneduc,Hardly any,0
+895,29,Male,conmedic,Hardly any,0
+895,29,Male,consci,Only some,0
+898,53,Female,coneduc,Only some,0
+898,53,Female,conmedic,Hardly any,0
+898,53,Female,consci,Only some,0
+899,68,Male,coneduc,Only some,0
+899,68,Male,conmedic,Only some,0
+899,68,Male,consci,Only some,0
+901,68,Female,coneduc,Only some,0
+901,68,Female,conmedic,Only some,0
+901,68,Female,consci,Hardly any,0
+902,39,Male,coneduc,Hardly any,0
+902,39,Male,conmedic,Only some,0
+902,39,Male,consci,A great deal,1
+903,57,Male,coneduc,Hardly any,0
+903,57,Male,conmedic,Only some,0
+903,57,Male,consci,Only some,0
+904,25,Male,coneduc,Hardly any,0
+904,25,Male,conmedic,Hardly any,0
+904,25,Male,consci,Hardly any,0
+906,25,Male,coneduc,Only some,0
+906,25,Male,conmedic,Only some,0
+906,25,Male,consci,Only some,0
+907,19,Female,coneduc,Only some,0
+907,19,Female,conmedic,A great deal,1
+907,19,Female,consci,A great deal,1
+910,69,Female,coneduc,Only some,0
+910,69,Female,conmedic,Hardly any,0
+910,69,Female,consci,Only some,0
+911,26,Female,coneduc,Only some,0
+911,26,Female,conmedic,A great deal,1
+911,26,Female,consci,A great deal,1
+913,27,Female,coneduc,Only some,0
+913,27,Female,conmedic,A great deal,1
+913,27,Female,consci,A great deal,1
+914,53,Male,coneduc,A great deal,1
+914,53,Male,conmedic,Only some,0
+914,53,Male,consci,Only some,0
+917,19,Female,coneduc,Hardly any,0
+917,19,Female,conmedic,Only some,0
+917,19,Female,consci,Only some,0
+918,56,Male,coneduc,Only some,0
+918,56,Male,conmedic,Only some,0
+918,56,Male,consci,Only some,0
+919,69,Male,coneduc,Only some,0
+919,69,Male,conmedic,Only some,0
+919,69,Male,consci,Only some,0
+920,66,Female,coneduc,Hardly any,0
+920,66,Female,conmedic,Only some,0
+920,66,Female,consci,A great deal,1
+921,69,Female,coneduc,Only some,0
+921,69,Female,conmedic,A great deal,1
+921,69,Female,consci,A great deal,1
+923,43,Female,coneduc,A great deal,1
+923,43,Female,conmedic,Only some,0
+923,43,Female,consci,Only some,0
+926,38,Male,coneduc,Only some,0
+926,38,Male,conmedic,A great deal,1
+926,38,Male,consci,Only some,0
+928,51,Male,coneduc,Only some,0
+928,51,Male,conmedic,Only some,0
+928,51,Male,consci,Only some,0
+929,59,Female,coneduc,Only some,0
+929,59,Female,conmedic,Only some,0
+929,59,Female,consci,Only some,0
+931,73,Male,coneduc,Only some,0
+931,73,Male,conmedic,A great deal,1
+931,73,Male,consci,A great deal,1
+932,67,Male,coneduc,Only some,0
+932,67,Male,conmedic,A great deal,1
+932,67,Male,consci,A great deal,1
+934,61,Female,coneduc,Only some,0
+934,61,Female,conmedic,A great deal,1
+934,61,Female,consci,Only some,0
+935,50,Female,coneduc,Only some,0
+935,50,Female,conmedic,Only some,0
+935,50,Female,consci,Only some,0
+936,67,Male,coneduc,Only some,0
+936,67,Male,conmedic,A great deal,1
+936,67,Male,consci,A great deal,1
+938,48,Female,coneduc,Hardly any,0
+938,48,Female,conmedic,Only some,0
+938,48,Female,consci,Hardly any,0
+940,58,Male,coneduc,Only some,0
+940,58,Male,conmedic,A great deal,1
+940,58,Male,consci,Only some,0
+941,54,Female,coneduc,Only some,0
+941,54,Female,conmedic,A great deal,1
+941,54,Female,consci,A great deal,1
+942,20,Male,coneduc,Hardly any,0
+942,20,Male,conmedic,Only some,0
+942,20,Male,consci,A great deal,1
+943,89,Female,coneduc,Only some,0
+943,89,Female,conmedic,A great deal,1
+943,89,Female,consci,A great deal,1
+945,59,Male,coneduc,A great deal,1
+945,59,Male,conmedic,A great deal,1
+945,59,Male,consci,A great deal,1
+946,47,Female,coneduc,Hardly any,0
+946,47,Female,conmedic,Only some,0
+946,47,Female,consci,A great deal,1
+949,65,Male,coneduc,Only some,0
+949,65,Male,conmedic,Only some,0
+949,65,Male,consci,Only some,0
+951,28,Female,coneduc,Only some,0
+951,28,Female,conmedic,Only some,0
+951,28,Female,consci,Only some,0
+953,45,Male,coneduc,A great deal,1
+953,45,Male,conmedic,A great deal,1
+953,45,Male,consci,A great deal,1
+954,40,Female,coneduc,Only some,0
+954,40,Female,conmedic,Only some,0
+954,40,Female,consci,Only some,0
+956,74,Male,coneduc,A great deal,1
+956,74,Male,conmedic,A great deal,1
+956,74,Male,consci,A great deal,1
+957,79,Female,coneduc,Only some,0
+957,79,Female,conmedic,Hardly any,0
+957,79,Female,consci,Only some,0
+959,61,Male,coneduc,Only some,0
+959,61,Male,conmedic,A great deal,1
+959,61,Male,consci,Only some,0
+960,49,Male,coneduc,A great deal,1
+960,49,Male,conmedic,A great deal,1
+960,49,Male,consci,A great deal,1
+962,25,Female,coneduc,Only some,0
+962,25,Female,conmedic,Only some,0
+962,25,Female,consci,Only some,0
+963,36,Male,coneduc,Hardly any,0
+963,36,Male,conmedic,Hardly any,0
+963,36,Male,consci,Only some,0
+964,75,Female,coneduc,Hardly any,0
+964,75,Female,conmedic,A great deal,1
+964,75,Female,consci,Only some,0
+965,22,Male,coneduc,Hardly any,0
+965,22,Male,conmedic,Only some,0
+965,22,Male,consci,Only some,0
+967,26,Female,coneduc,Only some,0
+967,26,Female,conmedic,A great deal,1
+967,26,Female,consci,Only some,0
+969,26,Female,coneduc,Only some,0
+969,26,Female,conmedic,Hardly any,0
+969,26,Female,consci,Hardly any,0
+971,32,Male,coneduc,Only some,0
+971,32,Male,conmedic,Hardly any,0
+971,32,Male,consci,Only some,0
+972,54,Female,coneduc,Only some,0
+972,54,Female,conmedic,A great deal,1
+972,54,Female,consci,Only some,0
+973,27,Male,coneduc,A great deal,1
+973,27,Male,conmedic,Only some,0
+973,27,Male,consci,A great deal,1
+974,27,Female,coneduc,Only some,0
+974,27,Female,conmedic,Only some,0
+974,27,Female,consci,Only some,0
+976,37,Female,coneduc,Only some,0
+976,37,Female,conmedic,Only some,0
+976,37,Female,consci,A great deal,1
+977,41,Male,coneduc,Hardly any,0
+977,41,Male,conmedic,Only some,0
+977,41,Male,consci,A great deal,1
+978,32,Female,coneduc,Only some,0
+978,32,Female,conmedic,Only some,0
+978,32,Female,consci,A great deal,1
+980,42,Male,coneduc,A great deal,1
+980,42,Male,conmedic,A great deal,1
+980,42,Male,consci,A great deal,1
+981,57,Male,coneduc,A great deal,1
+981,57,Male,conmedic,Only some,0
+981,57,Male,consci,A great deal,1
+983,41,Male,coneduc,Only some,0
+983,41,Male,conmedic,Only some,0
+983,41,Male,consci,Only some,0
+985,46,Male,coneduc,Only some,0
+985,46,Male,conmedic,Only some,0
+985,46,Male,consci,A great deal,1
+988,37,Female,coneduc,Only some,0
+988,37,Female,conmedic,Only some,0
+988,37,Female,consci,Only some,0
+989,60,Female,coneduc,A great deal,1
+989,60,Female,conmedic,Only some,0
+989,60,Female,consci,Hardly any,0
+990,57,Male,coneduc,Hardly any,0
+990,57,Male,conmedic,Only some,0
+990,57,Male,consci,Only some,0
+992,25,Male,coneduc,Only some,0
+992,25,Male,conmedic,Hardly any,0
+992,25,Male,consci,A great deal,1
+994,65,Male,coneduc,A great deal,1
+994,65,Male,conmedic,Only some,0
+994,65,Male,consci,A great deal,1
+996,34,Female,coneduc,A great deal,1
+996,34,Female,conmedic,Only some,0
+996,34,Female,consci,A great deal,1
+997,40,Female,coneduc,Only some,0
+997,40,Female,conmedic,Only some,0
+997,40,Female,consci,Only some,0
+998,26,Female,coneduc,Hardly any,0
+998,26,Female,conmedic,Only some,0
+998,26,Female,consci,Only some,0
+999,23,Female,coneduc,Only some,0
+999,23,Female,conmedic,Only some,0
+999,23,Female,consci,A great deal,1
+1001,28,Female,coneduc,Hardly any,0
+1001,28,Female,conmedic,Only some,0
+1001,28,Female,consci,Only some,0
+1002,56,Female,coneduc,Only some,0
+1002,56,Female,conmedic,Only some,0
+1002,56,Female,consci,Only some,0
+1003,84,Male,coneduc,Only some,0
+1003,84,Male,conmedic,A great deal,1
+1003,84,Male,consci,A great deal,1
+1004,42,Female,coneduc,Only some,0
+1004,42,Female,conmedic,A great deal,1
+1004,42,Female,consci,Hardly any,0
+1005,44,Male,coneduc,Hardly any,0
+1005,44,Male,conmedic,Only some,0
+1005,44,Male,consci,Only some,0
+1006,51,Male,coneduc,Hardly any,0
+1006,51,Male,conmedic,Only some,0
+1006,51,Male,consci,Only some,0
+1007,61,Male,coneduc,A great deal,1
+1007,61,Male,conmedic,A great deal,1
+1007,61,Male,consci,A great deal,1
+1008,37,Female,coneduc,Only some,0
+1008,37,Female,conmedic,Only some,0
+1008,37,Female,consci,A great deal,1
+1009,39,Male,coneduc,Only some,0
+1009,39,Male,conmedic,Only some,0
+1009,39,Male,consci,Only some,0
+1010,65,Male,coneduc,Hardly any,0
+1010,65,Male,conmedic,Only some,0
+1010,65,Male,consci,A great deal,1
+1012,26,Female,coneduc,A great deal,1
+1012,26,Female,conmedic,A great deal,1
+1012,26,Female,consci,Only some,0
+1013,55,Female,coneduc,Only some,0
+1013,55,Female,conmedic,Only some,0
+1013,55,Female,consci,Only some,0
+1015,50,Female,coneduc,Only some,0
+1015,50,Female,conmedic,A great deal,1
+1015,50,Female,consci,Only some,0
+1016,61,Male,coneduc,Only some,0
+1016,61,Male,conmedic,A great deal,1
+1016,61,Male,consci,A great deal,1
+1018,42,Female,coneduc,Hardly any,0
+1018,42,Female,conmedic,Hardly any,0
+1018,42,Female,consci,Hardly any,0
+1020,60,Female,coneduc,A great deal,1
+1020,60,Female,conmedic,Only some,0
+1020,60,Female,consci,A great deal,1
+1021,46,Female,coneduc,Hardly any,0
+1021,46,Female,conmedic,A great deal,1
+1021,46,Female,consci,A great deal,1
+1022,35,Female,coneduc,A great deal,1
+1022,35,Female,conmedic,A great deal,1
+1022,35,Female,consci,Only some,0
+1024,35,Female,coneduc,Only some,0
+1024,35,Female,conmedic,A great deal,1
+1024,35,Female,consci,A great deal,1
+1026,58,Male,coneduc,Only some,0
+1026,58,Male,conmedic,Only some,0
+1026,58,Male,consci,A great deal,1
+1028,86,Male,coneduc,Only some,0
+1028,86,Male,conmedic,Only some,0
+1028,86,Male,consci,A great deal,1
+1030,44,Female,coneduc,Hardly any,0
+1030,44,Female,conmedic,Hardly any,0
+1030,44,Female,consci,Only some,0
+1032,58,Female,coneduc,Only some,0
+1032,58,Female,conmedic,A great deal,1
+1032,58,Female,consci,A great deal,1
+1033,54,Male,coneduc,Hardly any,0
+1033,54,Male,conmedic,A great deal,1
+1033,54,Male,consci,A great deal,1
+1034,31,Female,coneduc,Only some,0
+1034,31,Female,conmedic,Only some,0
+1034,31,Female,consci,A great deal,1
+1036,39,Male,coneduc,Hardly any,0
+1036,39,Male,conmedic,A great deal,1
+1036,39,Male,consci,Only some,0
+1037,86,Female,coneduc,Only some,0
+1037,86,Female,conmedic,Only some,0
+1037,86,Female,consci,Only some,0
+1038,54,Male,coneduc,Only some,0
+1038,54,Male,conmedic,A great deal,1
+1038,54,Male,consci,A great deal,1
+1041,45,Male,coneduc,Only some,0
+1041,45,Male,conmedic,Only some,0
+1041,45,Male,consci,Only some,0
+1044,23,Male,coneduc,A great deal,1
+1044,23,Male,conmedic,A great deal,1
+1044,23,Male,consci,Only some,0
+1047,72,Female,coneduc,Only some,0
+1047,72,Female,conmedic,Only some,0
+1047,72,Female,consci,Hardly any,0
+1048,55,Female,coneduc,A great deal,1
+1048,55,Female,conmedic,A great deal,1
+1048,55,Female,consci,A great deal,1
+1049,69,Male,coneduc,A great deal,1
+1049,69,Male,conmedic,A great deal,1
+1049,69,Male,consci,A great deal,1
+1052,45,Female,coneduc,Only some,0
+1052,45,Female,conmedic,Only some,0
+1052,45,Female,consci,Only some,0
+1054,22,Male,coneduc,A great deal,1
+1054,22,Male,conmedic,A great deal,1
+1054,22,Male,consci,A great deal,1
+1055,66,Female,coneduc,Only some,0
+1055,66,Female,conmedic,Only some,0
+1055,66,Female,consci,A great deal,1
+1057,21,Male,coneduc,Hardly any,0
+1057,21,Male,conmedic,Only some,0
+1057,21,Male,consci,A great deal,1
+1058,65,Male,coneduc,Only some,0
+1058,65,Male,conmedic,A great deal,1
+1058,65,Male,consci,A great deal,1
+1060,50,Female,coneduc,Hardly any,0
+1060,50,Female,conmedic,Hardly any,0
+1060,50,Female,consci,A great deal,1
+1062,53,Male,coneduc,Only some,0
+1062,53,Male,conmedic,Only some,0
+1062,53,Male,consci,Only some,0
+1064,47,Female,coneduc,Hardly any,0
+1064,47,Female,conmedic,Hardly any,0
+1064,47,Female,consci,Only some,0
+1066,44,Female,coneduc,Only some,0
+1066,44,Female,conmedic,A great deal,1
+1066,44,Female,consci,A great deal,1
+1067,50,Male,coneduc,Hardly any,0
+1067,50,Male,conmedic,Hardly any,0
+1067,50,Male,consci,Hardly any,0
+1068,51,Male,coneduc,Only some,0
+1068,51,Male,conmedic,A great deal,1
+1068,51,Male,consci,A great deal,1
+1070,44,Female,coneduc,Hardly any,0
+1070,44,Female,conmedic,Hardly any,0
+1070,44,Female,consci,Only some,0
+1071,40,Male,coneduc,A great deal,1
+1071,40,Male,conmedic,Only some,0
+1071,40,Male,consci,Only some,0
+1072,56,Female,coneduc,A great deal,1
+1072,56,Female,conmedic,Only some,0
+1072,56,Female,consci,Only some,0
+1073,52,Female,coneduc,Only some,0
+1073,52,Female,conmedic,A great deal,1
+1073,52,Female,consci,Hardly any,0
+1075,37,Female,coneduc,Only some,0
+1075,37,Female,conmedic,Only some,0
+1075,37,Female,consci,Only some,0
+1076,50,Male,coneduc,Only some,0
+1076,50,Male,conmedic,A great deal,1
+1076,50,Male,consci,Only some,0
+1077,27,Female,coneduc,A great deal,1
+1077,27,Female,conmedic,Only some,0
+1077,27,Female,consci,Only some,0
+1079,41,Male,coneduc,A great deal,1
+1079,41,Male,conmedic,A great deal,1
+1079,41,Male,consci,A great deal,1
+1081,42,Male,coneduc,A great deal,1
+1081,42,Male,conmedic,A great deal,1
+1081,42,Male,consci,A great deal,1
+1083,31,Male,coneduc,Only some,0
+1083,31,Male,conmedic,Only some,0
+1083,31,Male,consci,Only some,0
+1084,33,Female,coneduc,Only some,0
+1084,33,Female,conmedic,Hardly any,0
+1084,33,Female,consci,Only some,0
+1085,69,Female,coneduc,Hardly any,0
+1085,69,Female,conmedic,Only some,0
+1085,69,Female,consci,A great deal,1
+1086,46,Female,coneduc,Hardly any,0
+1086,46,Female,conmedic,A great deal,1
+1086,46,Female,consci,Only some,0
+1088,22,Female,coneduc,Hardly any,0
+1088,22,Female,conmedic,A great deal,1
+1088,22,Female,consci,A great deal,1
+1089,53,Male,coneduc,Only some,0
+1089,53,Male,conmedic,Only some,0
+1089,53,Male,consci,A great deal,1
+1090,30,Male,coneduc,Hardly any,0
+1090,30,Male,conmedic,A great deal,1
+1090,30,Male,consci,A great deal,1
+1092,39,Male,coneduc,Only some,0
+1092,39,Male,conmedic,Only some,0
+1092,39,Male,consci,Only some,0
+1093,27,Male,coneduc,Only some,0
+1093,27,Male,conmedic,A great deal,1
+1093,27,Male,consci,A great deal,1
+1095,60,Female,coneduc,Only some,0
+1095,60,Female,conmedic,Only some,0
+1095,60,Female,consci,A great deal,1
+1096,47,Male,coneduc,Only some,0
+1096,47,Male,conmedic,Only some,0
+1096,47,Male,consci,Only some,0
+1097,33,Male,coneduc,Only some,0
+1097,33,Male,conmedic,A great deal,1
+1097,33,Male,consci,A great deal,1
+1100,27,Female,coneduc,A great deal,1
+1100,27,Female,conmedic,A great deal,1
+1100,27,Female,consci,A great deal,1
+1102,24,Female,coneduc,A great deal,1
+1102,24,Female,conmedic,Only some,0
+1102,24,Female,consci,A great deal,1
+1103,57,Male,coneduc,Only some,0
+1103,57,Male,conmedic,Hardly any,0
+1103,57,Male,consci,Only some,0
+1105,55,Male,coneduc,Only some,0
+1105,55,Male,conmedic,Only some,0
+1105,55,Male,consci,Only some,0
+1106,75,Female,coneduc,A great deal,1
+1106,75,Female,conmedic,Hardly any,0
+1106,75,Female,consci,Only some,0
+1108,70,Male,coneduc,Hardly any,0
+1108,70,Male,conmedic,Only some,0
+1108,70,Male,consci,Only some,0
+1110,28,Female,coneduc,Hardly any,0
+1110,28,Female,conmedic,Hardly any,0
+1110,28,Female,consci,Only some,0
+1112,48,Male,coneduc,Only some,0
+1112,48,Male,conmedic,A great deal,1
+1112,48,Male,consci,Only some,0
+1113,18,Female,coneduc,Only some,0
+1113,18,Female,conmedic,A great deal,1
+1113,18,Female,consci,Only some,0
+1114,27,Male,coneduc,Hardly any,0
+1114,27,Male,conmedic,A great deal,1
+1114,27,Male,consci,Only some,0
+1116,69,Female,coneduc,Hardly any,0
+1116,69,Female,conmedic,A great deal,1
+1116,69,Female,consci,Only some,0
+1121,59,Female,coneduc,Only some,0
+1121,59,Female,conmedic,Only some,0
+1121,59,Female,consci,Only some,0
+1126,29,Male,coneduc,Only some,0
+1126,29,Male,conmedic,A great deal,1
+1126,29,Male,consci,A great deal,1
+1127,21,Female,coneduc,A great deal,1
+1127,21,Female,conmedic,A great deal,1
+1127,21,Female,consci,A great deal,1
+1128,21,Female,coneduc,Hardly any,0
+1128,21,Female,conmedic,A great deal,1
+1128,21,Female,consci,Only some,0
+1129,25,Male,coneduc,Only some,0
+1129,25,Male,conmedic,Only some,0
+1129,25,Male,consci,A great deal,1
+1131,23,Male,coneduc,Only some,0
+1131,23,Male,conmedic,Hardly any,0
+1131,23,Male,consci,Only some,0
+1133,21,Male,coneduc,Hardly any,0
+1133,21,Male,conmedic,Only some,0
+1133,21,Male,consci,A great deal,1
+1134,55,Male,coneduc,Only some,0
+1134,55,Male,conmedic,Only some,0
+1134,55,Male,consci,Only some,0
+1135,63,Male,coneduc,A great deal,1
+1135,63,Male,conmedic,A great deal,1
+1135,63,Male,consci,A great deal,1
+1137,40,Male,coneduc,Only some,0
+1137,40,Male,conmedic,Only some,0
+1137,40,Male,consci,A great deal,1
+1139,64,Female,coneduc,Only some,0
+1139,64,Female,conmedic,Only some,0
+1139,64,Female,consci,Only some,0
+1141,84,Male,coneduc,A great deal,1
+1141,84,Male,conmedic,A great deal,1
+1141,84,Male,consci,A great deal,1
+1142,30,Female,coneduc,Only some,0
+1142,30,Female,conmedic,Hardly any,0
+1142,30,Female,consci,Only some,0
+1144,76,Male,coneduc,Only some,0
+1144,76,Male,conmedic,A great deal,1
+1144,76,Male,consci,A great deal,1
+1145,28,Male,coneduc,Only some,0
+1145,28,Male,conmedic,Hardly any,0
+1145,28,Male,consci,A great deal,1
+1146,23,Female,coneduc,Only some,0
+1146,23,Female,conmedic,A great deal,1
+1146,23,Female,consci,Only some,0
+1147,30,Female,coneduc,Hardly any,0
+1147,30,Female,conmedic,Only some,0
+1147,30,Female,consci,Only some,0
+1149,23,Male,coneduc,A great deal,1
+1149,23,Male,conmedic,A great deal,1
+1149,23,Male,consci,A great deal,1
+1150,85,Male,coneduc,Hardly any,0
+1150,85,Male,conmedic,Only some,0
+1150,85,Male,consci,Only some,0
+1152,86,Male,coneduc,Only some,0
+1152,86,Male,conmedic,Only some,0
+1152,86,Male,consci,Only some,0
+1153,82,Male,coneduc,Hardly any,0
+1153,82,Male,conmedic,Only some,0
+1153,82,Male,consci,A great deal,1
+1155,55,Male,coneduc,Hardly any,0
+1155,55,Male,conmedic,Hardly any,0
+1155,55,Male,consci,Only some,0
+1157,22,Male,coneduc,Only some,0
+1157,22,Male,conmedic,Only some,0
+1157,22,Male,consci,A great deal,1
+1158,28,Male,coneduc,Only some,0
+1158,28,Male,conmedic,A great deal,1
+1158,28,Male,consci,A great deal,1
+1160,64,Male,coneduc,A great deal,1
+1160,64,Male,conmedic,A great deal,1
+1160,64,Male,consci,Only some,0
+1162,73,Female,coneduc,Only some,0
+1162,73,Female,conmedic,Only some,0
+1162,73,Female,consci,Only some,0
+1163,68,Female,coneduc,Only some,0
+1163,68,Female,conmedic,Only some,0
+1163,68,Female,consci,A great deal,1
+1165,67,Male,coneduc,Only some,0
+1165,67,Male,conmedic,A great deal,1
+1165,67,Male,consci,Only some,0
+1166,81,Male,coneduc,A great deal,1
+1166,81,Male,conmedic,A great deal,1
+1166,81,Male,consci,A great deal,1
+1168,63,Male,coneduc,Only some,0
+1168,63,Male,conmedic,Only some,0
+1168,63,Male,consci,Only some,0
+1169,71,Female,coneduc,Only some,0
+1169,71,Female,conmedic,A great deal,1
+1169,71,Female,consci,Only some,0
+1174,33,Female,coneduc,Only some,0
+1174,33,Female,conmedic,A great deal,1
+1174,33,Female,consci,Only some,0
+1175,31,Male,coneduc,Only some,0
+1175,31,Male,conmedic,Only some,0
+1175,31,Male,consci,A great deal,1
+1177,35,Male,coneduc,Only some,0
+1177,35,Male,conmedic,Only some,0
+1177,35,Male,consci,A great deal,1
+1179,69,Male,coneduc,Only some,0
+1179,69,Male,conmedic,Only some,0
+1179,69,Male,consci,A great deal,1
+1180,59,Female,coneduc,Hardly any,0
+1180,59,Female,conmedic,Hardly any,0
+1180,59,Female,consci,Hardly any,0
+1181,35,Male,coneduc,Hardly any,0
+1181,35,Male,conmedic,Only some,0
+1181,35,Male,consci,Only some,0
+1183,51,Female,coneduc,Only some,0
+1183,51,Female,conmedic,Only some,0
+1183,51,Female,consci,A great deal,1
+1184,85,Male,coneduc,Hardly any,0
+1184,85,Male,conmedic,Only some,0
+1184,85,Male,consci,Only some,0
+1186,68,Female,coneduc,A great deal,1
+1186,68,Female,conmedic,A great deal,1
+1186,68,Female,consci,A great deal,1
+1187,70,Female,coneduc,Only some,0
+1187,70,Female,conmedic,A great deal,1
+1187,70,Female,consci,Only some,0
+1188,74,Male,coneduc,Only some,0
+1188,74,Male,conmedic,Only some,0
+1188,74,Male,consci,A great deal,1
+1189,68,Female,coneduc,Only some,0
+1189,68,Female,conmedic,Only some,0
+1189,68,Female,consci,Only some,0
+1191,51,Female,coneduc,Only some,0
+1191,51,Female,conmedic,A great deal,1
+1191,51,Female,consci,Only some,0
+1192,66,Male,coneduc,Only some,0
+1192,66,Male,conmedic,A great deal,1
+1192,66,Male,consci,A great deal,1
+1194,74,Female,coneduc,Hardly any,0
+1194,74,Female,conmedic,A great deal,1
+1194,74,Female,consci,Only some,0
+1195,74,Male,coneduc,Only some,0
+1195,74,Male,conmedic,A great deal,1
+1195,74,Male,consci,A great deal,1
+1196,85,Male,coneduc,A great deal,1
+1196,85,Male,conmedic,A great deal,1
+1196,85,Male,consci,A great deal,1
+1197,49,Male,coneduc,Only some,0
+1197,49,Male,conmedic,Only some,0
+1197,49,Male,consci,A great deal,1
+1199,37,Female,coneduc,Only some,0
+1199,37,Female,conmedic,A great deal,1
+1199,37,Female,consci,A great deal,1
+1201,22,Male,coneduc,Only some,0
+1201,22,Male,conmedic,A great deal,1
+1201,22,Male,consci,A great deal,1
+1202,43,Female,coneduc,A great deal,1
+1202,43,Female,conmedic,A great deal,1
+1202,43,Female,consci,Only some,0
+1203,73,Female,coneduc,A great deal,1
+1203,73,Female,conmedic,Only some,0
+1203,73,Female,consci,A great deal,1
+1206,32,Female,coneduc,Only some,0
+1206,32,Female,conmedic,Only some,0
+1206,32,Female,consci,Only some,0
+1207,31,Female,coneduc,A great deal,1
+1207,31,Female,conmedic,A great deal,1
+1207,31,Female,consci,A great deal,1
+1208,33,Male,coneduc,Only some,0
+1208,33,Male,conmedic,Only some,0
+1208,33,Male,consci,A great deal,1
+1210,77,Male,coneduc,Only some,0
+1210,77,Male,conmedic,Only some,0
+1210,77,Male,consci,A great deal,1
+1212,37,Male,coneduc,Only some,0
+1212,37,Male,conmedic,A great deal,1
+1212,37,Male,consci,A great deal,1
+1214,38,Female,coneduc,Only some,0
+1214,38,Female,conmedic,Only some,0
+1214,38,Female,consci,A great deal,1
+1215,55,Male,coneduc,Hardly any,0
+1215,55,Male,conmedic,Hardly any,0
+1215,55,Male,consci,Only some,0
+1218,25,Female,coneduc,Only some,0
+1218,25,Female,conmedic,Only some,0
+1218,25,Female,consci,Only some,0
+1219,28,Male,coneduc,A great deal,1
+1219,28,Male,conmedic,A great deal,1
+1219,28,Male,consci,A great deal,1
+1222,22,Male,coneduc,Only some,0
+1222,22,Male,conmedic,Only some,0
+1222,22,Male,consci,Only some,0
+1223,57,Male,coneduc,Only some,0
+1223,57,Male,conmedic,Only some,0
+1223,57,Male,consci,Only some,0
+1224,84,Female,coneduc,Hardly any,0
+1224,84,Female,conmedic,Only some,0
+1224,84,Female,consci,Only some,0
+1225,63,Female,coneduc,Only some,0
+1225,63,Female,conmedic,Only some,0
+1225,63,Female,consci,Only some,0
+1226,58,Female,coneduc,Only some,0
+1226,58,Female,conmedic,Only some,0
+1226,58,Female,consci,Only some,0
+1227,43,Female,coneduc,Only some,0
+1227,43,Female,conmedic,Only some,0
+1227,43,Female,consci,A great deal,1
+1229,39,Male,coneduc,Only some,0
+1229,39,Male,conmedic,Hardly any,0
+1229,39,Male,consci,Hardly any,0
+1230,31,Female,coneduc,Only some,0
+1230,31,Female,conmedic,A great deal,1
+1230,31,Female,consci,A great deal,1
+1233,27,Male,coneduc,Only some,0
+1233,27,Male,conmedic,A great deal,1
+1233,27,Male,consci,Only some,0
+1235,24,Female,coneduc,Only some,0
+1235,24,Female,conmedic,Only some,0
+1235,24,Female,consci,A great deal,1
+1236,48,Male,coneduc,Hardly any,0
+1236,48,Male,conmedic,A great deal,1
+1236,48,Male,consci,A great deal,1
+1238,30,Male,coneduc,A great deal,1
+1238,30,Male,conmedic,Hardly any,0
+1238,30,Male,consci,A great deal,1
+1239,36,Male,coneduc,Hardly any,0
+1239,36,Male,conmedic,Only some,0
+1239,36,Male,consci,Only some,0
+1240,52,Male,coneduc,Hardly any,0
+1240,52,Male,conmedic,A great deal,1
+1240,52,Male,consci,Only some,0
+1241,36,Male,coneduc,Only some,0
+1241,36,Male,conmedic,A great deal,1
+1241,36,Male,consci,A great deal,1
+1243,27,Female,coneduc,Only some,0
+1243,27,Female,conmedic,Hardly any,0
+1243,27,Female,consci,Only some,0
+1244,24,Female,coneduc,Only some,0
+1244,24,Female,conmedic,Only some,0
+1244,24,Female,consci,Only some,0
+1246,89,Male,coneduc,Only some,0
+1246,89,Male,conmedic,Only some,0
+1246,89,Male,consci,A great deal,1
+1247,22,Male,coneduc,Hardly any,0
+1247,22,Male,conmedic,Only some,0
+1247,22,Male,consci,A great deal,1
+1248,48,Male,coneduc,Only some,0
+1248,48,Male,conmedic,A great deal,1
+1248,48,Male,consci,A great deal,1
+1249,33,Female,coneduc,A great deal,1
+1249,33,Female,conmedic,A great deal,1
+1249,33,Female,consci,A great deal,1
+1250,59,Female,coneduc,Only some,0
+1250,59,Female,conmedic,A great deal,1
+1250,59,Female,consci,Only some,0
+1252,32,Female,coneduc,A great deal,1
+1252,32,Female,conmedic,Hardly any,0
+1252,32,Female,consci,Only some,0
+1255,59,Female,coneduc,Only some,0
+1255,59,Female,conmedic,Hardly any,0
+1255,59,Female,consci,Only some,0
+1256,47,Male,coneduc,A great deal,1
+1256,47,Male,conmedic,A great deal,1
+1256,47,Male,consci,Only some,0
+1259,22,Male,coneduc,Only some,0
+1259,22,Male,conmedic,A great deal,1
+1259,22,Male,consci,Only some,0
+1260,37,Female,coneduc,Hardly any,0
+1260,37,Female,conmedic,Only some,0
+1260,37,Female,consci,A great deal,1
+1263,32,Female,coneduc,Only some,0
+1263,32,Female,conmedic,Only some,0
+1263,32,Female,consci,Only some,0
+1264,69,Male,coneduc,A great deal,1
+1264,69,Male,conmedic,A great deal,1
+1264,69,Male,consci,A great deal,1
+1265,32,Female,coneduc,A great deal,1
+1265,32,Female,conmedic,A great deal,1
+1265,32,Female,consci,A great deal,1
+1266,32,Male,coneduc,Only some,0
+1266,32,Male,conmedic,Only some,0
+1266,32,Male,consci,Only some,0
+1268,70,Male,coneduc,A great deal,1
+1268,70,Male,conmedic,A great deal,1
+1268,70,Male,consci,Only some,0
+1270,35,Female,coneduc,Only some,0
+1270,35,Female,conmedic,Only some,0
+1270,35,Female,consci,Only some,0
+1272,57,Male,coneduc,Only some,0
+1272,57,Male,conmedic,Only some,0
+1272,57,Male,consci,Only some,0
+1273,26,Male,coneduc,A great deal,1
+1273,26,Male,conmedic,Only some,0
+1273,26,Male,consci,A great deal,1
+1274,56,Male,coneduc,Only some,0
+1274,56,Male,conmedic,Hardly any,0
+1274,56,Male,consci,Only some,0
+1276,56,Female,coneduc,Only some,0
+1276,56,Female,conmedic,A great deal,1
+1276,56,Female,consci,Only some,0
+1278,30,Female,coneduc,Only some,0
+1278,30,Female,conmedic,A great deal,1
+1278,30,Female,consci,A great deal,1
+1279,26,Female,coneduc,A great deal,1
+1279,26,Female,conmedic,Only some,0
+1279,26,Female,consci,A great deal,1
+1281,36,Female,coneduc,A great deal,1
+1281,36,Female,conmedic,A great deal,1
+1281,36,Female,consci,A great deal,1
+1282,69,Male,coneduc,Hardly any,0
+1282,69,Male,conmedic,Only some,0
+1282,69,Male,consci,Hardly any,0
+1284,53,Male,coneduc,Only some,0
+1284,53,Male,conmedic,A great deal,1
+1284,53,Male,consci,A great deal,1
+1285,55,Male,coneduc,Hardly any,0
+1285,55,Male,conmedic,Only some,0
+1285,55,Male,consci,Only some,0
+1286,50,Female,coneduc,Only some,0
+1286,50,Female,conmedic,Only some,0
+1286,50,Female,consci,Only some,0
+1287,31,Male,coneduc,Only some,0
+1287,31,Male,conmedic,A great deal,1
+1287,31,Male,consci,A great deal,1
+1288,70,Female,coneduc,Only some,0
+1288,70,Female,conmedic,Only some,0
+1288,70,Female,consci,Only some,0
+1289,68,Female,coneduc,Only some,0
+1289,68,Female,conmedic,Only some,0
+1289,68,Female,consci,A great deal,1
+1290,73,Male,coneduc,Hardly any,0
+1290,73,Male,conmedic,Only some,0
+1290,73,Male,consci,Hardly any,0
+1291,60,Female,coneduc,A great deal,1
+1291,60,Female,conmedic,Only some,0
+1291,60,Female,consci,A great deal,1
+1292,30,Male,coneduc,Only some,0
+1292,30,Male,conmedic,Hardly any,0
+1292,30,Male,consci,Hardly any,0
+1293,60,Female,coneduc,Only some,0
+1293,60,Female,conmedic,Only some,0
+1293,60,Female,consci,Only some,0
+1294,61,Male,coneduc,Only some,0
+1294,61,Male,conmedic,A great deal,1
+1294,61,Male,consci,A great deal,1
+1295,69,Female,coneduc,Only some,0
+1295,69,Female,conmedic,Only some,0
+1295,69,Female,consci,Hardly any,0
+1297,64,Male,coneduc,A great deal,1
+1297,64,Male,conmedic,Only some,0
+1297,64,Male,consci,A great deal,1
+1298,63,Female,coneduc,Only some,0
+1298,63,Female,conmedic,A great deal,1
+1298,63,Female,consci,A great deal,1
+1299,22,Male,coneduc,Only some,0
+1299,22,Male,conmedic,Only some,0
+1299,22,Male,consci,A great deal,1
+1300,33,Female,coneduc,A great deal,1
+1300,33,Female,conmedic,A great deal,1
+1300,33,Female,consci,A great deal,1
+1301,56,Male,coneduc,A great deal,1
+1301,56,Male,conmedic,A great deal,1
+1301,56,Male,consci,A great deal,1
+1303,89,Female,coneduc,A great deal,1
+1303,89,Female,conmedic,Only some,0
+1303,89,Female,consci,Only some,0
+1304,61,Female,coneduc,Only some,0
+1304,61,Female,conmedic,A great deal,1
+1304,61,Female,consci,A great deal,1
+1305,55,Male,coneduc,Only some,0
+1305,55,Male,conmedic,Only some,0
+1305,55,Male,consci,A great deal,1
+1307,61,Female,coneduc,Only some,0
+1307,61,Female,conmedic,Only some,0
+1307,61,Female,consci,A great deal,1
+1308,69,Male,coneduc,Only some,0
+1308,69,Male,conmedic,A great deal,1
+1308,69,Male,consci,A great deal,1
+1309,30,Male,coneduc,Hardly any,0
+1309,30,Male,conmedic,Only some,0
+1309,30,Male,consci,A great deal,1
+1310,70,Male,coneduc,Hardly any,0
+1310,70,Male,conmedic,Only some,0
+1310,70,Male,consci,Only some,0
+1313,62,Male,coneduc,Only some,0
+1313,62,Male,conmedic,A great deal,1
+1313,62,Male,consci,Only some,0
+1315,51,Female,coneduc,Only some,0
+1315,51,Female,conmedic,A great deal,1
+1315,51,Female,consci,Only some,0
+1317,63,Male,coneduc,Only some,0
+1317,63,Male,conmedic,Only some,0
+1317,63,Male,consci,A great deal,1
+1318,23,Male,coneduc,Only some,0
+1318,23,Male,conmedic,A great deal,1
+1318,23,Male,consci,A great deal,1
+1319,89,Female,coneduc,Only some,0
+1319,89,Female,conmedic,Only some,0
+1319,89,Female,consci,Only some,0
+1321,75,Female,coneduc,A great deal,1
+1321,75,Female,conmedic,Only some,0
+1321,75,Female,consci,Only some,0
+1322,24,Male,coneduc,Only some,0
+1322,24,Male,conmedic,Hardly any,0
+1322,24,Male,consci,Only some,0
+1324,29,Female,coneduc,A great deal,1
+1324,29,Female,conmedic,A great deal,1
+1324,29,Female,consci,Hardly any,0
+1325,26,Female,coneduc,Only some,0
+1325,26,Female,conmedic,A great deal,1
+1325,26,Female,consci,Only some,0
+1328,36,Female,coneduc,A great deal,1
+1328,36,Female,conmedic,A great deal,1
+1328,36,Female,consci,Only some,0
+1330,32,Male,coneduc,Only some,0
+1330,32,Male,conmedic,Only some,0
+1330,32,Male,consci,A great deal,1
+1332,39,Female,coneduc,A great deal,1
+1332,39,Female,conmedic,Only some,0
+1332,39,Female,consci,A great deal,1
+1334,31,Male,coneduc,Only some,0
+1334,31,Male,conmedic,Only some,0
+1334,31,Male,consci,A great deal,1
+1335,69,Male,coneduc,Only some,0
+1335,69,Male,conmedic,A great deal,1
+1335,69,Male,consci,A great deal,1
+1337,80,Male,coneduc,Hardly any,0
+1337,80,Male,conmedic,Only some,0
+1337,80,Male,consci,A great deal,1
+1339,42,Male,coneduc,Only some,0
+1339,42,Male,conmedic,Only some,0
+1339,42,Male,consci,Only some,0
+1341,71,Male,coneduc,Hardly any,0
+1341,71,Male,conmedic,Only some,0
+1341,71,Male,consci,A great deal,1
+1342,64,Male,coneduc,Only some,0
+1342,64,Male,conmedic,A great deal,1
+1342,64,Male,consci,Only some,0
+1344,24,Female,coneduc,Only some,0
+1344,24,Female,conmedic,A great deal,1
+1344,24,Female,consci,A great deal,1
+1346,23,Male,coneduc,A great deal,1
+1346,23,Male,conmedic,A great deal,1
+1346,23,Male,consci,Only some,0
+1348,57,Male,coneduc,Only some,0
+1348,57,Male,conmedic,Hardly any,0
+1348,57,Male,consci,Only some,0
+1349,50,Female,coneduc,Hardly any,0
+1349,50,Female,conmedic,A great deal,1
+1349,50,Female,consci,A great deal,1
+1350,34,Female,coneduc,Only some,0
+1350,34,Female,conmedic,Only some,0
+1350,34,Female,consci,A great deal,1
+1351,20,Male,coneduc,Only some,0
+1351,20,Male,conmedic,A great deal,1
+1351,20,Male,consci,A great deal,1
+1353,30,Female,coneduc,Hardly any,0
+1353,30,Female,conmedic,A great deal,1
+1353,30,Female,consci,A great deal,1
+1357,21,Male,coneduc,Only some,0
+1357,21,Male,conmedic,Only some,0
+1357,21,Male,consci,A great deal,1
+1358,24,Male,coneduc,Only some,0
+1358,24,Male,conmedic,A great deal,1
+1358,24,Male,consci,A great deal,1
+1360,25,Female,coneduc,Hardly any,0
+1360,25,Female,conmedic,A great deal,1
+1360,25,Female,consci,Only some,0
+1362,22,Male,coneduc,Only some,0
+1362,22,Male,conmedic,A great deal,1
+1362,22,Male,consci,A great deal,1
+1364,70,Male,coneduc,Only some,0
+1364,70,Male,conmedic,Only some,0
+1364,70,Male,consci,Only some,0
+1365,33,Female,coneduc,Only some,0
+1365,33,Female,conmedic,Hardly any,0
+1365,33,Female,consci,Only some,0
+1367,56,Male,coneduc,Hardly any,0
+1367,56,Male,conmedic,Only some,0
+1367,56,Male,consci,Only some,0
+1368,68,Male,coneduc,Only some,0
+1368,68,Male,conmedic,Only some,0
+1368,68,Male,consci,A great deal,1
+1370,54,Female,coneduc,Hardly any,0
+1370,54,Female,conmedic,A great deal,1
+1370,54,Female,consci,Hardly any,0
+1371,60,Male,coneduc,Hardly any,0
+1371,60,Male,conmedic,Only some,0
+1371,60,Male,consci,Only some,0
+1373,36,Male,coneduc,Hardly any,0
+1373,36,Male,conmedic,Hardly any,0
+1373,36,Male,consci,Hardly any,0
+1375,41,Female,coneduc,Only some,0
+1375,41,Female,conmedic,Only some,0
+1375,41,Female,consci,A great deal,1
+1376,29,Female,coneduc,Only some,0
+1376,29,Female,conmedic,Hardly any,0
+1376,29,Female,consci,A great deal,1
+1377,38,Female,coneduc,Only some,0
+1377,38,Female,conmedic,A great deal,1
+1377,38,Female,consci,A great deal,1
+1379,69,Female,coneduc,Only some,0
+1379,69,Female,conmedic,A great deal,1
+1379,69,Female,consci,Only some,0
+1381,33,Male,coneduc,A great deal,1
+1381,33,Male,conmedic,A great deal,1
+1381,33,Male,consci,A great deal,1
+1383,42,Male,coneduc,Only some,0
+1383,42,Male,conmedic,Only some,0
+1383,42,Male,consci,Only some,0
+1384,57,Male,coneduc,A great deal,1
+1384,57,Male,conmedic,A great deal,1
+1384,57,Male,consci,A great deal,1
+1385,41,Female,coneduc,Only some,0
+1385,41,Female,conmedic,A great deal,1
+1385,41,Female,consci,A great deal,1
+1386,70,Female,coneduc,A great deal,1
+1386,70,Female,conmedic,A great deal,1
+1386,70,Female,consci,Only some,0
+1388,68,Female,coneduc,Only some,0
+1388,68,Female,conmedic,Only some,0
+1388,68,Female,consci,Only some,0
+1390,57,Male,coneduc,Only some,0
+1390,57,Male,conmedic,Only some,0
+1390,57,Male,consci,A great deal,1
+1391,38,Male,coneduc,A great deal,1
+1391,38,Male,conmedic,Only some,0
+1391,38,Male,consci,A great deal,1
+1393,68,Male,coneduc,A great deal,1
+1393,68,Male,conmedic,A great deal,1
+1393,68,Male,consci,Only some,0
+1394,75,Female,coneduc,Only some,0
+1394,75,Female,conmedic,Hardly any,0
+1394,75,Female,consci,Only some,0
+1396,71,Male,coneduc,Only some,0
+1396,71,Male,conmedic,Only some,0
+1396,71,Male,consci,Only some,0
+1397,44,Male,coneduc,A great deal,1
+1397,44,Male,conmedic,Hardly any,0
+1397,44,Male,consci,Only some,0
+1400,40,Male,coneduc,Only some,0
+1400,40,Male,conmedic,Only some,0
+1400,40,Male,consci,A great deal,1
+1402,70,Male,coneduc,A great deal,1
+1402,70,Male,conmedic,Only some,0
+1402,70,Male,consci,Only some,0
+1404,37,Female,coneduc,A great deal,1
+1404,37,Female,conmedic,Only some,0
+1404,37,Female,consci,Only some,0
+1405,64,Male,coneduc,A great deal,1
+1405,64,Male,conmedic,Only some,0
+1405,64,Male,consci,Only some,0
+1407,71,Female,coneduc,A great deal,1
+1407,71,Female,conmedic,Hardly any,0
+1407,71,Female,consci,Only some,0
+1408,22,Male,coneduc,Only some,0
+1408,22,Male,conmedic,Only some,0
+1408,22,Male,consci,Only some,0
+1411,84,Female,coneduc,A great deal,1
+1411,84,Female,conmedic,Only some,0
+1411,84,Female,consci,Only some,0
+1413,28,Male,coneduc,Only some,0
+1413,28,Male,conmedic,Only some,0
+1413,28,Male,consci,A great deal,1
+1415,31,Female,coneduc,A great deal,1
+1415,31,Female,conmedic,Only some,0
+1415,31,Female,consci,Only some,0
+1417,49,Male,coneduc,Only some,0
+1417,49,Male,conmedic,Only some,0
+1417,49,Male,consci,Only some,0
+1419,43,Female,coneduc,Only some,0
+1419,43,Female,conmedic,Only some,0
+1419,43,Female,consci,Only some,0
+1420,45,Female,coneduc,Only some,0
+1420,45,Female,conmedic,Hardly any,0
+1420,45,Female,consci,Only some,0
+1422,32,Female,coneduc,Only some,0
+1422,32,Female,conmedic,Only some,0
+1422,32,Female,consci,Only some,0
+1423,23,Female,coneduc,Only some,0
+1423,23,Female,conmedic,Hardly any,0
+1423,23,Female,consci,Only some,0
+1425,58,Female,coneduc,A great deal,1
+1425,58,Female,conmedic,Only some,0
+1425,58,Female,consci,A great deal,1
+1426,21,Female,coneduc,Hardly any,0
+1426,21,Female,conmedic,A great deal,1
+1426,21,Female,consci,A great deal,1
+1427,77,Female,coneduc,A great deal,1
+1427,77,Female,conmedic,Only some,0
+1427,77,Female,consci,A great deal,1
+1429,52,Female,coneduc,Hardly any,0
+1429,52,Female,conmedic,Only some,0
+1429,52,Female,consci,Only some,0
+1431,72,Female,coneduc,A great deal,1
+1431,72,Female,conmedic,A great deal,1
+1431,72,Female,consci,A great deal,1
+1433,58,Male,coneduc,Only some,0
+1433,58,Male,conmedic,Only some,0
+1433,58,Male,consci,A great deal,1
+1435,50,Female,coneduc,Hardly any,0
+1435,50,Female,conmedic,Hardly any,0
+1435,50,Female,consci,A great deal,1
+1437,22,Male,coneduc,Hardly any,0
+1437,22,Male,conmedic,Hardly any,0
+1437,22,Male,consci,Only some,0
+1438,29,Female,coneduc,A great deal,1
+1438,29,Female,conmedic,Only some,0
+1438,29,Female,consci,A great deal,1
+1440,24,Female,coneduc,Only some,0
+1440,24,Female,conmedic,A great deal,1
+1440,24,Female,consci,A great deal,1
+1442,38,Male,coneduc,Only some,0
+1442,38,Male,conmedic,Only some,0
+1442,38,Male,consci,Only some,0
+1443,31,Male,coneduc,Only some,0
+1443,31,Male,conmedic,A great deal,1
+1443,31,Male,consci,A great deal,1
+1445,30,Female,coneduc,Hardly any,0
+1445,30,Female,conmedic,A great deal,1
+1445,30,Female,consci,A great deal,1
+1446,46,Male,coneduc,Only some,0
+1446,46,Male,conmedic,Only some,0
+1446,46,Male,consci,Only some,0
+1447,49,Male,coneduc,Only some,0
+1447,49,Male,conmedic,Only some,0
+1447,49,Male,consci,A great deal,1
+1450,67,Male,coneduc,A great deal,1
+1450,67,Male,conmedic,A great deal,1
+1450,67,Male,consci,Only some,0
+1451,34,Female,coneduc,Only some,0
+1451,34,Female,conmedic,Only some,0
+1451,34,Female,consci,Only some,0
+1452,82,Male,coneduc,Only some,0
+1452,82,Male,conmedic,Only some,0
+1452,82,Male,consci,Only some,0
+1453,44,Male,coneduc,A great deal,1
+1453,44,Male,conmedic,Only some,0
+1453,44,Male,consci,Only some,0
+1454,48,Female,coneduc,Only some,0
+1454,48,Female,conmedic,A great deal,1
+1454,48,Female,consci,A great deal,1
+1455,24,Female,coneduc,Only some,0
+1455,24,Female,conmedic,Only some,0
+1455,24,Female,consci,Only some,0
+1456,56,Male,coneduc,Only some,0
+1456,56,Male,conmedic,A great deal,1
+1456,56,Male,consci,A great deal,1
+1458,48,Female,coneduc,Hardly any,0
+1458,48,Female,conmedic,Only some,0
+1458,48,Female,consci,Only some,0
+1461,25,Male,coneduc,Only some,0
+1461,25,Male,conmedic,Hardly any,0
+1461,25,Male,consci,A great deal,1
+1462,55,Female,coneduc,A great deal,1
+1462,55,Female,conmedic,A great deal,1
+1462,55,Female,consci,Hardly any,0
+1463,71,Female,coneduc,Hardly any,0
+1463,71,Female,conmedic,Only some,0
+1463,71,Female,consci,A great deal,1
+1464,26,Male,coneduc,Only some,0
+1464,26,Male,conmedic,Only some,0
+1464,26,Male,consci,A great deal,1
+1465,59,Female,coneduc,Only some,0
+1465,59,Female,conmedic,A great deal,1
+1465,59,Female,consci,Only some,0
+1466,56,Female,coneduc,Only some,0
+1466,56,Female,conmedic,Only some,0
+1466,56,Female,consci,A great deal,1
+1467,58,Female,coneduc,Only some,0
+1467,58,Female,conmedic,Only some,0
+1467,58,Female,consci,Only some,0
+1469,69,Female,coneduc,Only some,0
+1469,69,Female,conmedic,Only some,0
+1469,69,Female,consci,A great deal,1
+1470,30,Female,coneduc,A great deal,1
+1470,30,Female,conmedic,Only some,0
+1470,30,Female,consci,A great deal,1
+1471,71,Female,coneduc,Hardly any,0
+1471,71,Female,conmedic,A great deal,1
+1471,71,Female,consci,A great deal,1
+1475,37,Female,coneduc,Hardly any,0
+1475,37,Female,conmedic,Only some,0
+1475,37,Female,consci,Only some,0
+1476,29,Female,coneduc,Only some,0
+1476,29,Female,conmedic,Hardly any,0
+1476,29,Female,consci,Only some,0
+1479,33,Male,coneduc,Only some,0
+1479,33,Male,conmedic,Only some,0
+1479,33,Male,consci,A great deal,1
+1480,79,Female,coneduc,A great deal,1
+1480,79,Female,conmedic,Only some,0
+1480,79,Female,consci,Only some,0
+1481,22,Male,coneduc,A great deal,1
+1481,22,Male,conmedic,Only some,0
+1481,22,Male,consci,A great deal,1
+1483,31,Female,coneduc,Only some,0
+1483,31,Female,conmedic,Only some,0
+1483,31,Female,consci,A great deal,1
+1485,56,Female,coneduc,Only some,0
+1485,56,Female,conmedic,A great deal,1
+1485,56,Female,consci,A great deal,1
+1486,54,Male,coneduc,Only some,0
+1486,54,Male,conmedic,A great deal,1
+1486,54,Male,consci,A great deal,1
+1489,60,Male,coneduc,Only some,0
+1489,60,Male,conmedic,A great deal,1
+1489,60,Male,consci,A great deal,1
+1490,34,Male,coneduc,Only some,0
+1490,34,Male,conmedic,Only some,0
+1490,34,Male,consci,Only some,0
+1492,58,Female,coneduc,Hardly any,0
+1492,58,Female,conmedic,Only some,0
+1492,58,Female,consci,Only some,0
+1494,39,Female,coneduc,A great deal,1
+1494,39,Female,conmedic,A great deal,1
+1494,39,Female,consci,A great deal,1
+1495,75,Female,coneduc,Only some,0
+1495,75,Female,conmedic,Only some,0
+1495,75,Female,consci,Only some,0
+1497,56,Male,coneduc,A great deal,1
+1497,56,Male,conmedic,A great deal,1
+1497,56,Male,consci,Only some,0
+1499,57,Female,coneduc,Only some,0
+1499,57,Female,conmedic,Only some,0
+1499,57,Female,consci,Only some,0
+1500,63,Male,coneduc,Only some,0
+1500,63,Male,conmedic,Only some,0
+1500,63,Male,consci,Only some,0
+1505,38,Male,coneduc,A great deal,1
+1505,38,Male,conmedic,A great deal,1
+1505,38,Male,consci,A great deal,1
+1506,34,Female,coneduc,Hardly any,0
+1506,34,Female,conmedic,Hardly any,0
+1506,34,Female,consci,Only some,0
+1507,27,Female,coneduc,Only some,0
+1507,27,Female,conmedic,Hardly any,0
+1507,27,Female,consci,Hardly any,0
+1509,45,Female,coneduc,Hardly any,0
+1509,45,Female,conmedic,Only some,0
+1509,45,Female,consci,Only some,0
+1511,25,Female,coneduc,Only some,0
+1511,25,Female,conmedic,Hardly any,0
+1511,25,Female,consci,Only some,0
+1512,23,Female,coneduc,Hardly any,0
+1512,23,Female,conmedic,Hardly any,0
+1512,23,Female,consci,Only some,0
+1513,57,Male,coneduc,Only some,0
+1513,57,Male,conmedic,Only some,0
+1513,57,Male,consci,Only some,0
+1516,70,Male,coneduc,Only some,0
+1516,70,Male,conmedic,A great deal,1
+1516,70,Male,consci,Only some,0
+1518,68,Female,coneduc,Only some,0
+1518,68,Female,conmedic,Hardly any,0
+1518,68,Female,consci,Only some,0
+1519,25,Female,coneduc,Only some,0
+1519,25,Female,conmedic,Only some,0
+1519,25,Female,consci,Only some,0
+1521,54,Female,coneduc,Hardly any,0
+1521,54,Female,conmedic,Only some,0
+1521,54,Female,consci,A great deal,1
+1522,30,Female,coneduc,A great deal,1
+1522,30,Female,conmedic,A great deal,1
+1522,30,Female,consci,A great deal,1
+1524,58,Male,coneduc,A great deal,1
+1524,58,Male,conmedic,Only some,0
+1524,58,Male,consci,A great deal,1
+1527,69,Female,coneduc,Only some,0
+1527,69,Female,conmedic,Only some,0
+1527,69,Female,consci,A great deal,1
+1528,46,Male,coneduc,Hardly any,0
+1528,46,Male,conmedic,Only some,0
+1528,46,Male,consci,Only some,0
+1532,44,Female,coneduc,Hardly any,0
+1532,44,Female,conmedic,Only some,0
+1532,44,Female,consci,A great deal,1
+1534,33,Male,coneduc,Only some,0
+1534,33,Male,conmedic,Only some,0
+1534,33,Male,consci,A great deal,1
+1537,59,Male,coneduc,A great deal,1
+1537,59,Male,conmedic,Only some,0
+1537,59,Male,consci,Hardly any,0
+1538,32,Female,coneduc,Only some,0
+1538,32,Female,conmedic,A great deal,1
+1538,32,Female,consci,Hardly any,0
+1540,39,Female,coneduc,A great deal,1
+1540,39,Female,conmedic,A great deal,1
+1540,39,Female,consci,Hardly any,0
+1541,43,Female,coneduc,Only some,0
+1541,43,Female,conmedic,A great deal,1
+1541,43,Female,consci,A great deal,1
+1543,64,Male,coneduc,Only some,0
+1543,64,Male,conmedic,Only some,0
+1543,64,Male,consci,A great deal,1
+1544,62,Female,coneduc,Only some,0
+1544,62,Female,conmedic,Only some,0
+1544,62,Female,consci,A great deal,1
+1545,72,Male,coneduc,Hardly any,0
+1545,72,Male,conmedic,Only some,0
+1545,72,Male,consci,Only some,0
+1547,22,Female,coneduc,A great deal,1
+1547,22,Female,conmedic,Only some,0
+1547,22,Female,consci,A great deal,1
+1548,60,Male,coneduc,A great deal,1
+1548,60,Male,conmedic,Only some,0
+1548,60,Male,consci,Only some,0
+1549,42,Male,coneduc,Hardly any,0
+1549,42,Male,conmedic,Only some,0
+1549,42,Male,consci,Hardly any,0
+1551,39,Female,coneduc,Only some,0
+1551,39,Female,conmedic,Only some,0
+1551,39,Female,consci,Only some,0
+1553,38,Female,coneduc,Only some,0
+1553,38,Female,conmedic,Only some,0
+1553,38,Female,consci,Only some,0
+1554,39,Female,coneduc,Hardly any,0
+1554,39,Female,conmedic,Only some,0
+1554,39,Female,consci,Hardly any,0
+1555,32,Female,coneduc,Only some,0
+1555,32,Female,conmedic,A great deal,1
+1555,32,Female,consci,Only some,0
+1556,85,Male,coneduc,A great deal,1
+1556,85,Male,conmedic,Only some,0
+1556,85,Male,consci,A great deal,1
+1557,88,Male,coneduc,A great deal,1
+1557,88,Male,conmedic,A great deal,1
+1557,88,Male,consci,A great deal,1
+1558,44,Female,coneduc,Only some,0
+1558,44,Female,conmedic,A great deal,1
+1558,44,Female,consci,Only some,0
+1559,18,Male,coneduc,A great deal,1
+1559,18,Male,conmedic,A great deal,1
+1559,18,Male,consci,Only some,0
+1560,32,Female,coneduc,A great deal,1
+1560,32,Female,conmedic,A great deal,1
+1560,32,Female,consci,Only some,0
+1563,72,Female,coneduc,Only some,0
+1563,72,Female,conmedic,Only some,0
+1563,72,Female,consci,A great deal,1
+1564,61,Female,coneduc,A great deal,1
+1564,61,Female,conmedic,A great deal,1
+1564,61,Female,consci,A great deal,1
+1567,51,Male,coneduc,Hardly any,0
+1567,51,Male,conmedic,Only some,0
+1567,51,Male,consci,A great deal,1
+1568,38,Male,coneduc,Only some,0
+1568,38,Male,conmedic,Only some,0
+1568,38,Male,consci,Only some,0
+1569,44,Female,coneduc,Hardly any,0
+1569,44,Female,conmedic,Hardly any,0
+1569,44,Female,consci,Only some,0
+1570,37,Male,coneduc,Hardly any,0
+1570,37,Male,conmedic,Hardly any,0
+1570,37,Male,consci,Only some,0
+1572,21,Male,coneduc,Hardly any,0
+1572,21,Male,conmedic,A great deal,1
+1572,21,Male,consci,A great deal,1
+1573,60,Male,coneduc,Only some,0
+1573,60,Male,conmedic,Only some,0
+1573,60,Male,consci,Only some,0
+1575,70,Female,coneduc,A great deal,1
+1575,70,Female,conmedic,A great deal,1
+1575,70,Female,consci,Only some,0
+1576,89,Male,coneduc,Only some,0
+1576,89,Male,conmedic,Only some,0
+1576,89,Male,consci,Only some,0
+1578,51,Female,coneduc,Hardly any,0
+1578,51,Female,conmedic,Only some,0
+1578,51,Female,consci,Only some,0
+1581,35,Male,coneduc,Only some,0
+1581,35,Male,conmedic,Hardly any,0
+1581,35,Male,consci,A great deal,1
+1583,32,Male,coneduc,Only some,0
+1583,32,Male,conmedic,A great deal,1
+1583,32,Male,consci,Only some,0
+1584,62,Male,coneduc,Hardly any,0
+1584,62,Male,conmedic,Only some,0
+1584,62,Male,consci,Only some,0
+1585,41,Female,coneduc,Hardly any,0
+1585,41,Female,conmedic,Hardly any,0
+1585,41,Female,consci,Only some,0
+1586,36,Female,coneduc,A great deal,1
+1586,36,Female,conmedic,A great deal,1
+1586,36,Female,consci,A great deal,1
+1587,20,Male,coneduc,A great deal,1
+1587,20,Male,conmedic,Only some,0
+1587,20,Male,consci,A great deal,1
+1591,30,Male,coneduc,Only some,0
+1591,30,Male,conmedic,Only some,0
+1591,30,Male,consci,A great deal,1
+1592,81,Female,coneduc,Hardly any,0
+1592,81,Female,conmedic,Only some,0
+1592,81,Female,consci,A great deal,1
+1594,76,Female,coneduc,A great deal,1
+1594,76,Female,conmedic,A great deal,1
+1594,76,Female,consci,Only some,0
+1595,59,Female,coneduc,Only some,0
+1595,59,Female,conmedic,A great deal,1
+1595,59,Female,consci,A great deal,1
+1597,64,Female,coneduc,Only some,0
+1597,64,Female,conmedic,Hardly any,0
+1597,64,Female,consci,Only some,0
+1598,75,Female,coneduc,A great deal,1
+1598,75,Female,conmedic,Hardly any,0
+1598,75,Female,consci,Only some,0
+1599,55,Female,coneduc,Hardly any,0
+1599,55,Female,conmedic,Only some,0
+1599,55,Female,consci,Only some,0
+1600,55,Female,coneduc,A great deal,1
+1600,55,Female,conmedic,Only some,0
+1600,55,Female,consci,A great deal,1
+1601,61,Male,coneduc,Only some,0
+1601,61,Male,conmedic,Only some,0
+1601,61,Male,consci,Only some,0
+1602,38,Male,coneduc,Only some,0
+1602,38,Male,conmedic,Only some,0
+1602,38,Male,consci,Hardly any,0
+1603,50,Female,coneduc,A great deal,1
+1603,50,Female,conmedic,Hardly any,0
+1603,50,Female,consci,Only some,0
+1607,25,Male,coneduc,Only some,0
+1607,25,Male,conmedic,Only some,0
+1607,25,Male,consci,Only some,0
+1612,22,Male,coneduc,A great deal,1
+1612,22,Male,conmedic,A great deal,1
+1612,22,Male,consci,Only some,0
+1613,40,Female,coneduc,A great deal,1
+1613,40,Female,conmedic,A great deal,1
+1613,40,Female,consci,A great deal,1
+1615,20,Female,coneduc,A great deal,1
+1615,20,Female,conmedic,A great deal,1
+1615,20,Female,consci,A great deal,1
+1616,54,Male,coneduc,Only some,0
+1616,54,Male,conmedic,Only some,0
+1616,54,Male,consci,Only some,0
+1617,19,Male,coneduc,A great deal,1
+1617,19,Male,conmedic,Only some,0
+1617,19,Male,consci,A great deal,1
+1620,59,Male,coneduc,Hardly any,0
+1620,59,Male,conmedic,Only some,0
+1620,59,Male,consci,A great deal,1
+1622,34,Male,coneduc,Only some,0
+1622,34,Male,conmedic,Only some,0
+1622,34,Male,consci,A great deal,1
+1623,35,Female,coneduc,A great deal,1
+1623,35,Female,conmedic,Only some,0
+1623,35,Female,consci,A great deal,1
+1625,86,Male,coneduc,Only some,0
+1625,86,Male,conmedic,Only some,0
+1625,86,Male,consci,A great deal,1
+1627,61,Female,coneduc,Hardly any,0
+1627,61,Female,conmedic,Hardly any,0
+1627,61,Female,consci,Only some,0
+1630,71,Female,coneduc,Hardly any,0
+1630,71,Female,conmedic,Hardly any,0
+1630,71,Female,consci,Only some,0
+1633,56,Female,coneduc,Only some,0
+1633,56,Female,conmedic,Only some,0
+1633,56,Female,consci,Only some,0
+1634,47,Male,coneduc,Only some,0
+1634,47,Male,conmedic,Only some,0
+1634,47,Male,consci,Only some,0
+1636,66,Female,coneduc,Only some,0
+1636,66,Female,conmedic,Only some,0
+1636,66,Female,consci,Only some,0
+1638,33,Male,coneduc,Only some,0
+1638,33,Male,conmedic,Only some,0
+1638,33,Male,consci,A great deal,1
+1640,76,Male,coneduc,Only some,0
+1640,76,Male,conmedic,Only some,0
+1640,76,Male,consci,Only some,0
+1641,86,Female,coneduc,Only some,0
+1641,86,Female,conmedic,Only some,0
+1641,86,Female,consci,Only some,0
+1642,61,Male,coneduc,Only some,0
+1642,61,Male,conmedic,Only some,0
+1642,61,Male,consci,Only some,0
+1644,42,Male,coneduc,Only some,0
+1644,42,Male,conmedic,A great deal,1
+1644,42,Male,consci,A great deal,1
+1645,23,Female,coneduc,A great deal,1
+1645,23,Female,conmedic,A great deal,1
+1645,23,Female,consci,A great deal,1
+1647,63,Male,coneduc,Only some,0
+1647,63,Male,conmedic,Hardly any,0
+1647,63,Male,consci,Only some,0
+1649,30,Female,coneduc,Only some,0
+1649,30,Female,conmedic,Only some,0
+1649,30,Female,consci,A great deal,1
+1650,82,Female,coneduc,Only some,0
+1650,82,Female,conmedic,Only some,0
+1650,82,Female,consci,Only some,0
+1653,57,Female,coneduc,Only some,0
+1653,57,Female,conmedic,Only some,0
+1653,57,Female,consci,Only some,0
+1654,42,Female,coneduc,A great deal,1
+1654,42,Female,conmedic,Only some,0
+1654,42,Female,consci,Only some,0
+1656,74,Male,coneduc,Only some,0
+1656,74,Male,conmedic,Only some,0
+1656,74,Male,consci,Only some,0
+1657,47,Male,coneduc,Only some,0
+1657,47,Male,conmedic,Only some,0
+1657,47,Male,consci,Only some,0
+1658,65,Male,coneduc,Only some,0
+1658,65,Male,conmedic,Only some,0
+1658,65,Male,consci,Only some,0
+1659,37,Male,coneduc,Hardly any,0
+1659,37,Male,conmedic,Hardly any,0
+1659,37,Male,consci,A great deal,1
+1661,44,Male,coneduc,Only some,0
+1661,44,Male,conmedic,Only some,0
+1661,44,Male,consci,A great deal,1
+1663,23,Male,coneduc,A great deal,1
+1663,23,Male,conmedic,A great deal,1
+1663,23,Male,consci,A great deal,1
+1664,55,Female,coneduc,Hardly any,0
+1664,55,Female,conmedic,Only some,0
+1664,55,Female,consci,Only some,0
+1665,37,Male,coneduc,A great deal,1
+1665,37,Male,conmedic,A great deal,1
+1665,37,Male,consci,A great deal,1
+1666,81,Female,coneduc,Only some,0
+1666,81,Female,conmedic,Hardly any,0
+1666,81,Female,consci,Only some,0
+1668,54,Female,coneduc,Only some,0
+1668,54,Female,conmedic,Hardly any,0
+1668,54,Female,consci,Only some,0
+1670,43,Female,coneduc,Only some,0
+1670,43,Female,conmedic,A great deal,1
+1670,43,Female,consci,A great deal,1
+1672,51,Female,coneduc,Only some,0
+1672,51,Female,conmedic,Only some,0
+1672,51,Female,consci,Only some,0
+1674,69,Male,coneduc,Hardly any,0
+1674,69,Male,conmedic,A great deal,1
+1674,69,Male,consci,A great deal,1
+1675,74,Male,coneduc,Only some,0
+1675,74,Male,conmedic,Only some,0
+1675,74,Male,consci,A great deal,1
+1676,69,Male,coneduc,Only some,0
+1676,69,Male,conmedic,Only some,0
+1676,69,Male,consci,A great deal,1
+1677,34,Female,coneduc,A great deal,1
+1677,34,Female,conmedic,A great deal,1
+1677,34,Female,consci,Only some,0
+1678,30,Female,coneduc,Hardly any,0
+1678,30,Female,conmedic,Only some,0
+1678,30,Female,consci,Only some,0
+1680,34,Male,coneduc,Only some,0
+1680,34,Male,conmedic,Only some,0
+1680,34,Male,consci,Only some,0
+1681,34,Male,coneduc,A great deal,1
+1681,34,Male,conmedic,A great deal,1
+1681,34,Male,consci,A great deal,1
+1682,39,Male,coneduc,A great deal,1
+1682,39,Male,conmedic,A great deal,1
+1682,39,Male,consci,A great deal,1
+1684,65,Female,coneduc,Hardly any,0
+1684,65,Female,conmedic,Only some,0
+1684,65,Female,consci,Only some,0
+1685,46,Female,coneduc,A great deal,1
+1685,46,Female,conmedic,A great deal,1
+1685,46,Female,consci,A great deal,1
+1687,22,Male,coneduc,Only some,0
+1687,22,Male,conmedic,A great deal,1
+1687,22,Male,consci,A great deal,1
+1688,55,Male,coneduc,Hardly any,0
+1688,55,Male,conmedic,Only some,0
+1688,55,Male,consci,Only some,0
+1689,59,Female,coneduc,Only some,0
+1689,59,Female,conmedic,Only some,0
+1689,59,Female,consci,A great deal,1
+1691,55,Female,coneduc,Only some,0
+1691,55,Female,conmedic,A great deal,1
+1691,55,Female,consci,Only some,0
+1693,88,Female,coneduc,Only some,0
+1693,88,Female,conmedic,Only some,0
+1693,88,Female,consci,A great deal,1
+1694,57,Female,coneduc,Hardly any,0
+1694,57,Female,conmedic,Only some,0
+1694,57,Female,consci,Only some,0
+1695,41,Male,coneduc,A great deal,1
+1695,41,Male,conmedic,A great deal,1
+1695,41,Male,consci,A great deal,1
+1698,28,Male,coneduc,Only some,0
+1698,28,Male,conmedic,A great deal,1
+1698,28,Male,consci,A great deal,1
+1701,34,Female,coneduc,A great deal,1
+1701,34,Female,conmedic,A great deal,1
+1701,34,Female,consci,Only some,0
+1703,57,Male,coneduc,Only some,0
+1703,57,Male,conmedic,Hardly any,0
+1703,57,Male,consci,A great deal,1
+1705,68,Male,coneduc,Hardly any,0
+1705,68,Male,conmedic,Only some,0
+1705,68,Male,consci,Only some,0
+1707,64,Male,coneduc,Only some,0
+1707,64,Male,conmedic,Hardly any,0
+1707,64,Male,consci,Only some,0
+1708,43,Male,coneduc,A great deal,1
+1708,43,Male,conmedic,Only some,0
+1708,43,Male,consci,Only some,0
+1710,23,Female,coneduc,Only some,0
+1710,23,Female,conmedic,Only some,0
+1710,23,Female,consci,Only some,0
+1711,51,Male,coneduc,Hardly any,0
+1711,51,Male,conmedic,A great deal,1
+1711,51,Male,consci,A great deal,1
+1715,24,Male,coneduc,Only some,0
+1715,24,Male,conmedic,Only some,0
+1715,24,Male,consci,A great deal,1
+1718,24,Male,coneduc,Hardly any,0
+1718,24,Male,conmedic,Only some,0
+1718,24,Male,consci,A great deal,1
+1720,40,Female,coneduc,Only some,0
+1720,40,Female,conmedic,Only some,0
+1720,40,Female,consci,A great deal,1
+1722,62,Male,coneduc,Only some,0
+1722,62,Male,conmedic,A great deal,1
+1722,62,Male,consci,Only some,0
+1723,55,Male,coneduc,Only some,0
+1723,55,Male,conmedic,Only some,0
+1723,55,Male,consci,Only some,0
+1725,25,Female,coneduc,Hardly any,0
+1725,25,Female,conmedic,Only some,0
+1725,25,Female,consci,Only some,0
+1729,52,Male,coneduc,Hardly any,0
+1729,52,Male,conmedic,Only some,0
+1729,52,Male,consci,A great deal,1
+1730,41,Male,coneduc,Only some,0
+1730,41,Male,conmedic,Only some,0
+1730,41,Male,consci,Only some,0
+1731,50,Female,coneduc,Only some,0
+1731,50,Female,conmedic,A great deal,1
+1731,50,Female,consci,A great deal,1
+1732,43,Female,coneduc,Only some,0
+1732,43,Female,conmedic,Only some,0
+1732,43,Female,consci,Only some,0
+1733,69,Male,coneduc,Only some,0
+1733,69,Male,conmedic,Only some,0
+1733,69,Male,consci,Only some,0
+1735,74,Male,coneduc,Only some,0
+1735,74,Male,conmedic,A great deal,1
+1735,74,Male,consci,Only some,0
+1737,63,Female,coneduc,Only some,0
+1737,63,Female,conmedic,A great deal,1
+1737,63,Female,consci,A great deal,1
+1739,24,Male,coneduc,A great deal,1
+1739,24,Male,conmedic,A great deal,1
+1739,24,Male,consci,A great deal,1
+1740,65,Male,coneduc,A great deal,1
+1740,65,Male,conmedic,A great deal,1
+1740,65,Male,consci,Only some,0
+1741,63,Female,coneduc,Only some,0
+1741,63,Female,conmedic,Only some,0
+1741,63,Female,consci,Only some,0
+1742,39,Female,coneduc,Only some,0
+1742,39,Female,conmedic,Only some,0
+1742,39,Female,consci,Only some,0
+1744,38,Male,coneduc,Only some,0
+1744,38,Male,conmedic,Only some,0
+1744,38,Male,consci,A great deal,1
+1745,63,Female,coneduc,Hardly any,0
+1745,63,Female,conmedic,Only some,0
+1745,63,Female,consci,Only some,0
+1747,63,Male,coneduc,Hardly any,0
+1747,63,Male,conmedic,Only some,0
+1747,63,Male,consci,Only some,0
+1749,25,Male,coneduc,Only some,0
+1749,25,Male,conmedic,Hardly any,0
+1749,25,Male,consci,Only some,0
+1750,51,Male,coneduc,Only some,0
+1750,51,Male,conmedic,Hardly any,0
+1750,51,Male,consci,Only some,0
+1752,45,Female,coneduc,A great deal,1
+1752,45,Female,conmedic,A great deal,1
+1752,45,Female,consci,A great deal,1
+1753,58,Female,coneduc,Only some,0
+1753,58,Female,conmedic,A great deal,1
+1753,58,Female,consci,Only some,0
+1755,64,Female,coneduc,Only some,0
+1755,64,Female,conmedic,Hardly any,0
+1755,64,Female,consci,Only some,0
+1758,61,Female,coneduc,Only some,0
+1758,61,Female,conmedic,Only some,0
+1758,61,Female,consci,A great deal,1
+1760,54,Male,coneduc,Only some,0
+1760,54,Male,conmedic,Only some,0
+1760,54,Male,consci,Hardly any,0
+1761,47,Female,coneduc,Only some,0
+1761,47,Female,conmedic,Only some,0
+1761,47,Female,consci,A great deal,1
+1762,65,Female,coneduc,Only some,0
+1762,65,Female,conmedic,Only some,0
+1762,65,Female,consci,Only some,0
+1763,63,Male,coneduc,Only some,0
+1763,63,Male,conmedic,A great deal,1
+1763,63,Male,consci,A great deal,1
+1764,67,Female,coneduc,A great deal,1
+1764,67,Female,conmedic,A great deal,1
+1764,67,Female,consci,A great deal,1
+1765,64,Male,coneduc,Only some,0
+1765,64,Male,conmedic,Only some,0
+1765,64,Male,consci,Only some,0
+1767,27,Male,coneduc,A great deal,1
+1767,27,Male,conmedic,A great deal,1
+1767,27,Male,consci,A great deal,1
+1769,41,Male,coneduc,Only some,0
+1769,41,Male,conmedic,A great deal,1
+1769,41,Male,consci,Only some,0
+1770,20,Male,coneduc,A great deal,1
+1770,20,Male,conmedic,Only some,0
+1770,20,Male,consci,A great deal,1
+1771,54,Male,coneduc,A great deal,1
+1771,54,Male,conmedic,A great deal,1
+1771,54,Male,consci,A great deal,1
+1773,68,Female,coneduc,Only some,0
+1773,68,Female,conmedic,Only some,0
+1773,68,Female,consci,Only some,0
+1775,51,Male,coneduc,A great deal,1
+1775,51,Male,conmedic,A great deal,1
+1775,51,Male,consci,A great deal,1
+1776,61,Male,coneduc,A great deal,1
+1776,61,Male,conmedic,A great deal,1
+1776,61,Male,consci,A great deal,1
+1777,89,Male,coneduc,Only some,0
+1777,89,Male,conmedic,Only some,0
+1777,89,Male,consci,Only some,0
+1778,54,Female,coneduc,Only some,0
+1778,54,Female,conmedic,Only some,0
+1778,54,Female,consci,Only some,0
+1779,72,Male,coneduc,Only some,0
+1779,72,Male,conmedic,Only some,0
+1779,72,Male,consci,Only some,0
+1780,19,Female,coneduc,Only some,0
+1780,19,Female,conmedic,Only some,0
+1780,19,Female,consci,Only some,0
+1781,59,Male,coneduc,Hardly any,0
+1781,59,Male,conmedic,Only some,0
+1781,59,Male,consci,Only some,0
+1782,31,Female,coneduc,A great deal,1
+1782,31,Female,conmedic,A great deal,1
+1782,31,Female,consci,A great deal,1
+1783,23,Female,coneduc,Only some,0
+1783,23,Female,conmedic,A great deal,1
+1783,23,Female,consci,Only some,0
+1784,55,Female,coneduc,Only some,0
+1784,55,Female,conmedic,Only some,0
+1784,55,Female,consci,A great deal,1
+1786,37,Female,coneduc,Only some,0
+1786,37,Female,conmedic,Only some,0
+1786,37,Female,consci,Only some,0
+1791,47,Female,coneduc,Only some,0
+1791,47,Female,conmedic,Only some,0
+1791,47,Female,consci,Only some,0
+1792,52,Female,coneduc,Only some,0
+1792,52,Female,conmedic,A great deal,1
+1792,52,Female,consci,Only some,0
+1793,67,Male,coneduc,Only some,0
+1793,67,Male,conmedic,A great deal,1
+1793,67,Male,consci,A great deal,1
+1794,29,Male,coneduc,Hardly any,0
+1794,29,Male,conmedic,Hardly any,0
+1794,29,Male,consci,Hardly any,0
+1796,36,Male,coneduc,Only some,0
+1796,36,Male,conmedic,Only some,0
+1796,36,Male,consci,Only some,0
+1797,64,Female,coneduc,Only some,0
+1797,64,Female,conmedic,Only some,0
+1797,64,Female,consci,Only some,0
+1799,63,Female,coneduc,Only some,0
+1799,63,Female,conmedic,A great deal,1
+1799,63,Female,consci,Only some,0
+1801,35,Female,coneduc,Only some,0
+1801,35,Female,conmedic,A great deal,1
+1801,35,Female,consci,Only some,0
+1802,82,Female,coneduc,Only some,0
+1802,82,Female,conmedic,Hardly any,0
+1802,82,Female,consci,A great deal,1
+1804,47,Female,coneduc,A great deal,1
+1804,47,Female,conmedic,A great deal,1
+1804,47,Female,consci,A great deal,1
+1805,53,Male,coneduc,A great deal,1
+1805,53,Male,conmedic,A great deal,1
+1805,53,Male,consci,A great deal,1
+1806,70,Female,coneduc,Hardly any,0
+1806,70,Female,conmedic,Only some,0
+1806,70,Female,consci,A great deal,1
+1807,32,Female,coneduc,A great deal,1
+1807,32,Female,conmedic,A great deal,1
+1807,32,Female,consci,A great deal,1
+1809,35,Female,coneduc,Only some,0
+1809,35,Female,conmedic,Only some,0
+1809,35,Female,consci,Only some,0
+1812,41,Female,coneduc,Only some,0
+1812,41,Female,conmedic,A great deal,1
+1812,41,Female,consci,A great deal,1
+1814,50,Female,coneduc,Hardly any,0
+1814,50,Female,conmedic,Only some,0
+1814,50,Female,consci,Only some,0
+1815,56,Male,coneduc,Only some,0
+1815,56,Male,conmedic,A great deal,1
+1815,56,Male,consci,Only some,0
+1817,49,Male,coneduc,Only some,0
+1817,49,Male,conmedic,Only some,0
+1817,49,Male,consci,Only some,0
+1818,57,Male,coneduc,Only some,0
+1818,57,Male,conmedic,Only some,0
+1818,57,Male,consci,A great deal,1
+1820,56,Male,coneduc,A great deal,1
+1820,56,Male,conmedic,A great deal,1
+1820,56,Male,consci,Only some,0
+1821,55,Male,coneduc,Hardly any,0
+1821,55,Male,conmedic,Hardly any,0
+1821,55,Male,consci,A great deal,1
+1824,60,Male,coneduc,Only some,0
+1824,60,Male,conmedic,A great deal,1
+1824,60,Male,consci,Only some,0
+1827,45,Female,coneduc,A great deal,1
+1827,45,Female,conmedic,Only some,0
+1827,45,Female,consci,A great deal,1
+1829,56,Female,coneduc,Hardly any,0
+1829,56,Female,conmedic,Only some,0
+1829,56,Female,consci,Only some,0
+1830,24,Male,coneduc,Only some,0
+1830,24,Male,conmedic,Only some,0
+1830,24,Male,consci,Only some,0
+1833,25,Female,coneduc,Only some,0
+1833,25,Female,conmedic,A great deal,1
+1833,25,Female,consci,A great deal,1
+1836,23,Female,coneduc,Only some,0
+1836,23,Female,conmedic,Only some,0
+1836,23,Female,consci,Only some,0
+1838,18,Female,coneduc,Only some,0
+1838,18,Female,conmedic,Only some,0
+1838,18,Female,consci,A great deal,1
+1839,58,Male,coneduc,A great deal,1
+1839,58,Male,conmedic,A great deal,1
+1839,58,Male,consci,A great deal,1
+1841,25,Male,coneduc,Hardly any,0
+1841,25,Male,conmedic,A great deal,1
+1841,25,Male,consci,A great deal,1
+1842,72,Female,coneduc,Only some,0
+1842,72,Female,conmedic,A great deal,1
+1842,72,Female,consci,A great deal,1
+1844,62,Female,coneduc,Only some,0
+1844,62,Female,conmedic,Only some,0
+1844,62,Female,consci,Only some,0
+1845,85,Male,coneduc,A great deal,1
+1845,85,Male,conmedic,A great deal,1
+1845,85,Male,consci,Only some,0
+1847,68,Male,coneduc,A great deal,1
+1847,68,Male,conmedic,Only some,0
+1847,68,Male,consci,A great deal,1
+1849,75,Male,coneduc,Only some,0
+1849,75,Male,conmedic,A great deal,1
+1849,75,Male,consci,A great deal,1
+1850,55,Male,coneduc,A great deal,1
+1850,55,Male,conmedic,A great deal,1
+1850,55,Male,consci,Only some,0
+1851,35,Male,coneduc,A great deal,1
+1851,35,Male,conmedic,Hardly any,0
+1851,35,Male,consci,Hardly any,0
+1853,27,Male,coneduc,Only some,0
+1853,27,Male,conmedic,Hardly any,0
+1853,27,Male,consci,Hardly any,0
+1855,61,Male,coneduc,Only some,0
+1855,61,Male,conmedic,Only some,0
+1855,61,Male,consci,A great deal,1
+1856,67,Female,coneduc,Only some,0
+1856,67,Female,conmedic,A great deal,1
+1856,67,Female,consci,A great deal,1
+1857,80,Male,coneduc,Only some,0
+1857,80,Male,conmedic,Only some,0
+1857,80,Male,consci,Hardly any,0
+1858,86,Female,coneduc,A great deal,1
+1858,86,Female,conmedic,A great deal,1
+1858,86,Female,consci,A great deal,1
+1860,28,Female,coneduc,Only some,0
+1860,28,Female,conmedic,Only some,0
+1860,28,Female,consci,A great deal,1
+1862,23,Female,coneduc,Only some,0
+1862,23,Female,conmedic,A great deal,1
+1862,23,Female,consci,A great deal,1
+1863,45,Female,coneduc,A great deal,1
+1863,45,Female,conmedic,Only some,0
+1863,45,Female,consci,Only some,0
+1865,39,Female,coneduc,Only some,0
+1865,39,Female,conmedic,Only some,0
+1865,39,Female,consci,Only some,0
+1866,81,Male,coneduc,A great deal,1
+1866,81,Male,conmedic,A great deal,1
+1866,81,Male,consci,A great deal,1
+1868,34,Male,coneduc,A great deal,1
+1868,34,Male,conmedic,A great deal,1
+1868,34,Male,consci,A great deal,1
+1870,59,Female,coneduc,Only some,0
+1870,59,Female,conmedic,Only some,0
+1870,59,Female,consci,Only some,0
+1872,84,Male,coneduc,Only some,0
+1872,84,Male,conmedic,A great deal,1
+1872,84,Male,consci,Only some,0
+1873,24,Female,coneduc,Only some,0
+1873,24,Female,conmedic,Only some,0
+1873,24,Female,consci,Hardly any,0
+1875,36,Female,coneduc,Only some,0
+1875,36,Female,conmedic,Only some,0
+1875,36,Female,consci,Only some,0
+1878,18,Male,coneduc,Hardly any,0
+1878,18,Male,conmedic,Only some,0
+1878,18,Male,consci,A great deal,1
+1879,53,Female,coneduc,Only some,0
+1879,53,Female,conmedic,Only some,0
+1879,53,Female,consci,A great deal,1
+1880,49,Female,coneduc,A great deal,1
+1880,49,Female,conmedic,A great deal,1
+1880,49,Female,consci,Only some,0
+1882,72,Female,coneduc,A great deal,1
+1882,72,Female,conmedic,Only some,0
+1882,72,Female,consci,Only some,0
+1885,34,Male,coneduc,Only some,0
+1885,34,Male,conmedic,A great deal,1
+1885,34,Male,consci,Only some,0
+1887,25,Female,coneduc,Hardly any,0
+1887,25,Female,conmedic,Hardly any,0
+1887,25,Female,consci,Only some,0
+1888,53,Female,coneduc,A great deal,1
+1888,53,Female,conmedic,Only some,0
+1888,53,Female,consci,A great deal,1
+1890,30,Female,coneduc,Only some,0
+1890,30,Female,conmedic,A great deal,1
+1890,30,Female,consci,A great deal,1
+1891,43,Male,coneduc,Only some,0
+1891,43,Male,conmedic,Only some,0
+1891,43,Male,consci,Only some,0
+1892,27,Male,coneduc,Only some,0
+1892,27,Male,conmedic,Only some,0
+1892,27,Male,consci,Only some,0
+1893,57,Male,coneduc,Only some,0
+1893,57,Male,conmedic,Only some,0
+1893,57,Male,consci,Only some,0
+1894,43,Female,coneduc,Only some,0
+1894,43,Female,conmedic,A great deal,1
+1894,43,Female,consci,Only some,0
+1896,61,Female,coneduc,Only some,0
+1896,61,Female,conmedic,Only some,0
+1896,61,Female,consci,Only some,0
+1897,39,Male,coneduc,Hardly any,0
+1897,39,Male,conmedic,Hardly any,0
+1897,39,Male,consci,Only some,0
+1898,54,Female,coneduc,Only some,0
+1898,54,Female,conmedic,Hardly any,0
+1898,54,Female,consci,Only some,0
+1900,54,Male,coneduc,Hardly any,0
+1900,54,Male,conmedic,A great deal,1
+1900,54,Male,consci,Only some,0
+1901,49,Male,coneduc,Hardly any,0
+1901,49,Male,conmedic,Only some,0
+1901,49,Male,consci,Hardly any,0
+1902,77,Female,coneduc,A great deal,1
+1902,77,Female,conmedic,Only some,0
+1902,77,Female,consci,Only some,0
+1904,43,Male,coneduc,A great deal,1
+1904,43,Male,conmedic,A great deal,1
+1904,43,Male,consci,A great deal,1
+1907,51,Male,coneduc,Only some,0
+1907,51,Male,conmedic,Only some,0
+1907,51,Male,consci,Only some,0
+1908,34,Female,coneduc,Hardly any,0
+1908,34,Female,conmedic,Hardly any,0
+1908,34,Female,consci,Only some,0
+1909,28,Male,coneduc,Only some,0
+1909,28,Male,conmedic,A great deal,1
+1909,28,Male,consci,A great deal,1
+1910,35,Female,coneduc,Hardly any,0
+1910,35,Female,conmedic,Only some,0
+1910,35,Female,consci,Only some,0
+1913,66,Female,coneduc,Hardly any,0
+1913,66,Female,conmedic,Only some,0
+1913,66,Female,consci,Only some,0
+1915,20,Male,coneduc,Only some,0
+1915,20,Male,conmedic,Hardly any,0
+1915,20,Male,consci,Hardly any,0
+1917,64,Female,coneduc,Only some,0
+1917,64,Female,conmedic,Only some,0
+1917,64,Female,consci,Only some,0
+1919,60,Male,coneduc,Only some,0
+1919,60,Male,conmedic,Only some,0
+1919,60,Male,consci,Only some,0
+1920,34,Male,coneduc,Only some,0
+1920,34,Male,conmedic,Only some,0
+1920,34,Male,consci,A great deal,1
+1921,31,Female,coneduc,Only some,0
+1921,31,Female,conmedic,Only some,0
+1921,31,Female,consci,Only some,0
+1922,24,Male,coneduc,Only some,0
+1922,24,Male,conmedic,A great deal,1
+1922,24,Male,consci,A great deal,1
+1924,38,Female,coneduc,Hardly any,0
+1924,38,Female,conmedic,Only some,0
+1924,38,Female,consci,A great deal,1
+1926,60,Female,coneduc,Only some,0
+1926,60,Female,conmedic,Only some,0
+1926,60,Female,consci,Only some,0
+1928,25,Female,coneduc,Hardly any,0
+1928,25,Female,conmedic,Hardly any,0
+1928,25,Female,consci,Only some,0
+1932,61,Female,coneduc,Only some,0
+1932,61,Female,conmedic,Hardly any,0
+1932,61,Female,consci,Only some,0
+1933,30,Female,coneduc,A great deal,1
+1933,30,Female,conmedic,Only some,0
+1933,30,Female,consci,Only some,0
+1934,66,Female,coneduc,Only some,0
+1934,66,Female,conmedic,Hardly any,0
+1934,66,Female,consci,A great deal,1
+1936,41,Male,coneduc,Only some,0
+1936,41,Male,conmedic,Only some,0
+1936,41,Male,consci,A great deal,1
+1938,26,Female,coneduc,Only some,0
+1938,26,Female,conmedic,Only some,0
+1938,26,Female,consci,A great deal,1
+1942,18,Female,coneduc,A great deal,1
+1942,18,Female,conmedic,A great deal,1
+1942,18,Female,consci,A great deal,1
+1945,44,Female,coneduc,A great deal,1
+1945,44,Female,conmedic,Only some,0
+1945,44,Female,consci,Only some,0
+1947,21,Male,coneduc,Only some,0
+1947,21,Male,conmedic,Only some,0
+1947,21,Male,consci,A great deal,1
+1951,66,Female,coneduc,A great deal,1
+1951,66,Female,conmedic,Hardly any,0
+1951,66,Female,consci,A great deal,1
+1953,58,Male,coneduc,A great deal,1
+1953,58,Male,conmedic,A great deal,1
+1953,58,Male,consci,Only some,0
+1955,46,Male,coneduc,A great deal,1
+1955,46,Male,conmedic,Only some,0
+1955,46,Male,consci,Only some,0
+1957,49,Female,coneduc,Only some,0
+1957,49,Female,conmedic,Only some,0
+1957,49,Female,consci,A great deal,1
+1959,63,Male,coneduc,Only some,0
+1959,63,Male,conmedic,Only some,0
+1959,63,Male,consci,Hardly any,0
+1961,69,Female,coneduc,Hardly any,0
+1961,69,Female,conmedic,Only some,0
+1961,69,Female,consci,Only some,0
+1964,42,Female,coneduc,A great deal,1
+1964,42,Female,conmedic,A great deal,1
+1964,42,Female,consci,Only some,0
+1969,28,Female,coneduc,Hardly any,0
+1969,28,Female,conmedic,Only some,0
+1969,28,Female,consci,Only some,0
+1972,32,Male,coneduc,Only some,0
+1972,32,Male,conmedic,A great deal,1
+1972,32,Male,consci,A great deal,1
+1974,59,Male,coneduc,Only some,0
+1974,59,Male,conmedic,A great deal,1
+1974,59,Male,consci,Only some,0
+1975,38,Female,coneduc,Only some,0
+1975,38,Female,conmedic,Only some,0
+1975,38,Female,consci,Only some,0
+1977,36,Male,coneduc,Only some,0
+1977,36,Male,conmedic,Only some,0
+1977,36,Male,consci,Only some,0
+1978,29,Male,coneduc,Only some,0
+1978,29,Male,conmedic,Only some,0
+1978,29,Male,consci,Only some,0
+1980,42,Female,coneduc,Only some,0
+1980,42,Female,conmedic,Only some,0
+1980,42,Female,consci,Hardly any,0
+1981,60,Male,coneduc,Hardly any,0
+1981,60,Male,conmedic,Hardly any,0
+1981,60,Male,consci,Only some,0
+1983,34,Male,coneduc,Only some,0
+1983,34,Male,conmedic,A great deal,1
+1983,34,Male,consci,A great deal,1
+1984,32,Female,coneduc,Only some,0
+1984,32,Female,conmedic,Only some,0
+1984,32,Female,consci,A great deal,1
+1985,22,Female,coneduc,A great deal,1
+1985,22,Female,conmedic,A great deal,1
+1985,22,Female,consci,Hardly any,0
+1986,35,Female,coneduc,Only some,0
+1986,35,Female,conmedic,A great deal,1
+1986,35,Female,consci,Only some,0
+1987,22,Female,coneduc,A great deal,1
+1987,22,Female,conmedic,Hardly any,0
+1987,22,Female,consci,Only some,0
+1989,44,Male,coneduc,Only some,0
+1989,44,Male,conmedic,Only some,0
+1989,44,Male,consci,Only some,0
+1990,66,Female,coneduc,Only some,0
+1990,66,Female,conmedic,Only some,0
+1990,66,Female,consci,Only some,0
+1992,47,Male,coneduc,A great deal,1
+1992,47,Male,conmedic,A great deal,1
+1992,47,Male,consci,Only some,0
+1997,71,Male,coneduc,Only some,0
+1997,71,Male,conmedic,Only some,0
+1997,71,Male,consci,A great deal,1
+1998,85,Female,coneduc,Only some,0
+1998,85,Female,conmedic,Only some,0
+1998,85,Female,consci,Only some,0
+1999,72,Female,coneduc,Only some,0
+1999,72,Female,conmedic,Only some,0
+1999,72,Female,consci,Hardly any,0
+2000,51,Female,coneduc,Hardly any,0
+2000,51,Female,conmedic,Hardly any,0
+2000,51,Female,consci,A great deal,1
+2002,60,Female,coneduc,Only some,0
+2002,60,Female,conmedic,Only some,0
+2002,60,Female,consci,A great deal,1
+2003,56,Female,coneduc,Only some,0
+2003,56,Female,conmedic,Only some,0
+2003,56,Female,consci,Only some,0
+2004,55,Female,coneduc,Only some,0
+2004,55,Female,conmedic,A great deal,1
+2004,55,Female,consci,A great deal,1
+2006,64,Female,coneduc,Hardly any,0
+2006,64,Female,conmedic,Only some,0
+2006,64,Female,consci,Only some,0
+2007,29,Female,coneduc,Hardly any,0
+2007,29,Female,conmedic,Only some,0
+2007,29,Female,consci,A great deal,1
+2008,46,Female,coneduc,Only some,0
+2008,46,Female,conmedic,Only some,0
+2008,46,Female,consci,A great deal,1
+2009,19,Female,coneduc,Hardly any,0
+2009,19,Female,conmedic,Only some,0
+2009,19,Female,consci,Only some,0
+2010,19,Female,coneduc,Only some,0
+2010,19,Female,conmedic,Only some,0
+2010,19,Female,consci,Only some,0
+2012,41,Female,coneduc,A great deal,1
+2012,41,Female,conmedic,Only some,0
+2012,41,Female,consci,A great deal,1
+2013,25,Male,coneduc,Hardly any,0
+2013,25,Male,conmedic,Hardly any,0
+2013,25,Male,consci,A great deal,1
+2015,74,Male,coneduc,Only some,0
+2015,74,Male,conmedic,Only some,0
+2015,74,Male,consci,Only some,0
+2016,53,Female,coneduc,Hardly any,0
+2016,53,Female,conmedic,Only some,0
+2016,53,Female,consci,Hardly any,0
+2018,69,Male,coneduc,Only some,0
+2018,69,Male,conmedic,Only some,0
+2018,69,Male,consci,A great deal,1
+2019,55,Male,coneduc,Only some,0
+2019,55,Male,conmedic,Only some,0
+2019,55,Male,consci,Only some,0
+2021,68,Male,coneduc,A great deal,1
+2021,68,Male,conmedic,A great deal,1
+2021,68,Male,consci,A great deal,1
+2023,63,Male,coneduc,Hardly any,0
+2023,63,Male,conmedic,Only some,0
+2023,63,Male,consci,A great deal,1
+2025,44,Male,coneduc,Only some,0
+2025,44,Male,conmedic,A great deal,1
+2025,44,Male,consci,A great deal,1
+2027,44,Male,coneduc,Only some,0
+2027,44,Male,conmedic,Only some,0
+2027,44,Male,consci,Only some,0
+2029,41,Female,coneduc,Hardly any,0
+2029,41,Female,conmedic,Only some,0
+2029,41,Female,consci,Only some,0
+2030,24,Male,coneduc,Only some,0
+2030,24,Male,conmedic,A great deal,1
+2030,24,Male,consci,A great deal,1
+2032,36,Female,coneduc,Only some,0
+2032,36,Female,conmedic,Only some,0
+2032,36,Female,consci,A great deal,1
+2033,34,Male,coneduc,Only some,0
+2033,34,Male,conmedic,A great deal,1
+2033,34,Male,consci,A great deal,1
+2034,25,Female,coneduc,Hardly any,0
+2034,25,Female,conmedic,Hardly any,0
+2034,25,Female,consci,A great deal,1
+2036,33,Female,coneduc,Only some,0
+2036,33,Female,conmedic,Only some,0
+2036,33,Female,consci,Only some,0
+2038,36,Male,coneduc,Only some,0
+2038,36,Male,conmedic,A great deal,1
+2038,36,Male,consci,A great deal,1
+2040,61,Female,coneduc,Only some,0
+2040,61,Female,conmedic,Only some,0
+2040,61,Female,consci,Only some,0
+2042,53,Male,coneduc,A great deal,1
+2042,53,Male,conmedic,A great deal,1
+2042,53,Male,consci,A great deal,1
+2044,50,Male,coneduc,Only some,0
+2044,50,Male,conmedic,Hardly any,0
+2044,50,Male,consci,Only some,0
+2046,69,Female,coneduc,Only some,0
+2046,69,Female,conmedic,Only some,0
+2046,69,Female,consci,Only some,0
+2048,80,Female,coneduc,Only some,0
+2048,80,Female,conmedic,Only some,0
+2048,80,Female,consci,Only some,0
+2051,44,Male,coneduc,Hardly any,0
+2051,44,Male,conmedic,Hardly any,0
+2051,44,Male,consci,Hardly any,0
+2053,76,Male,coneduc,Hardly any,0
+2053,76,Male,conmedic,A great deal,1
+2053,76,Male,consci,Only some,0
+2056,36,Male,coneduc,A great deal,1
+2056,36,Male,conmedic,Hardly any,0
+2056,36,Male,consci,A great deal,1
+2057,70,Female,coneduc,Hardly any,0
+2057,70,Female,conmedic,A great deal,1
+2057,70,Female,consci,A great deal,1
+2058,41,Female,coneduc,A great deal,1
+2058,41,Female,conmedic,Only some,0
+2058,41,Female,consci,Only some,0
+2059,34,Female,coneduc,Only some,0
+2059,34,Female,conmedic,A great deal,1
+2059,34,Female,consci,A great deal,1
+2061,30,Female,coneduc,Only some,0
+2061,30,Female,conmedic,Hardly any,0
+2061,30,Female,consci,Only some,0
+2064,54,Female,coneduc,A great deal,1
+2064,54,Female,conmedic,Only some,0
+2064,54,Female,consci,A great deal,1
+2065,70,Female,coneduc,Hardly any,0
+2065,70,Female,conmedic,Only some,0
+2065,70,Female,consci,Only some,0
+2066,37,Male,coneduc,Only some,0
+2066,37,Male,conmedic,Only some,0
+2066,37,Male,consci,Only some,0
+2067,59,Male,coneduc,A great deal,1
+2067,59,Male,conmedic,A great deal,1
+2067,59,Male,consci,Only some,0
+2068,51,Female,coneduc,A great deal,1
+2068,51,Female,conmedic,A great deal,1
+2068,51,Female,consci,A great deal,1
+2070,53,Female,coneduc,Hardly any,0
+2070,53,Female,conmedic,Hardly any,0
+2070,53,Female,consci,Only some,0
+2071,60,Female,coneduc,Only some,0
+2071,60,Female,conmedic,A great deal,1
+2071,60,Female,consci,A great deal,1
+2072,18,Female,coneduc,Hardly any,0
+2072,18,Female,conmedic,A great deal,1
+2072,18,Female,consci,A great deal,1
+2074,22,Male,coneduc,Only some,0
+2074,22,Male,conmedic,Hardly any,0
+2074,22,Male,consci,Only some,0
+2076,66,Female,coneduc,Only some,0
+2076,66,Female,conmedic,Only some,0
+2076,66,Female,consci,Only some,0
+2077,28,Male,coneduc,Only some,0
+2077,28,Male,conmedic,Only some,0
+2077,28,Male,consci,Only some,0
+2080,26,Male,coneduc,Hardly any,0
+2080,26,Male,conmedic,A great deal,1
+2080,26,Male,consci,Only some,0
+2082,66,Female,coneduc,Hardly any,0
+2082,66,Female,conmedic,Only some,0
+2082,66,Female,consci,Only some,0
+2084,80,Male,coneduc,Only some,0
+2084,80,Male,conmedic,A great deal,1
+2084,80,Male,consci,A great deal,1
+2086,73,Female,coneduc,Only some,0
+2086,73,Female,conmedic,Only some,0
+2086,73,Female,consci,Only some,0
+2087,64,Male,coneduc,Only some,0
+2087,64,Male,conmedic,A great deal,1
+2087,64,Male,consci,Only some,0
+2088,36,Male,coneduc,Only some,0
+2088,36,Male,conmedic,Hardly any,0
+2088,36,Male,consci,A great deal,1
+2091,29,Female,coneduc,Only some,0
+2091,29,Female,conmedic,Only some,0
+2091,29,Female,consci,Only some,0
+2092,37,Male,coneduc,Hardly any,0
+2092,37,Male,conmedic,Only some,0
+2092,37,Male,consci,A great deal,1
+2095,39,Female,coneduc,Hardly any,0
+2095,39,Female,conmedic,Only some,0
+2095,39,Female,consci,A great deal,1
+2098,33,Female,coneduc,A great deal,1
+2098,33,Female,conmedic,A great deal,1
+2098,33,Female,consci,A great deal,1
+2100,44,Female,coneduc,Only some,0
+2100,44,Female,conmedic,Only some,0
+2100,44,Female,consci,A great deal,1
+2102,48,Male,coneduc,Only some,0
+2102,48,Male,conmedic,Hardly any,0
+2102,48,Male,consci,Only some,0
+2103,27,Male,coneduc,Hardly any,0
+2103,27,Male,conmedic,Only some,0
+2103,27,Male,consci,A great deal,1
+2104,59,Female,coneduc,Hardly any,0
+2104,59,Female,conmedic,A great deal,1
+2104,59,Female,consci,A great deal,1
+2106,51,Male,coneduc,Only some,0
+2106,51,Male,conmedic,A great deal,1
+2106,51,Male,consci,Only some,0
+2107,63,Male,coneduc,Only some,0
+2107,63,Male,conmedic,Only some,0
+2107,63,Male,consci,Only some,0
+2109,56,Female,coneduc,Only some,0
+2109,56,Female,conmedic,A great deal,1
+2109,56,Female,consci,A great deal,1
+2111,34,Female,coneduc,A great deal,1
+2111,34,Female,conmedic,A great deal,1
+2111,34,Female,consci,Only some,0
+2114,62,Male,coneduc,Only some,0
+2114,62,Male,conmedic,A great deal,1
+2114,62,Male,consci,A great deal,1
+2116,68,Male,coneduc,Only some,0
+2116,68,Male,conmedic,Only some,0
+2116,68,Male,consci,Only some,0
+2118,66,Female,coneduc,Only some,0
+2118,66,Female,conmedic,Only some,0
+2118,66,Female,consci,Only some,0
+2119,20,Female,coneduc,A great deal,1
+2119,20,Female,conmedic,Only some,0
+2119,20,Female,consci,Only some,0
+2120,74,Female,coneduc,Only some,0
+2120,74,Female,conmedic,Only some,0
+2120,74,Female,consci,Only some,0
+2121,48,Female,coneduc,Only some,0
+2121,48,Female,conmedic,Only some,0
+2121,48,Female,consci,Only some,0
+2122,52,Female,coneduc,Hardly any,0
+2122,52,Female,conmedic,A great deal,1
+2122,52,Female,consci,Only some,0
+2123,87,Male,coneduc,A great deal,1
+2123,87,Male,conmedic,A great deal,1
+2123,87,Male,consci,A great deal,1
+2124,39,Male,coneduc,Hardly any,0
+2124,39,Male,conmedic,Only some,0
+2124,39,Male,consci,Hardly any,0
+2125,35,Female,coneduc,Only some,0
+2125,35,Female,conmedic,Only some,0
+2125,35,Female,consci,A great deal,1
+2126,30,Female,coneduc,Only some,0
+2126,30,Female,conmedic,Hardly any,0
+2126,30,Female,consci,Only some,0
+2127,20,Female,coneduc,Hardly any,0
+2127,20,Female,conmedic,Only some,0
+2127,20,Female,consci,Only some,0
+2128,49,Female,coneduc,A great deal,1
+2128,49,Female,conmedic,A great deal,1
+2128,49,Female,consci,A great deal,1
+2129,36,Female,coneduc,A great deal,1
+2129,36,Female,conmedic,A great deal,1
+2129,36,Female,consci,A great deal,1
+2130,40,Male,coneduc,A great deal,1
+2130,40,Male,conmedic,A great deal,1
+2130,40,Male,consci,A great deal,1
+2132,22,Female,coneduc,A great deal,1
+2132,22,Female,conmedic,A great deal,1
+2132,22,Female,consci,Only some,0
+2134,59,Male,coneduc,Only some,0
+2134,59,Male,conmedic,A great deal,1
+2134,59,Male,consci,Only some,0
+2135,25,Female,coneduc,Only some,0
+2135,25,Female,conmedic,Only some,0
+2135,25,Female,consci,Only some,0
+2137,37,Female,coneduc,A great deal,1
+2137,37,Female,conmedic,A great deal,1
+2137,37,Female,consci,A great deal,1
+2138,72,Female,coneduc,Only some,0
+2138,72,Female,conmedic,Only some,0
+2138,72,Female,consci,Only some,0
+2140,65,Female,coneduc,Only some,0
+2140,65,Female,conmedic,Only some,0
+2140,65,Female,consci,Only some,0
+2141,46,Female,coneduc,Only some,0
+2141,46,Female,conmedic,Only some,0
+2141,46,Female,consci,Only some,0
+2142,50,Female,coneduc,A great deal,1
+2142,50,Female,conmedic,Only some,0
+2142,50,Female,consci,Only some,0
+2143,85,Male,coneduc,Only some,0
+2143,85,Male,conmedic,A great deal,1
+2143,85,Male,consci,A great deal,1
+2145,89,Male,coneduc,Only some,0
+2145,89,Male,conmedic,Only some,0
+2145,89,Male,consci,A great deal,1
+2146,69,Male,coneduc,A great deal,1
+2146,69,Male,conmedic,A great deal,1
+2146,69,Male,consci,Only some,0
+2147,71,Male,coneduc,A great deal,1
+2147,71,Male,conmedic,A great deal,1
+2147,71,Male,consci,Only some,0
+2151,46,Male,coneduc,Hardly any,0
+2151,46,Male,conmedic,Hardly any,0
+2151,46,Male,consci,Only some,0
+2153,34,Female,coneduc,Only some,0
+2153,34,Female,conmedic,Only some,0
+2153,34,Female,consci,Only some,0
+2154,31,Female,coneduc,Only some,0
+2154,31,Female,conmedic,A great deal,1
+2154,31,Female,consci,Only some,0
+2155,32,Female,coneduc,A great deal,1
+2155,32,Female,conmedic,A great deal,1
+2155,32,Female,consci,Hardly any,0
+2160,39,Female,coneduc,Only some,0
+2160,39,Female,conmedic,A great deal,1
+2160,39,Female,consci,A great deal,1
+2162,33,Male,coneduc,Only some,0
+2162,33,Male,conmedic,Only some,0
+2162,33,Male,consci,A great deal,1
+2163,63,Male,coneduc,Only some,0
+2163,63,Male,conmedic,A great deal,1
+2163,63,Male,consci,Only some,0
+2165,47,Female,coneduc,A great deal,1
+2165,47,Female,conmedic,A great deal,1
+2165,47,Female,consci,A great deal,1
+2168,55,Female,coneduc,Only some,0
+2168,55,Female,conmedic,Hardly any,0
+2168,55,Female,consci,Hardly any,0
+2169,55,Female,coneduc,A great deal,1
+2169,55,Female,conmedic,Only some,0
+2169,55,Female,consci,A great deal,1
+2173,29,Male,coneduc,Only some,0
+2173,29,Male,conmedic,Only some,0
+2173,29,Male,consci,Only some,0
+2175,31,Female,coneduc,Only some,0
+2175,31,Female,conmedic,Hardly any,0
+2175,31,Female,consci,Only some,0
+2176,37,Female,coneduc,A great deal,1
+2176,37,Female,conmedic,Only some,0
+2176,37,Female,consci,A great deal,1
+2177,74,Male,coneduc,A great deal,1
+2177,74,Male,conmedic,A great deal,1
+2177,74,Male,consci,A great deal,1
+2180,59,Male,coneduc,Only some,0
+2180,59,Male,conmedic,A great deal,1
+2180,59,Male,consci,A great deal,1
+2181,39,Female,coneduc,Only some,0
+2181,39,Female,conmedic,Only some,0
+2181,39,Female,consci,A great deal,1
+2182,59,Male,coneduc,Only some,0
+2182,59,Male,conmedic,Hardly any,0
+2182,59,Male,consci,Only some,0
+2183,52,Male,coneduc,A great deal,1
+2183,52,Male,conmedic,Only some,0
+2183,52,Male,consci,A great deal,1
+2185,36,Female,coneduc,Only some,0
+2185,36,Female,conmedic,A great deal,1
+2185,36,Female,consci,A great deal,1
+2188,65,Male,coneduc,Only some,0
+2188,65,Male,conmedic,Only some,0
+2188,65,Male,consci,A great deal,1
+2190,56,Female,coneduc,Only some,0
+2190,56,Female,conmedic,A great deal,1
+2190,56,Female,consci,A great deal,1
+2192,39,Male,coneduc,A great deal,1
+2192,39,Male,conmedic,A great deal,1
+2192,39,Male,consci,A great deal,1
+2194,29,Male,coneduc,A great deal,1
+2194,29,Male,conmedic,Hardly any,0
+2194,29,Male,consci,A great deal,1
+2196,59,Female,coneduc,A great deal,1
+2196,59,Female,conmedic,A great deal,1
+2196,59,Female,consci,Only some,0
+2197,44,Male,coneduc,Only some,0
+2197,44,Male,conmedic,Only some,0
+2197,44,Male,consci,Only some,0
+2199,39,Male,coneduc,Only some,0
+2199,39,Male,conmedic,Only some,0
+2199,39,Male,consci,A great deal,1
+2200,72,Female,coneduc,Only some,0
+2200,72,Female,conmedic,Hardly any,0
+2200,72,Female,consci,Hardly any,0
+2202,36,Female,coneduc,Hardly any,0
+2202,36,Female,conmedic,Only some,0
+2202,36,Female,consci,Only some,0
+2203,82,Male,coneduc,A great deal,1
+2203,82,Male,conmedic,A great deal,1
+2203,82,Male,consci,A great deal,1
+2204,35,Female,coneduc,A great deal,1
+2204,35,Female,conmedic,A great deal,1
+2204,35,Female,consci,A great deal,1
+2207,33,Female,coneduc,Only some,0
+2207,33,Female,conmedic,Only some,0
+2207,33,Female,consci,Only some,0
+2208,25,Male,coneduc,Hardly any,0
+2208,25,Male,conmedic,Only some,0
+2208,25,Male,consci,Hardly any,0
+2210,63,Female,coneduc,Hardly any,0
+2210,63,Female,conmedic,Hardly any,0
+2210,63,Female,consci,Only some,0
+2212,71,Male,coneduc,Only some,0
+2212,71,Male,conmedic,A great deal,1
+2212,71,Male,consci,A great deal,1
+2214,33,Male,coneduc,Hardly any,0
+2214,33,Male,conmedic,Only some,0
+2214,33,Male,consci,A great deal,1
+2215,54,Male,coneduc,Hardly any,0
+2215,54,Male,conmedic,Only some,0
+2215,54,Male,consci,Only some,0
+2216,41,Male,coneduc,Hardly any,0
+2216,41,Male,conmedic,Only some,0
+2216,41,Male,consci,Only some,0
+2218,42,Female,coneduc,Only some,0
+2218,42,Female,conmedic,Only some,0
+2218,42,Female,consci,A great deal,1
+2220,23,Male,coneduc,Only some,0
+2220,23,Male,conmedic,Only some,0
+2220,23,Male,consci,Only some,0
+2222,65,Male,coneduc,Hardly any,0
+2222,65,Male,conmedic,Only some,0
+2222,65,Male,consci,A great deal,1
+2223,58,Male,coneduc,A great deal,1
+2223,58,Male,conmedic,A great deal,1
+2223,58,Male,consci,Only some,0
+2226,29,Male,coneduc,Only some,0
+2226,29,Male,conmedic,A great deal,1
+2226,29,Male,consci,A great deal,1
+2228,32,Male,coneduc,Only some,0
+2228,32,Male,conmedic,Only some,0
+2228,32,Male,consci,Only some,0
+2229,27,Male,coneduc,A great deal,1
+2229,27,Male,conmedic,A great deal,1
+2229,27,Male,consci,A great deal,1
+2231,30,Female,coneduc,Only some,0
+2231,30,Female,conmedic,Hardly any,0
+2231,30,Female,consci,Only some,0
+2232,68,Female,coneduc,Only some,0
+2232,68,Female,conmedic,Only some,0
+2232,68,Female,consci,A great deal,1
+2233,47,Female,coneduc,Hardly any,0
+2233,47,Female,conmedic,Only some,0
+2233,47,Female,consci,Only some,0
+2234,51,Male,coneduc,A great deal,1
+2234,51,Male,conmedic,Only some,0
+2234,51,Male,consci,Only some,0
+2235,56,Female,coneduc,Hardly any,0
+2235,56,Female,conmedic,Only some,0
+2235,56,Female,consci,Only some,0
+2236,70,Male,coneduc,A great deal,1
+2236,70,Male,conmedic,Hardly any,0
+2236,70,Male,consci,Only some,0
+2238,53,Female,coneduc,Hardly any,0
+2238,53,Female,conmedic,Hardly any,0
+2238,53,Female,consci,Only some,0
+2239,79,Male,coneduc,Only some,0
+2239,79,Male,conmedic,Only some,0
+2239,79,Male,consci,A great deal,1
+2241,59,Female,coneduc,Only some,0
+2241,59,Female,conmedic,A great deal,1
+2241,59,Female,consci,A great deal,1
+2243,45,Male,coneduc,Only some,0
+2243,45,Male,conmedic,Hardly any,0
+2243,45,Male,consci,Hardly any,0
+2246,60,Female,coneduc,A great deal,1
+2246,60,Female,conmedic,Only some,0
+2246,60,Female,consci,A great deal,1
+2248,55,Male,coneduc,Only some,0
+2248,55,Male,conmedic,Only some,0
+2248,55,Male,consci,Only some,0
+2249,48,Female,coneduc,Only some,0
+2249,48,Female,conmedic,Only some,0
+2249,48,Female,consci,Only some,0
+2251,66,Male,coneduc,Only some,0
+2251,66,Male,conmedic,Hardly any,0
+2251,66,Male,consci,Only some,0
+2254,29,Male,coneduc,Only some,0
+2254,29,Male,conmedic,Only some,0
+2254,29,Male,consci,Only some,0
+2255,81,Female,coneduc,A great deal,1
+2255,81,Female,conmedic,A great deal,1
+2255,81,Female,consci,Only some,0
+2257,37,Male,coneduc,Only some,0
+2257,37,Male,conmedic,Only some,0
+2257,37,Male,consci,Hardly any,0
+2259,67,Male,coneduc,Only some,0
+2259,67,Male,conmedic,A great deal,1
+2259,67,Male,consci,Hardly any,0
+2260,34,Female,coneduc,A great deal,1
+2260,34,Female,conmedic,A great deal,1
+2260,34,Female,consci,Only some,0
+2261,24,Female,coneduc,Hardly any,0
+2261,24,Female,conmedic,Hardly any,0
+2261,24,Female,consci,Only some,0
+2263,30,Male,coneduc,A great deal,1
+2263,30,Male,conmedic,Hardly any,0
+2263,30,Male,consci,Hardly any,0
+2265,22,Female,coneduc,A great deal,1
+2265,22,Female,conmedic,A great deal,1
+2265,22,Female,consci,Only some,0
+2266,84,Male,coneduc,Hardly any,0
+2266,84,Male,conmedic,Only some,0
+2266,84,Male,consci,Only some,0
+2267,65,Male,coneduc,A great deal,1
+2267,65,Male,conmedic,A great deal,1
+2267,65,Male,consci,Only some,0
+2270,46,Male,coneduc,Only some,0
+2270,46,Male,conmedic,Only some,0
+2270,46,Male,consci,Only some,0
+2271,74,Female,coneduc,Hardly any,0
+2271,74,Female,conmedic,Hardly any,0
+2271,74,Female,consci,Hardly any,0
+2273,34,Female,coneduc,A great deal,1
+2273,34,Female,conmedic,Hardly any,0
+2273,34,Female,consci,Only some,0
+2274,64,Female,coneduc,Only some,0
+2274,64,Female,conmedic,Only some,0
+2274,64,Female,consci,Only some,0
+2275,40,Female,coneduc,Only some,0
+2275,40,Female,conmedic,Only some,0
+2275,40,Female,consci,Hardly any,0
+2276,56,Male,coneduc,A great deal,1
+2276,56,Male,conmedic,A great deal,1
+2276,56,Male,consci,Hardly any,0
+2278,64,Male,coneduc,Hardly any,0
+2278,64,Male,conmedic,Only some,0
+2278,64,Male,consci,Only some,0
+2279,68,Female,coneduc,Only some,0
+2279,68,Female,conmedic,Only some,0
+2279,68,Female,consci,A great deal,1
+2280,30,Female,coneduc,Only some,0
+2280,30,Female,conmedic,Only some,0
+2280,30,Female,consci,Only some,0
+2281,41,Female,coneduc,Only some,0
+2281,41,Female,conmedic,Only some,0
+2281,41,Female,consci,Only some,0
+2282,22,Male,coneduc,A great deal,1
+2282,22,Male,conmedic,Hardly any,0
+2282,22,Male,consci,Hardly any,0
+2283,66,Female,coneduc,Hardly any,0
+2283,66,Female,conmedic,A great deal,1
+2283,66,Female,consci,Only some,0
+2285,43,Male,coneduc,Only some,0
+2285,43,Male,conmedic,Only some,0
+2285,43,Male,consci,Hardly any,0
+2286,48,Female,coneduc,Only some,0
+2286,48,Female,conmedic,Only some,0
+2286,48,Female,consci,A great deal,1
+2288,60,Male,coneduc,Hardly any,0
+2288,60,Male,conmedic,A great deal,1
+2288,60,Male,consci,Only some,0
+2289,52,Female,coneduc,Only some,0
+2289,52,Female,conmedic,Hardly any,0
+2289,52,Female,consci,Only some,0
+2291,25,Female,coneduc,A great deal,1
+2291,25,Female,conmedic,A great deal,1
+2291,25,Female,consci,A great deal,1
+2292,41,Female,coneduc,A great deal,1
+2292,41,Female,conmedic,A great deal,1
+2292,41,Female,consci,Only some,0
+2294,77,Female,coneduc,Only some,0
+2294,77,Female,conmedic,Only some,0
+2294,77,Female,consci,Only some,0
+2297,30,Male,coneduc,A great deal,1
+2297,30,Male,conmedic,Only some,0
+2297,30,Male,consci,Only some,0
+2301,68,Male,coneduc,A great deal,1
+2301,68,Male,conmedic,A great deal,1
+2301,68,Male,consci,Hardly any,0
+2303,20,Female,coneduc,Only some,0
+2303,20,Female,conmedic,Hardly any,0
+2303,20,Female,consci,Only some,0
+2306,40,Male,coneduc,Only some,0
+2306,40,Male,conmedic,Only some,0
+2306,40,Male,consci,A great deal,1
+2307,31,Female,coneduc,Only some,0
+2307,31,Female,conmedic,Hardly any,0
+2307,31,Female,consci,Only some,0
+2308,32,Male,coneduc,Only some,0
+2308,32,Male,conmedic,Hardly any,0
+2308,32,Male,consci,Hardly any,0
+2310,78,Male,coneduc,A great deal,1
+2310,78,Male,conmedic,Only some,0
+2310,78,Male,consci,A great deal,1
+2311,54,Male,coneduc,Hardly any,0
+2311,54,Male,conmedic,Only some,0
+2311,54,Male,consci,Hardly any,0
+2314,54,Female,coneduc,Only some,0
+2314,54,Female,conmedic,Only some,0
+2314,54,Female,consci,Only some,0
+2315,26,Male,coneduc,Only some,0
+2315,26,Male,conmedic,A great deal,1
+2315,26,Male,consci,Only some,0
+2318,36,Female,coneduc,Only some,0
+2318,36,Female,conmedic,A great deal,1
+2318,36,Female,consci,A great deal,1
+2319,52,Female,coneduc,A great deal,1
+2319,52,Female,conmedic,Only some,0
+2319,52,Female,consci,Only some,0
+2322,53,Male,coneduc,Only some,0
+2322,53,Male,conmedic,Only some,0
+2322,53,Male,consci,Only some,0
+2323,43,Female,coneduc,Only some,0
+2323,43,Female,conmedic,Only some,0
+2323,43,Female,consci,Only some,0
+2324,38,Female,coneduc,Only some,0
+2324,38,Female,conmedic,Only some,0
+2324,38,Female,consci,A great deal,1
+2327,39,Male,coneduc,Only some,0
+2327,39,Male,conmedic,Only some,0
+2327,39,Male,consci,A great deal,1
+2328,66,Male,coneduc,Only some,0
+2328,66,Male,conmedic,Only some,0
+2328,66,Male,consci,A great deal,1
+2329,74,Male,coneduc,Only some,0
+2329,74,Male,conmedic,Only some,0
+2329,74,Male,consci,A great deal,1
+2330,39,Female,coneduc,Only some,0
+2330,39,Female,conmedic,Only some,0
+2330,39,Female,consci,A great deal,1
+2331,50,Male,coneduc,Only some,0
+2331,50,Male,conmedic,A great deal,1
+2331,50,Male,consci,A great deal,1
+2332,74,Female,coneduc,Hardly any,0
+2332,74,Female,conmedic,Only some,0
+2332,74,Female,consci,A great deal,1
+2333,35,Female,coneduc,A great deal,1
+2333,35,Female,conmedic,A great deal,1
+2333,35,Female,consci,A great deal,1
+2335,65,Female,coneduc,A great deal,1
+2335,65,Female,conmedic,Only some,0
+2335,65,Female,consci,Only some,0
+2337,25,Female,coneduc,Only some,0
+2337,25,Female,conmedic,A great deal,1
+2337,25,Female,consci,A great deal,1
+2339,46,Female,coneduc,A great deal,1
+2339,46,Female,conmedic,Only some,0
+2339,46,Female,consci,A great deal,1
+2343,19,Male,coneduc,A great deal,1
+2343,19,Male,conmedic,Only some,0
+2343,19,Male,consci,A great deal,1
+2346,67,Female,coneduc,Only some,0
+2346,67,Female,conmedic,Only some,0
+2346,67,Female,consci,Only some,0
+2347,72,Male,coneduc,Hardly any,0
+2347,72,Male,conmedic,Only some,0
+2347,72,Male,consci,A great deal,1

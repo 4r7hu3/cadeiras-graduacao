@@ -1,0 +1,7 @@
+\babel@toc {brazilian}{}\relax 
+\contentsline {subsection}{Série}{2}{section*.2}%
+\contentsline {subsection}{Modelagem}{3}{section*.3}%
+\contentsline {subsubsection}{Primeiro Modelo}{3}{section*.4}%
+\contentsline {subsubsection}{Segundo modelo}{7}{section*.5}%
+\contentsline {subsubsection}{Terceiro Modelo}{10}{section*.6}%
+\contentsline {subsubsection}{Modelo Final}{13}{section*.7}%

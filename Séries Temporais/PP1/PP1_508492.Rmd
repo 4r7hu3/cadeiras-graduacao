@@ -1,0 +1,368 @@
+---
+title: "Prova Prática I"
+subtitle: |
+   | Universidade Federal do Ceará
+   | Centro de Ciências
+   | Departamento de Estatística e Matemática Aplicada
+   | Bacharelado em Estatística
+   | Análise de Séries Temporais
+author: "Antônio Arthur Silva de Lima"
+date: "30 de agosto de 2024"
+lang: "pt-br"
+geometry: "top=2.5cm,right=2cm,left=2cm,margin=2.5cm"
+urlcolor: blue
+linkcolor: black
+output:
+   bookdown::pdf_document2:
+     toc: true
+     toc_depth: 4
+     extra_dependencies: "float"
+     number_sections: false
+---
+
+```{r Setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	fig.align = "center",
+	fig.pos = "H",
+	message = FALSE,
+	warning = FALSE,
+	out.width = "65%",
+  options(knitr.kable.NA = '---')
+)
+```
+
+```{r Bibliotecas}
+library(tidyverse)
+library(forecast)
+library(tseries)
+library(knitr)
+library(kableExtra)
+library(readxl)
+# library(xts)
+library(patchwork)
+```
+
+\newpage
+
+## Série
+
+```{r Carga e Tratamento, include=FALSE}
+recursos = read.csv("~/Documentos/UFC/Séries Temporais/PP1/recsus_cnv_rsbr.csv", dec = ','); recursos
+colnames(recursos) = c('Data', 'Valor')
+
+recursos_ts = ts(recursos$Valor, start = c(1996, 12), frequency = 12); recursos_ts
+```
+
+Primeiro, vamos entender o comportamento da série de **Recursos Federais - SUS** através do seu gráfico, e tirar nossas primeiras conclusões.
+
+```{r Gráfico0, fig.cap='Gráfico da série original'}
+recursos_ts |> autoplot() + labs(title = 'Recursos Federais voltados ao SUS', subtitle = 'dezembro de 1996 a janeiro de 2006', y = 'Valores', x = 'Tempo')
+```
+
+A partir do gráfico, podemos ver que a série é claramente não estacionária, pois possui uma forte tendência geral de crescimento. Também podemos concluir que não há sazonalidade na série, e também destacar que em alguns meses, como os meses finais de 2001 e 2006, o SUS sofreu com quedas dráticas no recebimento de recursos por parte do governo federal.
+
+Podemos confirmar a hipótese de não estacionariedade utilizando os testes de **Dickey-Fuller** e **Kwiatkowski-Phillips-Schmidt-Shin (KPSS)** , como mostram as saídas logo abaixo.
+
+```{r Testes Estatísticos}
+recursos_ts |> adf.test()
+recursos_ts |> kpss.test()
+```
+
+Também devemos checar o comportamento das funções de autocorrelação e autocorrelação parcial da série, pois são a partir dessas funções que iremos estimar a ordem dos polinômios $\phi(B)\; \text{e}\; \theta(B)$.
+
+```{r Autocorrelações, fig.cap='Funções de Autocorrelação'}
+recursos_acf = recursos_ts |> Acf(plot = F) |> autoplot()
+recursos_pacf = recursos_ts |> Pacf(plot = F) |> autoplot()
+
+recursos_acf | recursos_pacf
+```
+
+E por fim, dividimos a série em conjuntos de treino e teste, onde ajustamos modelos ao cojunto de treino para, posteriormente, avaliar previsões sobre o conjunto de teste.
+
+```{r Train/Test Split, echo=TRUE}
+treino = recursos_ts |> head(-12)
+teste = recursos_ts |> tail(12)
+```
+
+## Modelagem
+
+### Primeiro Modelo
+
+Como já vimos anteriormente, temos uma série não estacionária, cujas autocorrelações decaem muito lentamente. Isso é um indicativo de que possivelmente devemos realizar diferenças na série. Tomando a primeira diferença no cojunto de treino, obtemos aparentemente uma série estacionária, na qual a variância parece ser estável (apesar de alguns pontos bruscos de mudança) e a média, em torno de 0, como mostram os gráficos da Figura \@ref(fig:Diff1). 
+
+```{r Diff1, fig.cap='Primeira Diferença'}
+treino |> diff() |> ggtsdisplay()
+```
+
+Para validar a estacionariedade encontrada, usamos novamente os testes estatísticos anteriormente apresentados, e vemos que, de fato, a série é estacionária.
+
+```{r Testes Diff1}
+treino |> diff() |> adf.test()
+treino |> diff() |> kpss.test()
+```
+
+Além disso, vemos que na função de autocorrelação somente o primeiro lag é significativo, enquanto na autocorrelação parcial temos que os dois primeiros lags são significativos. Todos os lags após os citados, em cada função, são não significativos. Isso sugere que a ordem dos polinômios seja de $p = 2$ e $q = 1$.
+
+A partir disso, poderíamos então sugerir como primeiro modelo no método de Box-Jenkins, um $ARIMA(2,1,1)$, já que realizamos uma diferença. Ajustamos esse modelo no conjunto treino com o seguinte código:
+
+```{r Função de Significância}
+# função para calcular a significância dos parâmetros estimados
+# a partir da comparação entre os valores calculados X tabelados
+
+get_significance = function(m, series, nd) {
+  Coef = coef(m)[coef(m) != 0] |> names()
+  Val = coef(m)[coef(m) != 0]
+  S.E. = sqrt(diag(vcov(m)))
+  Tcalc = abs(Val/S.E.)
+  Ttab = qt(p = 1-nd/2, df = length(series)-length(Coef))
+  tab = tibble(Coef = Coef,
+               Val = Val,
+               S.E. = S.E.,
+               '|Tcalc|' = Tcalc,
+               Ttab = Ttab)
+
+  return(tab)
+}
+```
+
+```{r ARIMA311, echo=TRUE}
+fit1 = treino |> Arima(order = c(2, 1, 1)); fit1
+```
+
+Verificamos então o comportamento dos resíduos do modelo através de gráficos e testes de estacionariedade a seguir.
+
+```{r}
+fit1$residuals |> ggtsdisplay()
+```
+
+```{r}
+fit1 |> autoplot()
+```
+
+
+```{r}
+fit1$residuals |> adf.test()
+fit1$residuals |> kpss.test()
+fit1 |> checkresiduals(plot = F)
+fit1$residuals |> shapiro.test()
+```
+
+Temos que todos os lags do nosso modelo ficaram dentro do intervalo de confiança construído. Além disso, os resíduos aparentemente são estacionários, e confirmamos a hipótese através dos testes. Ainda, vemos que as raízes inversas dos polinômios estão todas dentro do círculo unitário. Apesar disso, o pressuposto de normalidade não foi atendido.
+
+Podemos ver a qualidade do ajuste através de gráficos, como na Figura \@ref(fig:GAjuste1), e também com medidas de erro no conjunto de teste. Vemos boa performance no conjunto treino, mas previsões ruins comparado ao cojunto teste.
+
+```{r GAjuste1, fig.cap='Gráfico do Ajuste Modelo 1'}
+autoplot(treino, series = 'Observado') +
+  autolayer(fit1$fitted, series = 'Ajuste') +
+  scale_colour_manual(values = c('Observado' = 'black', 'Ajuste' = '#EB832E')) +
+  labs(title = 'Ajuste do modelo ARIMA(2,1,1)',
+       x = 'Tempo',
+       y = 'Valor') +
+  guides(colour = guide_legend(title = 'Séries')) +
+  theme(plot.caption = element_text(hjust = 0))
+```
+
+```{r}
+fit1_f = forecast(fit1, h = 12)
+fit1_m = accuracy(fit1_f, x = teste)
+```
+
+```{r Tabela de Métricas}
+fit1_m |> as.data.frame(row.names = c('Treino', 'Teste')) |>
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+```{r GTeste1}
+autoplot(treino, series='Treino') +
+  autolayer(teste, series='Teste') +
+  autolayer(fit1_f, PI=F, series= 'Previsão') +
+  scale_colour_manual(values = c('Treino' = 'royalblue1', 'Teste' = 'black', 'Previsão' = 'darkred')) +
+  labs(x = 'Tempo', y = 'Valor', title = 'Comparativo: Previsto x Realizado') +
+  guides(colour = guide_legend(title = 'Séries'))
+```
+
+Por fim, podemos então testar a significância dos parâmetros, conforme a tabela abaixo, e vemos que mesmo com a qualidade do ajuste atestada, os mesmos são não significativos, nos levando a considerar uma segunda iteração na metodologia Box-Jenkins.
+
+```{r}
+tab_sigfit1 = get_significance(fit1, treino, 0.05)
+```
+
+```{r}
+tab_sigfit1 |> as.data.frame(row.names = tab_sigfit1$Coef) |>
+ kable('latex', booktabs = T, align = 'c', digits = 4) |>
+ kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+### Segundo modelo
+
+Pela Figura \@ref(fig:Diff1), na função de autocorrelação, vemos que apenas o primeiro lag é significativo. Poderíamos então testar o primeiro modelo desconsiderando a influência da parte de médias móveis, isto é, fazer um $ARIMA(2,1,0)$:
+
+```{r, echo=TRUE}
+fit2 = treino |> Arima(order = c(2, 1, 0)); fit2
+```
+
+Verificamos então o comportamento dos resíduos do modelo através de gráficos e testes de estacionariedade a seguir.
+
+```{r}
+fit2$residuals |> ggtsdisplay()
+```
+
+```{r}
+fit2 |> autoplot()
+```
+
+```{r}
+fit2$residuals |> adf.test()
+fit2$residuals |> kpss.test()
+fit2 |> checkresiduals(plot = F)
+fit2$residuals |> shapiro.test()
+```
+
+Novamente, vemos que a normalidade não foi satisfeita. Vejamos então o gráfico do ajuste, na Figura \@ref(fig:GAjuste2), que foi muito semelhante ao do primeiro modelo.
+
+```{r GAjuste2, fig.cap='Gráfico do Ajuste Modelo 2'}
+autoplot(treino, series = 'Observado') +
+  autolayer(fit2$fitted, series = 'Ajuste') +
+  scale_colour_manual(values = c('Observado' = 'black', 'Ajuste' = '#EB832E')) +
+  labs(title = 'Ajuste do modelo ARIMA(2,1,0)',
+       x = 'Tempo',
+       y = 'Valor') +
+  guides(colour = guide_legend(title = 'Séries')) +
+  theme(plot.caption = element_text(hjust = 0))
+```
+
+Realizamos então a previsão para 12 meses à frente, e vemos a qualidade das mesmas comparando-as ao conjunto de teste.
+
+```{r}
+fit2_f = forecast(fit2, h = 12)
+fit2_m = accuracy(fit2_f, x = teste)
+```
+
+```{r }
+fit2_m |> as.data.frame(row.names = c('Treino', 'Teste')) |>
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+```{r GTeste2}
+autoplot(treino, series='Treino') +
+  autolayer(teste, series='Teste') +
+  autolayer(fit2_f, PI=F, series= 'Previsão') +
+  scale_colour_manual(values = c('Treino' = 'royalblue1', 'Teste' = 'black', 'Previsão' = 'darkred')) +
+  labs(x = 'Tempo', y = 'Valor', title = 'Comparativo: Previsto x Realizado') +
+  guides(colour = guide_legend(title = 'Séries'))
+```
+
+Novamente, obtivemos bom ajuste no conjunto de treino, mas previsões ruins no conjunto de teste. Validamos então a significância dos parâmetros estimados com a tabela a seguir:
+
+```{r}
+tab_sigfit2 = get_significance(fit2, treino, 0.05)
+```
+
+```{r}
+tab_sigfit2 |> as.data.frame(row.names = tab_sigfit2$Coef) |>
+ kable('latex', booktabs = T, align = 'c', digits = 4) |>
+ kable_styling(full_width = F, latex_options = 'HOLD_position')
+
+```
+
+Agora, temos significância para o primeiro parâmetro autorregressivo, mas não para o segundo, o que nos leva a sugerir um terceiro modelo.
+
+
+### Terceiro Modelo
+
+Anteriormente, tivemos que o segundo modelo proposto foi um pouco melhor que o primeiro. Então, poderíamos testar o segundo modelo acrescido de uma constante, a fim de retirar os efeitos que possam estar afetando a média da série, isto é, deixando-a significativamente diferente de 0. No R, isso é feito da seguinte forma:
+
+```{r echo=TRUE}
+fit3 = treino |> Arima(order = c(2, 1, 0), include.drift = T); fit3
+```
+
+Verificamos então o comportamento dos resíduos do modelo através de gráficos e testes de estacionariedade a seguir.
+
+```{r}
+fit3$residuals |> ggtsdisplay()
+```
+
+```{r}
+fit3 |> autoplot()
+```
+
+```{r}
+fit3$residuals |> adf.test()
+fit3$residuals |> kpss.test()
+fit3 |> checkresiduals(plot = F)
+fit3$residuals |> shapiro.test()
+```
+
+Novamente, com exceção do pressuposto de normalidade dos resíduos, todos os outros foram atendidos. Vejamos então o gráfico do ajuste para o modelo com constante, na Figura \@ref(fig:GAjuste3).
+
+```{r GAjuste3, fig.cap='Gráfico do Ajuste Modelo 3'}
+autoplot(treino, series = 'Observado') +
+  autolayer(fit3$fitted, series = 'Ajuste') +
+  scale_colour_manual(values = c('Observado' = 'black', 'Ajuste' = '#EB832E')) +
+  labs(title = 'Ajuste do modelo ARIMA(2,1,0) com constante',
+       x = 'Tempo',
+       y = 'Valor') +
+  guides(colour = guide_legend(title = 'Séries')) +
+  theme(plot.caption = element_text(hjust = 0))
+```
+
+
+Novamente, há semelhança com os outros modelos, porém, olhando atentamente, notamos uma leve melhora na qualidade do ajuste. Para a previsão no conjunto de teste, temos a seguinte tabela e gráfico:
+
+```{r}
+fit3_f = forecast(fit3, h = 12)
+fit3_m = accuracy(fit3_f, x = teste)
+```
+
+```{r }
+fit3_m |> as.data.frame(row.names = c('Treino', 'Teste')) |>
+  kable('latex', booktabs = T, align = 'c', digits = 4) |>
+  kable_styling(full_width = F, latex_options = 'HOLD_position')
+```
+
+```{r GTeste3}
+autoplot(treino, series='Treino') +
+  autolayer(teste, series='Teste') +
+  autolayer(fit3_f, PI=F, series= 'Previsão') +
+  scale_colour_manual(values = c('Treino' = 'royalblue1', 'Teste' = 'black', 'Previsão' = 'darkred')) +
+  labs(x = 'Tempo', y = 'Valor', title = 'Comparativo: Previsto x Realizado') +
+  guides(colour = guide_legend(title = 'Séries'))
+```
+
+A previsão, de modo geral, conseguiu captar o padrão de crescimento antes do decaimento dos valores próximo ao final da série, ou seja, conseguiu ser um pouco melhor que as fornecidas pelos modelos anteriores.
+
+Por fim, precisamos atestar que todos os parâmetros estimados para o modelo são significativos, ou seja, diferentes de 0.
+
+```{r}
+tab_sigfit3 = get_significance(fit3, treino, 0.05)
+```
+
+```{r}
+tab_sigfit3 |> as.data.frame(row.names = tab_sigfit2$Coef) |>
+ kable('latex', booktabs = T, align = 'c', digits = 4) |>
+ kable_styling(full_width = F, latex_options = 'HOLD_position')
+
+```
+
+
+Assim, ficam validados os pressupostos do modelo, bem como a melhora na qualidade do ajuste em relação aos anteriores.
+
+
+### Modelo Final
+
+O último passo da iteração do método de Box-Jenkins nos forneceu o modelo mais apropriado para modelar a série proposta. A especificação do mesmo é dada:
+
+$$
+(1 - 0,6973B - 0,2918B^2)(1-B)Z_t = 12302230\; + a_t
+$$
+
+com média $\hat{\mu} = 11286449540$ e $\hat{\sigma}^2 = 3.428e+15$.
+
+Por fim, o próximo passo seria ajustar o modelo estimado para o treino à série completa, a fim de que pudéssemos realizar predições futuras.
+
+
+
+
