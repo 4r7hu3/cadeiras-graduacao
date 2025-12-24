@@ -1,0 +1,124 @@
+---
+title: "Exercício Prático"
+subtitle: |
+   | Universidade Federal do Ceará
+   | Centro de Ciências
+   | Departamento de Estatística e Matemática Aplicada
+   | Bacharelado em Estatística
+   | Planejamento de Experimentos
+author: |
+  | Antônio Arthur Silva de Lima
+  | Romulo Barros de Freitas
+date: "09 de fevereiro de 2025"
+lang: "pt-br"
+geometry: "top=2.5cm,right=2cm,left=2cm,margin=2.5cm"
+urlcolor: blue
+linkcolor: black
+output:
+   bookdown::pdf_document2:
+     toc: false
+     toc_depth: 4
+     extra_dependencies: "float"
+     number_sections: false
+---
+
+
+```{r Setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	fig.align = "center",
+	fig.pos = "H",
+	message = FALSE,
+	warning = FALSE,
+	out.width = "65%",
+  options(knitr.kable.NA = '---')
+)
+```
+
+```{r Bibliotecas}
+library(tidyverse)
+library(agricolae)
+library(readr)
+library(readxl)
+```
+
+## Problema
+
+Nesse exercício proposto será realizada uma análise de variância (ANOVA) para um delineamento em blocos inteiramente casualizados (BIB). O objetivo é analisar as notas que 130 provadores (blocos) atribuíram sob a percepção de cor de uma determinada bebida. Cada provador teve acesso a quatro (repetições) de treze tratamentos, isso por conta de limitações impostas por especialistas da área de engenharia de alimentos. Dessa forma, por meio da análise de variância será possível inferir estatisticamente quais tratamentos refletem em maiores notas, segundo a percepção dos provadores. Toda a análise será realizada por meio do software R.
+
+Ao todo, temos 130 provadores, 13 tratamentos e 4 repetições por bloco, sendo 40 repetições para cada tratamento.
+
+## Leitura da base
+
+Primeiro, é realizada a leitura da base com o auxílio da biblioteca *readxl*, pois o conjunto de dados se encontra em uma planilha de excel, no formato *wide*, isto é, fora do padrão utilizado pela maioria dos pacotes que geram as análies a serem feitas. É necessário, portanto, converter o *dataset* do formato atual para um em que os blocos (provadores), os tratamentos e as notas (resposta) estejam em suas respectivas colunas. Este último formato é convencionalmente chamado de **tidy**.
+
+```{r Leitura, echo=TRUE, results='hide'}
+df0 = read_excel('resultados_estatística_Uva.xls', skip = 1)
+blocos = rep(1:nrow(df0), each=4); blocos
+tratamentos = c(t(df0[2:5])); tratamentos
+tratamentos = as.numeric(tratamentos)
+notas = c(t(df0[6:9]))
+notas = as.numeric(notas); notas
+
+df = as.data.frame(cbind(blocos, tratamentos, notas))
+df$tratamentos = as.factor(df$tratamentos)
+```
+
+Quando analisamos a nota média de cada tratamento em relação à cor, observamos que o tratamento cinco possui uma menor nota média de avaliação sendo de 2,4. Por outro lado, os tratamentos onze e doze possuem as maiores notas médias, sendo 6,00 e 6,15, respectivamente.
+
+```{r NotasMedias, echo=TRUE}
+tapply(df$notas, df$tratamentos, mean)
+```
+
+Quando analisamos o coeficiente de variação das notas de cada tratamento, é possível perceber que o tratamento cinco possui o maior conficiente de variação, com 75,96%. Por outro lado, os menores coeficientes de variação são referentes ao tratamento doze e ao tratamento dez, sendo de 25,39% e 31,83%, respectivamente.
+
+```{r CVs, echo=TRUE}
+round((tapply(df$notas, df$tratamentos, sd) / tapply(df$notas, df$tratamentos, mean)) * 100, 2) |> 
+  str_c("%")
+```
+
+Partindo agora para a variabilidade nos tratamentos, esperamos que elas sejam estatisticamente iguais, ou seja, que os tratamentos sejam homogêneos em relação à variância. Podemos verificar esse pressuposto de várias formas. Primeiro, avaliando os desvios padrão de cada tratamento, vemos que não há diferenças significativas entre eles.
+
+```{r SDs}
+tapply(df$notas, df$tratamentos, sd)
+```
+
+Também atestamos essa inferência através do boxplot logo abaixo, que revela um pouco mais a respeito da distribuição dos tratamentos.
+
+```{r Boxplot, echo=TRUE, fig.cap='Boxplot das respostas por tratamento'}
+df |> ggplot(aes(tratamentos, notas)) + 
+  geom_boxplot()
+```
+
+Por fim, esperamos não rejeitar a hipótese nula no teste de Bartlett:
+
+```{r Bartlett, echo=TRUE}
+bartlett.test(df$notas, df$tratamentos)
+```
+
+Com a hipótese de homogeneidade de variâncias satisfeita, queremos agora estudar o comportamento das médias de cada tratamento, a fim de sabermos se há notas semelhantes entre eles, ou seja, se podem ser "agrupadas". Antes do quadro ANOVA, observando o gráfico de barras abaixo --- que traz uma comparação das médias dos tratamentos --- vemos que possivelmente há alguns tratamentos com médias estatisticamente iguais a outros.
+
+
+```{r BarrasMedia, echo=TRUE, fig.cap='Comparação de médias entre tratamentos'}
+df |> 
+  group_by(tratamentos) |> 
+  summarise(media = mean(notas), ep = sd(notas)/sqrt(n())) |> 
+  ggplot(aes(x = tratamentos, y = media)) +
+  geom_bar(stat = 'identity', fill = 'white', color = 'black') +
+  geom_errorbar(aes(ymin = media - ep, ymax = media + ep), width = 0.2) +
+  geom_text(aes(label = round(media, 2)),
+            vjust = -1.5,  
+            color = 'black',
+            size = 3.5) +
+  labs(y = 'notas médias',
+       x = 'tratamentos') 
+```
+
+Por meio da análise de variância é possível inferir que há o efeito dos blocos e dos tratamentos em relação à percepção de cor da bebida analisada, uma vez que o valor p para o efeito dos blocos e o efeito dos tratamentos foi quase nulo. Além disso, foi observada uma variancia residual (QMRES) de 1,738 e um confecienete de variação de 27,1%, indicando variabilidade moderada em relação à nota média geral observada de 4,87.
+
+Em relação ao teste de Tukey, realizado ao nível de significância de 5%, foi observado que a média das notas dos tratamentos 6, 12, 9, 11, 13 e 10 não diferem estatisticamente entre si. Esses tratamentos foram os melhores avaliados no experimento e devem ser piorizados. Por outra perspectiva, os tratamentos 1, 2 e 5 não diferiram estatisticamente entre si e foram os que obtiveram as menores médias de avaliação no experimento. 
+
+```{r BIB}
+BIB.test(df$blocos, df$tratamentos, df$notas, test = 'tukey', console = T)
+```
+

@@ -1,0 +1,138 @@
+---
+title: "Exercício Prático"
+subtitle: |
+   | Universidade Federal do Ceará
+   | Centro de Ciências
+   | Departamento de Estatística e Matemática Aplicada
+   | Bacharelado em Estatística
+   | Planejamento de Experimentos
+author: |
+  | Antônio Arthur Silva de Lima
+  | Romulo Barros de Freitas
+date: "09 de fevereiro de 2025"
+lang: "pt-br"
+geometry: "top=2.5cm,right=2cm,left=2cm,margin=2.5cm"
+urlcolor: blue
+linkcolor: black
+output:
+   bookdown::pdf_document2:
+     toc: false
+     toc_depth: 4
+     extra_dependencies: "float"
+     number_sections: false
+---
+
+
+```{r Setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	fig.align = "center",
+	fig.pos = "H",
+	message = FALSE,
+	warning = FALSE,
+	out.width = "65%",
+  options(knitr.kable.NA = '---')
+)
+```
+
+```{r Bibliotecas}
+library(tidyverse)
+library(agricolae)
+library(crossdes)
+```
+
+## Problema
+
+A atividade descrita é baseada na formulação de bebidas a serem experimentadas, onde cada provador será utilizado como grupo controle (bloco), podendo provar cada um até 4 bebidas. Temos um tratamento (bebida) com 6 níveis distintos (sabores).\ Como primeiro desafio, devemos encontrar o número de blocos ideais a serem utilizados no experimento, isto é, o número ideal de provadores:
+
+```{r NumeroBlocos, eval = F, echo = T}
+i = 0
+for (i in 100:150) {
+  print(i)
+  isGYD(find.BIB(6, i, 4))
+}
+```
+
+Com isso, vemos que o experimento pode ser realizado utilizando 105, 120, 135 ou 150 provadores.\ Vamos escolher um delineamento com 120 pessoas, criando-o a partir da função `find.BIB()`, do pacote *crossdes*, obtendo uma matriz de dados conforme é mostrado nas 6 primeiras observações da matriz gerada pelo código. Como há 6 bebidas, e considerando 120 provadores, além da restrição de que eles só podem provar até 4 bebidas, passamos os parâmetros 6, 120, 4, nesta ordem, na função.
+
+```{r BIBCreation, echo = T}
+set.seed(521353)
+df = find.BIB(6, 120, 4) |> as.tibble()
+head(df)
+```
+
+Vamos então organizar a base de acordo com o formato que vem sendo utilizado em sala de aula --- blocos, tratamentos e resposta em colunas separadas ---  aceito por funções de vários pacotes que processam delineamentos experimentais.
+
+```{r BaseOrganizada, echo = T}
+df = df  |> 
+  mutate(BLOCO = row_number()) |> 
+  pivot_longer(cols = starts_with("V"),
+               names_to = "coluna_aux", 
+               values_to = "TRATAMENTO") |> 
+  select(BLOCO, TRATAMENTO)
+
+df$TRATAMENTO = as.factor(df$TRATAMENTO)
+
+df
+```
+
+Com isso, devemos agora integrar à base uma variável resposta, com distribuição normal e variância homogênea para cada tratamento.
+
+```{r RespostaGerada, echo = TRUE}
+set.seed(521353)
+medias = c(3, 5, 6, 7, 9, 10)
+variancia = 1
+
+df = df |> 
+  mutate(RESPOSTA = rnorm(n(),
+                          mean = medias[TRATAMENTO], 
+                          sd = 1))
+
+df
+```
+
+Conferindo a suposição de homogeneidade de variâncias entre os tratamentos, realizamos o teste de Bartlett, não tendo evidências suficientes para rejeitar esta suposição.
+
+```{r Bartlett}
+bartlett.test(df$RESPOSTA, df$TRATAMENTO)
+```
+
+Ainda verificando a homogeneidade de varâncias entre os tratamentos, podemos incluir um boxplot, a fim de entender visualmente o comportamento da variação entre os tratamentos, conforme a Figura \@ref(fig:BoxPlot). 
+
+```{r BoxPlot, fig.cap = 'Boxplot de y para cada sabor de bebida'}
+df |> ggplot(aes(TRATAMENTO, RESPOSTA)) + 
+  geom_boxplot()
+```
+
+Com isso, observamos o comportamento esperado das caixas, que têm mesma amplitude e apresentam simetria ao redor da média.\ Vemos também alguns outliears nas bebidas 2, 3 e 5, que talvez possam influenciar os resultados das análises que serão realizadas.\ De maneira a entender mais a fundo os dados, iremos fazer uma análise descritiva simples.\ Primeiro, podemos obter as médias das respostas para cada tratamento, esperando que haja uma diferença significativa entre elas, de acordo com o boxplot anterior.
+
+```{r MediasTratamentos, echo = T}
+tapply(df$RESPOSTA, df$TRATAMENTO, mean)
+```
+
+Os respectivos desvios padrão para cada tratamento são obtidos.
+
+```{r DPTratamentos, echo = T}
+tapply(df$RESPOSTA, df$TRATAMENTO, sd)
+```
+
+Vemos que a bebida que menos apresentou variabilidade nas respostas foi a bebida 1, enquanto a mais heterogênea foi a bebida 2. Analisando conjuntamente, vemos que a bebiba com menor coeficiente de variação foi, na verdade, a bebida 6, enquanto o maior foi para a bebida 1.
+
+```{r CVTratamentos, echo = T}
+CV = function(x){
+  cv = sd(x)/mean(x) * 100
+  return(round(cv, 2) |> str_c("%"))
+}
+
+tapply(df$RESPOSTA, df$TRATAMENTO, CV)
+```
+
+Por fim, iremos ajustar um delineamento em blocos incompletos balanceados, por meio da função `BIB.test` do pacote *agricolae*, utilizando o teste de Tukey para realizar as comparações múltiplas de médias entre as bebidas.
+
+```{r Delineamento, echo = T}
+BIB.test(df$BLOCO, df$TRATAMENTO, df$RESPOSTA, console = T)
+```
+
+Pelo resultado da ANOVA, podemos ver que há significância para os tratamentos e também para os blocos, indicando que a variável resposta seja infuenciada pelo tipo de bebida.\ Para atestar que a ANOVA foi realizada de maneira adequada, verificamos os graus de liberdade e os valores de $\lambda$ e $r$.\ Nos resíduos, esperamos $N - a - b + 1$ graus de liberdade, onde $a$ e $b$ são o número de tratamentos e blocos respectivamente.\ Para os graus de liberdade dos tratamentos (ajustados) e blocos, esperamos $a-1$ e $b-1$, respectivamente.\ O valor de $\lambda$ esperado é de $\dfrac{r(k-1)}{a-1}$, onde $r$ é o número de repetições de cada tratamento, e $k$ o número de tratamentos por bloco.
+
+Ainda da saída da ANOVA, observamos um coeficiente de variação relativamente baixo, de 15,5%, e uma resposta média geral de 6,64 aproximadamente.\ Com o teste de Tukey, vemos que todas as médias das bebidas diferem entre si, sendo as bebida 6 e 1 as de maior e menor médias, respectivamente.
